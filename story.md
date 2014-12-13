@@ -79,15 +79,15 @@ Wordlist
 ========
 
  * _[Name]_ : Look in mirror next to door in MAIN ROOM
- * _sorry_
+ * _sorry_ : Upon breaking vase in MAIN ROOM
  * _you_, _your_ : Underground sign poster in BEDROOM
- * _feel_
- * _up_
- * _celebrating_
+ * _feel_ : Entering dark BEDROOM, no light in cieling.
+ * _up_ : Stairs to second floor or attic
+ * _celebrating_ : Hearing sounds from neighbours and happy people outside window in ROOM X
  * _Christmas_ : Unopened present under christmas tree in MAIN ROOM
  * _year_ : Calendar next to door in MAIN ROOM
- * _family_
- * _all_
+ * _family_ :
+ * _all_ :
  * _missed_ : Missing phone call | Homophone _mist_ from kettle in KITCHEN 
  * _[Relative]_ : Photo on wall in MAIN ROOM
  * _baked_ : Stove in KITCHEN
@@ -96,26 +96,26 @@ Wordlist
  * _devoured_
  * _like_
  * _flock_
- * _starving_
+ * _starving_ : Character refused to enter KITCHEN until stomach sound
  * _raptors_
- * _lit_
- * _cosy_
+ * _lit_ : Flashlight on required for BEDROOM as there's no light there
+ * _cosy_ : Clothes in BEDROOM | Tea kettle warmer in KITCHEN
  * _fire_
  * _put_
  * _togeather_
- * _jigsaw puzzle_
+ * _jigsaw puzzle_ : Knock over vase, put together after done hungry MAIN ROOM
  * _ugly_ : Open closet in BEDROOM
- * _castle_
- * _pair_
- * _socks_
+ * _castle_ : Trying to leave, "My home is my castle" MAIN ROOM
+ * _pair_ : Cleaning, finding and putting one of each in the pair in the right place
+ * _socks_ : In BATHROOM in laundry pile
  * _parents_
  * _new_
- * _tie_
+ * _tie_ : Seing christmas present tied with ribbon, need scissors from KITCHEN
  * _good_
- * _mood_
+ * _mood_ : Change radio station to bad music
  * _started_
  * _talking_ : Find battery to put into radio on KITCHEN table.
- * _politics_
+ * _politics_ : Newspaper thrown in waste paper bin when mail arrived MAIN ROOM.
  * _hope_
  * _visit_
  * _soon_ : Clock on wall in KITCHEN
@@ -125,9 +125,21 @@ Wordlist
 Scenes
 ======
 
+Main room
+---------
+
+Door to outside world.
+Table with vase and Letter placed on table.
+Mirror and Calendar next to door.
+
 Non Word Puzzles
 ================
 
+Need to knock over vase to get hungry
+Need to be hungry to go into kitchen
+In kitchen get scissors to open present
+Present has batteries
+Batteries to listen to radio and be able to enter bedroom
 
 Character
 =========
