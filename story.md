@@ -69,7 +69,7 @@ _[Relative]_ had _baked_ a _tasty_ _pie_ that we _all_ _devoured_ _like_ a _pack
 We _lit_ a _cosy_ _fire_
 and _put_ _togeather_ a _jigsaw puzzle_ of some _ugly_ _castle_.
 I got a _pair_ of _socks_ from our _parents_ and _your_ _brother_ a _new_ _tie_.
-Everyone was in a _good_ _mood_ until the cousins _started_ _talking_ _politics_... _missed_ _you_.
+Everyone was in a _great_ _mood_ until the cousins _started_ _talking_ _politics_... _missed_ _you_.
 I _hope_ _you_ _feel_ better and that _you_'ll come _visit_ _soon_.
 
 _Love_,
@@ -105,7 +105,7 @@ Wordlist
  * _lit_ : Flashlight on required for BEDROOM as there's no light there
  * _cosy_ : Clothes in BEDROOM | Tea kettle warmer in KITCHEN
  * _fire_ : Heating food in KITCHEN causes smoke thinks fire
- * _put_ :
+ * _put_ : Starts game inventory slot full with newspaper, putting it down in MAIN ROOM table, or KITCHEN table
  * _togeather_ : When having brought the pair togeather
  * _jigsaw puzzle_ : Knock over vase, put together after done hungry MAIN ROOM
  * _ugly_ : Open closet in BEDROOM
@@ -113,13 +113,17 @@ Wordlist
  * _pair_ : Identifying either one of the two in a pairing (e.g. pears)
  * _socks_ : In BATHROOM in laundry pile
  * _parents_ : In MEMORY
- * _new_ : Changing batteries in flashlight
+ * _new_ : Ad in newspapaer
  * _tie_ : Seing christmas present tied with ribbon, need scissors from KITCHEN
- * _good_
+ * _great_ : Part of rhyme series
+  * _plate_ in KITCHEN
+  * _hate_ ugly painting in BEDROOM
+  * _straight_ christmas tree is not standing correctly in MAIN ROOM
+  * _weight_ scale in BATHROOM
  * _mood_ : Change radio station to bad music
  * _started_ : 
  * _talking_ : Find battery to put into radio on KITCHEN table.
- * _politics_ : Newspaper thrown in waste paper bin when mail arrived MAIN ROOM.
+ * _politics_ : Newspaper fron page when mail arrived MAIN ROOM.
  * _hope_ : Completing MEMORY
  * _visit_ : First klicking to go into BATHROOM after having drunk tea (not following character into sceen).
  * _soon_ : Clock on wall in KITCHEN
@@ -135,6 +139,7 @@ Main room
 Door to outside world.
 Table with vase and Letter placed on table.
 Mirror and Calendar next to door.
+Christmas tree with present (flashlight with batteries in it)
 
 Kitchen
 -------
