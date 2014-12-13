@@ -121,14 +121,14 @@ Wordlist
   * _straight_ christmas tree is not standing correctly in MAIN ROOM
   * _weight_ scale in BATHROOM
  * _mood_ : Change radio station to bad music
- * _started_ : 
+ * _started_ : open coffert, put toothbrush in
  * _talking_ : Find battery to put into radio on KITCHEN table.
  * _politics_ : Newspaper fron page when mail arrived MAIN ROOM.
  * _hope_ : Completing MEMORY
  * _visit_ : First klicking to go into BATHROOM after having drunk tea (not following character into sceen).
  * _soon_ : Clock on wall in KITCHEN
  * _Love_ : Hug in MEMORY
- * _[Brother/Sister]_ : Name sound like wored of thing
+ * _[Brother/Sister Rosemary | Dusty]_ : Name sound like wored of thing
  
 Scenes
 ======
