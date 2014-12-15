@@ -12,9 +12,21 @@ public class PlayerController : MonoBehaviour {
 	public bool moveable = true;
 	private bool inTransition = false;
 
+	public float force = 500;
+	public float maxVelocity = 1f;
+
 	public Room room;
 
 	private List<InterestPoint> walkPath = new List<InterestPoint>();
+
+	private float nextDistance = 0f;
+
+	private Vector3 offset {
+		get {
+			return Vector3.up * (renderer.bounds.extents.y);
+		}
+	}
+
 
 	private InterestPoint target {
 		get {
@@ -50,37 +62,59 @@ public class PlayerController : MonoBehaviour {
 				walkPath.Add(value);
 		}
 	}
-
-	private InterestPoint nextInWalk {
+	
+	private Vector3 aim {
 		get {
 			if (walkPath.Count > 1)
-				return walkPath[1];
-			return null;
+				return (walkPath[1].transform.position - (transform.position - offset)).normalized;
+			return Vector3.zero;
 		}
 	}
 
 	// Use this for initialization
 	void Start () {
 		room = gameObject.GetComponentInParent<Room>();
+		walkPath.Add(room.GetWalkingPointClosestTo(transform.position));
+		ArrivedAt(location);
+		transform.position = location.transform.position + offset;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (CheckProximity())
+			return;
+	
+		rigidbody.AddForce(aim * force * Time.deltaTime, ForceMode.Force);
+		rigidbody.velocity = Vector3.ClampMagnitude(rigidbody.velocity, maxVelocity);
+
+	}
+
+	bool CheckProximity() {
+
 		if (!inTransition)
-			return;
+			return true;
 
-		InterestPoint pt = nextInWalk;
+		nextDistance = Vector3.Distance(walkPath[1].transform.position, transform.position - offset);
+		bool arrived = false;
+		Debug.Log(nextDistance);
+		if (walkPath.Count == 2) {
+			if (nextDistance < arriveDestination)
+				arrived = true;
+		} else if (nextDistance < arriveIntermediate)
+			arrived = true;
 
-		if (!pt)
-			return;
-
-
+		if (arrived)
+			ArrivedAt(walkPath[1]);
+		return arrived;
 	}
 
 	void ArrivedAt(InterestPoint pt) {
 		gameObject.layer = pt.gameObject.layer;
 		room = pt.room;
-		location = target;
+		location = pt;
+		inTransition = target != null && pt != target;
+		if (!inTransition)
+			rigidbody.velocity = Vector3.zero;
 	}
 
 	public void SetInterest(InterestPoint pt) {

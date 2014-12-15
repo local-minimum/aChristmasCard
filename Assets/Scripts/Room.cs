@@ -18,7 +18,7 @@ public class Room : MonoBehaviour {
 	public PlayerController player;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		player = GameObject.FindObjectOfType<PlayerController>();
 		interactions.AddRange(gameObject.GetComponentsInChildren<InterestPoint>());
 		walkingPoints.AddRange(interactions.Where(ip => ip.walkingPoint));
@@ -32,6 +32,17 @@ public class Room : MonoBehaviour {
 			IdentifyInteraction();
 	}
 
+	public InterestPoint GetPointClosestTo(Vector3 pos) {
+		return interactions.OrderBy(ip => Vector3.Distance(pos, ip.transform.position)).First();
+	}
+
+	public InterestPoint GetWalkingPointClosestTo(Vector3 pos) {
+		InterestPoint pt = GetPointClosestTo(pos);
+		if (pt && !pt.walkingPoint)
+			pt = pt.viewedFrom;
+		return pt;
+	}
+
 	void IdentifyInteraction () {
 		Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
@@ -39,9 +50,7 @@ public class Room : MonoBehaviour {
 		if (!Physics.Raycast(ray, out hit, 30f, interestPointLayers))
 			return;
 
-		InterestPoint pt = interactions.OrderBy(ip => Vector3.Distance(hit.point, ip.transform.position)).First();
-		if (pt && !pt.walkingPoint)
-			pt = pt.viewedFrom;
+		InterestPoint pt = GetWalkingPointClosestTo(hit.point);
 
 		if (Input.GetMouseButtonDown(0)) {
 			player.SetInterest(pt);

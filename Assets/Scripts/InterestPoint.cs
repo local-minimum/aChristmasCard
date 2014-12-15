@@ -21,7 +21,7 @@ public class InterestPoint : MonoBehaviour {
 	}
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		_room = gameObject.GetComponentInParent<Room>();
 	}
 	
@@ -39,7 +39,7 @@ public class InterestPoint : MonoBehaviour {
 
 	public InterestPoint[] FindPathTo(InterestPoint other) {
 		if (connections.Contains(other))
-			return new InterestPoint[] {this, other};
+		return new InterestPoint[] {this};
 
 		List<InterestPoint[]> paths = new List<InterestPoint[]>();
 		foreach (InterestPoint pt in connections)
@@ -57,8 +57,10 @@ public class InterestPoint : MonoBehaviour {
 				foundAtLength = query.Length;	
 				foundTarget = true;
 			}
+			pos ++;
 		}
 
+		Debug.Log(pos);
 		return paths.Where(p => p.Contains(other)).OrderBy(p => Distance(p)).First().Reverse().ToArray();
 	}
 
@@ -72,14 +74,14 @@ public class InterestPoint : MonoBehaviour {
 
 	private Type[] Concat<Type>(Type[] arr, Type item) {
 		Type[] ret = new Type[arr.Length + 1];
-		ret.CopyTo(arr, 0);
+		arr.CopyTo(ret, 0);
 		ret[arr.Length] = item;
 		return ret;
 	}
 
 	public bool AddNovelRelevantPaths(InterestPoint target, InterestPoint[] query, ref List<InterestPoint[]> paths) {
 		if (connections.Contains(target)) {
-			paths.Add(Concat<InterestPoint>(query, target));
+			paths.Add(query);
 		 	return true;
 		} 
 
