@@ -31,12 +31,13 @@ public class MouseHover : MonoBehaviour {
 
 		nextPt = pt;
 
-		if (!hiding && !showing)
+		if (!hiding && !showing && !effecting)
 			OnHiddenDoShow();
 		else if (!hiding && effecting) {
 			iTween.StopByName(gameObject, tweenName);
 			showing = true;
 			effecting = false;
+//			Debug.Log("QuitShowing");
 		} 
 
 		if (!effecting) {
@@ -45,6 +46,7 @@ public class MouseHover : MonoBehaviour {
 			effecting = true;
 
 			float duration = uiImage.transform.localScale.magnitude / fullScale.magnitude * effectDuration;
+//			Debug.Log(duration);
 			iTween.ScaleTo(uiImage.gameObject,
 			                       iTween.Hash(
 					"scale", miniScale,
