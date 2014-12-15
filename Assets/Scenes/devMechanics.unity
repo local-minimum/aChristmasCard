@@ -153,7 +153,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 100211952}
   - 114: {fileID: 100211953}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Point Painting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 186236190}
   - 114: {fileID: 186236191}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Point Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,7 +387,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 252080464}
   - 114: {fileID: 252080465}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Point Corner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -689,6 +689,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4352
   playerInRoom: 1
+  player: {fileID: 0}
 --- !u!1 &386330088
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,10 +886,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1103338588}
   m_RootOrder: 0
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 400, y: 400}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &570505704
 GameObject:
@@ -1321,6 +1322,8 @@ GameObject:
   - 33: {fileID: 871380516}
   - 64: {fileID: 871380515}
   - 23: {fileID: 871380514}
+  - 114: {fileID: 871380517}
+  - 54: {fileID: 871380518}
   m_Layer: 12
   m_Name: player
   m_TagString: Player
@@ -1380,6 +1383,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 871380512}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &871380517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 871380512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 669617a7216b6be4eaec91421948d836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveable: 1
+  room: {fileID: 0}
+--- !u!54 &871380518
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 871380512}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 1
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &891902193
 GameObject:
   m_ObjectHideFlags: 0
@@ -1389,7 +1420,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 891902194}
   - 114: {fileID: 891902195}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Point NextToDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1754,7 +1785,7 @@ MonoBehaviour:
   uiImage: {fileID: 528688111}
   fullScale: {x: 1, y: 1, z: 1}
   miniScale: {x: 0, y: 0, z: 0}
-  effectDuration: 2
+  effectDuration: 1.38
 --- !u!1 &1146349342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1897,7 +1928,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1187698422}
   - 114: {fileID: 1187698423}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Point LeftOfTable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2562,7 +2593,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1880575631}
   - 114: {fileID: 1880575632}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Point RightOfTable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2609,7 +2640,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1922523722}
   - 114: {fileID: 1922523723}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Point Left Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

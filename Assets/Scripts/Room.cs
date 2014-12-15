@@ -39,14 +39,13 @@ public class Room : MonoBehaviour {
 		if (!Physics.Raycast(ray, out hit, 30f, interestPointLayers))
 			return;
 
-		if (Input.GetMouseButtonDown(0)) {
-			//dosomething
-		} else {
-			//hover
-			InterestPoint pt = interactions.OrderBy(ip => Vector3.Distance(hit.point, ip.transform.position)).First();
-			if (pt && !pt.walkingPoint)
-				pt = pt.viewedFrom;
+		InterestPoint pt = interactions.OrderBy(ip => Vector3.Distance(hit.point, ip.transform.position)).First();
+		if (pt && !pt.walkingPoint)
+			pt = pt.viewedFrom;
 
+		if (Input.GetMouseButtonDown(0)) {
+			player.SetInterest(pt);
+		} else {
 			hoverCanvas.SetHoverPoint(pt);
 		}
 
