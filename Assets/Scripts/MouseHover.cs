@@ -33,9 +33,13 @@ public class MouseHover : MonoBehaviour {
 
 		if (!hiding && !showing)
 			OnHiddenDoShow();
-		else if (!hiding && effecting)
+		else if (!hiding && effecting) {
 			iTween.StopByName(gameObject, tweenName);
-		else if (!effecting) {
+			showing = true;
+			effecting = false;
+		} 
+
+		if (!effecting) {
 
 			hiding = true;
 			effecting = true;
@@ -45,7 +49,7 @@ public class MouseHover : MonoBehaviour {
 			                       iTween.Hash(
 					"scale", miniScale,
 					"duration", duration,
-					"easetype", iTween.EaseType.easeInQuad,
+					"easetype", iTween.EaseType.easeInCubic,
 					"oncomplete", "OnHiddenDoShow",
 					"oncompletetarget", gameObject
 					));
@@ -62,7 +66,7 @@ public class MouseHover : MonoBehaviour {
 				"name", tweenName,
 				"scale", fullScale,
 				"duration", effectDuration,
-				"easetype", iTween.EaseType.easeInQuad,
+				"easetype", iTween.EaseType.easeOutCubic,
 				"oncomplete", "OnShown",
 				"oncompletetarget", gameObject
 				));
