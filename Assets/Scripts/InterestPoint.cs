@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public class InterestPoint : MonoBehaviour {
 
+	private Room _room;
+
 	public bool editMode = false;
 
 	public bool walkingPoint = true;
@@ -11,9 +13,15 @@ public class InterestPoint : MonoBehaviour {
 
 	public List<InterestPoint> connections = new List<InterestPoint>();
 
+	public Room room {
+		get {
+			return _room;
+		}
+	}
+
 	// Use this for initialization
 	void Start () {
-	
+		_room = gameObject.GetComponentInParent<Room>();
 	}
 	
 	// Update is called once per frame
