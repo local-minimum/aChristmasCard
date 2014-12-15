@@ -41,12 +41,10 @@ public class Room : MonoBehaviour {
 			} else {
 				//hover
 				InterestPoint pt = interactions.OrderBy(ip => Vector3.Distance(hit.point, ip.transform.position)).First();
-				if (!pt.walkingPoint)
+				if (pt && !pt.walkingPoint)
 					pt = pt.viewedFrom;
 
-				hoverCanvas.transform.position = pt.transform.position;
-				Debug.DrawLine(hit.point, pt.transform.position, Color.red);
-
+				hoverCanvas.SetHoverPoint(pt);
 			}
 		}
 	}
