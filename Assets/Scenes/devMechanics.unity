@@ -857,8 +857,8 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: .242647052, g: .142733559, b: .142733559, a: 1}
+  m_Material: {fileID: 2100000, guid: 9bb93965572f2a24c968c83331ba5071, type: 2}
+  m_Color: {r: .522058845, g: .0383866839, b: .0383866839, a: 1}
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
