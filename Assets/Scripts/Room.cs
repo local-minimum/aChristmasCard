@@ -15,8 +15,11 @@ public class Room : MonoBehaviour {
 
 	public bool playerInRoom = true;
 
+	public PlayerController player;
+
 	// Use this for initialization
 	void Start () {
+		player = GameObject.FindObjectOfType<PlayerController>();
 		interactions.AddRange(gameObject.GetComponentsInChildren<InterestPoint>());
 		walkingPoints.AddRange(interactions.Where(ip => ip.walkingPoint));
 		if (!mainCamera)
@@ -25,27 +28,27 @@ public class Room : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update() {
-		IdentifyInteraction();
+		if (playerInRoom && player.moveable)
+			IdentifyInteraction();
 	}
 
 	void IdentifyInteraction () {
-		if (playerInRoom) {
-			Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-			RaycastHit hit;
+		Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+		RaycastHit hit;
 
-			if (!Physics.Raycast(ray, out hit, 30f, interestPointLayers))
-				return;
+		if (!Physics.Raycast(ray, out hit, 30f, interestPointLayers))
+			return;
 
-			if (Input.GetMouseButtonDown(0)) {
-				//dosomething
-			} else {
-				//hover
-				InterestPoint pt = interactions.OrderBy(ip => Vector3.Distance(hit.point, ip.transform.position)).First();
-				if (pt && !pt.walkingPoint)
-					pt = pt.viewedFrom;
+		if (Input.GetMouseButtonDown(0)) {
+			//dosomething
+		} else {
+			//hover
+			InterestPoint pt = interactions.OrderBy(ip => Vector3.Distance(hit.point, ip.transform.position)).First();
+			if (pt && !pt.walkingPoint)
+				pt = pt.viewedFrom;
 
-				hoverCanvas.SetHoverPoint(pt);
-			}
+			hoverCanvas.SetHoverPoint(pt);
 		}
+
 	}
 }
