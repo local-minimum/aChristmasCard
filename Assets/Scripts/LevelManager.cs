@@ -19,6 +19,12 @@ public class LevelManager : Singleton<LevelManager> {
 		}
 	}
 
+	public float plaayTime {
+		get {
+			return Time.timeSinceLevelLoad;
+		}
+	}
+
 	// Use this for initialization
 	void Start () {
 		if (!mainCamera)
