@@ -61,7 +61,9 @@ public class InterestPoint : MonoBehaviour {
 		}
 
 		Debug.Log(pos);
-		return paths.Where(p => p.Contains(other)).OrderBy(p => Distance(p)).First().Reverse().ToArray();
+		if (!paths.Any(p => p.Contains(other)))
+			return new InterestPoint[] {};
+		return Concat(paths.Where(p => p.Contains(other)).OrderBy(p => Distance(p)).First().Reverse().Skip(1).ToArray(), this);
 	}
 
 	private float Distance(InterestPoint[] path) {
@@ -81,12 +83,12 @@ public class InterestPoint : MonoBehaviour {
 
 	public bool AddNovelRelevantPaths(InterestPoint target, InterestPoint[] query, ref List<InterestPoint[]> paths) {
 		if (connections.Contains(target)) {
-			paths.Add(query);
+			paths.Add(Concat<InterestPoint>(query, target));
 		 	return true;
 		} 
 
 		foreach (InterestPoint pt in connections) {
-			if (paths.Where(p => p.Contains(pt)).Max(p => System.Array.IndexOf((InterestPoint[]) p, pt)) >= query.Length + 1)
+			if (!paths.Any(p => p.Contains(pt)) || paths.Where(p => p.Contains(pt)).Max(p => System.Array.IndexOf((InterestPoint[]) p, pt)) >= query.Length + 1)
 				paths.Add(Concat<InterestPoint>(query, pt));
 		}
 

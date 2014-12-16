@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour {
 
 		nextDistance = Vector3.Distance(walkPath[1].transform.position, transform.position - offset);
 		bool arrived = false;
-		Debug.Log(nextDistance);
+//		Debug.Log(nextDistance);
 		if (walkPath.Count == 2) {
 			if (nextDistance < arriveDestination)
 				arrived = true;
