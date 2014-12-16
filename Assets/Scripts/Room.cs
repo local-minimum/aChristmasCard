@@ -4,10 +4,6 @@ using System.Linq;
 
 public class Room : MonoBehaviour {
 
-	public MouseHover hoverCanvas;
-
-	public Camera mainCamera;
-
 	public LayerMask interestPointLayers;
 
 	private List<InterestPoint> interactions = new List<InterestPoint>();
@@ -15,20 +11,16 @@ public class Room : MonoBehaviour {
 
 	public bool playerInRoom = true;
 
-	public PlayerController player;
-
 	// Use this for initialization
 	void Awake () {
-		player = GameObject.FindObjectOfType<PlayerController>();
 		interactions.AddRange(gameObject.GetComponentsInChildren<InterestPoint>());
 		walkingPoints.AddRange(interactions.Where(ip => ip.walkingPoint));
-		if (!mainCamera)
-			mainCamera = Camera.main;
+
 	}
 	
 	// Update is called once per frame
 	void Update() {
-		if (playerInRoom && player.moveable)
+		if (playerInRoom && LevelManager.Instance.player.moveable)
 			IdentifyInteraction();
 	}
 
@@ -44,7 +36,7 @@ public class Room : MonoBehaviour {
 	}
 
 	void IdentifyInteraction () {
-		Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+		Ray ray = LevelManager.Instance.mainCamera.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
 
 		if (!Physics.Raycast(ray, out hit, 30f, interestPointLayers))
@@ -53,9 +45,9 @@ public class Room : MonoBehaviour {
 		InterestPoint pt = GetWalkingPointClosestTo(hit.point);
 
 		if (Input.GetMouseButtonDown(0)) {
-			player.SetInterest(pt);
+			LevelManager.Instance.player.SetInterest(pt);
 		} else {
-			hoverCanvas.SetHoverPoint(pt);
+			LevelManager.Instance.hoverCanvas.SetHoverPoint(pt);
 		}
 
 	}
