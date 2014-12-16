@@ -99,4 +99,8 @@ public class InterestPoint : MonoBehaviour {
 
 		return false;
 	}
+
+	public void Action(PlayerController player) {
+
+	}
 }

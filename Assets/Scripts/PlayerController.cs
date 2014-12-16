@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour {
 
 	private float nextDistance = 0f;
 
+	private FoundWords foundWordsUI;
+
 	private Vector3 offset {
 		get {
 			return Vector3.up * (renderer.bounds.extents.y);
@@ -98,6 +100,7 @@ public class PlayerController : MonoBehaviour {
 		walkPath.Add(room.GetWalkingPointClosestTo(transform.position));
 		ArrivedAt(location);
 		transform.position = location.transform.position + offset;
+		foundWordsUI = GetComponentInChildren<FoundWords>();
 	}
 	
 	// Update is called once per frame
@@ -134,8 +137,10 @@ public class PlayerController : MonoBehaviour {
 		room = pt.room;
 		location = pt;
 		inTransition = pt != walkTarget;
-		if (!inTransition)
+		if (!inTransition) {
 			rigidbody.velocity = Vector3.zero;
+			target.BroadcastMessage("Action", this, SendMessageOptions.DontRequireReceiver);
+		}
 	}
 
 	public void SetInterest(InterestPoint pt) {
@@ -143,6 +148,14 @@ public class PlayerController : MonoBehaviour {
 			return;
 
 		target = pt;
+	}
+
+	public void Learn(string word) {
+		foundWordsUI.FoundWord(word);
+	}
+
+	public bool[] Knows(IEnumerable<string> words) {
+		return new bool[]{};
 	}
 
 }

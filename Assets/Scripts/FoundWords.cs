@@ -16,7 +16,7 @@ public class FoundWords : MonoBehaviour {
 
 	void Start () {
 		anim = GetComponent<Animator>();
-		wordQueue.AddRange(new string[] {"Dear", "World"});
+//		wordQueue.AddRange(new string[] {"Dear", "World"});
 	}
 
 	void Update() {

@@ -903,7 +903,7 @@ GameObject:
   - 4: {fileID: 423881948}
   - 114: {fileID: 423881949}
   m_Layer: 12
-  m_Name: Point Left Wall
+  m_Name: PaintingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -929,13 +929,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 423881947}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 596da83a37141824ba0c5653fd4e1289, type: 3}
+  m_Script: {fileID: 11500000, guid: 5be0feaa9f584ab47b4eda6922c2832a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   editMode: 1
   walkingPoint: 0
   viewedFrom: {fileID: 100211953}
   connections: []
+  word: Family
 --- !u!1 &437580247
 GameObject:
   m_ObjectHideFlags: 0
