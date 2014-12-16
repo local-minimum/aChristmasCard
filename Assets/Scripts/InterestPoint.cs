@@ -39,11 +39,16 @@ public class InterestPoint : MonoBehaviour {
 
 	public InterestPoint[] FindPathTo(InterestPoint other) {
 		if (connections.Contains(other))
-		return new InterestPoint[] {this};
-
+			return new InterestPoint[] {this};
+		if (viewedFrom == other)
+			return new InterestPoint[] {other, this};
+		
 		List<InterestPoint[]> paths = new List<InterestPoint[]>();
 		foreach (InterestPoint pt in connections)
 			paths.Add(new InterestPoint[] {pt});
+
+		if (viewedFrom)
+			paths.Add(new InterestPoint[] {viewedFrom});
 
 		int pos = 0;
 		bool foundTarget = false;

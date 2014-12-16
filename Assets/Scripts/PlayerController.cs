@@ -71,6 +71,27 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	private bool nextIsWalkTarget {
+		get {
+			return walkPath[walkPath.Count - 1].walkingPoint ? (walkPath.Count == 2) : (walkPath.Count == 3);
+		}
+	}
+
+	private InterestPoint walkTarget {
+		get {
+			if (walkPath.Count == 0)
+				return null;
+
+			if (walkPath[walkPath.Count - 1].walkingPoint)
+				return walkPath[walkPath.Count - 1];
+
+			if (walkPath.Count == 1)
+				return null;
+
+			return walkPath[walkPath.Count - 2];
+		}
+	}
+
 	// Use this for initialization
 	void Start () {
 		room = gameObject.GetComponentInParent<Room>();
@@ -97,7 +118,7 @@ public class PlayerController : MonoBehaviour {
 		nextDistance = Vector3.Distance(walkPath[1].transform.position, transform.position - offset);
 		bool arrived = false;
 //		Debug.Log(nextDistance);
-		if (walkPath.Count == 2) {
+		if (nextIsWalkTarget) {
 			if (nextDistance < arriveDestination)
 				arrived = true;
 		} else if (nextDistance < arriveIntermediate)
@@ -112,7 +133,7 @@ public class PlayerController : MonoBehaviour {
 		gameObject.layer = pt.gameObject.layer;
 		room = pt.room;
 		location = pt;
-		inTransition = target != null && pt != target;
+		inTransition = pt != walkTarget;
 		if (!inTransition)
 			rigidbody.velocity = Vector3.zero;
 	}
