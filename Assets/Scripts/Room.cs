@@ -25,12 +25,11 @@ class CameraDistancePoints : Object {
 	}
 
 	public Vector3 Interpolate(CameraDistancePoints other) {
-		float f = Vector2.Dot(LevelManager.Instance.player.transform.position - pos, other.pos - pos);
+		float f = Vector3.Dot(LevelManager.Instance.player.transform.position, LevelManager.Instance.mainCamera.transform.right) - Vector3.Dot(pos, LevelManager.Instance.mainCamera.transform.right);
+		f /= Vector3.Dot(other.pos - pos, LevelManager.Instance.mainCamera.transform.right);
 		if (f < 0)
 			return pos;
-		f /= Vector3.Distance(pos, other.pos);
-
-		return Vector3.Lerp(pos, other.pos,  f);
+		return Vector3.Lerp(pos, other.pos, f);
 	}
 }
 
@@ -46,7 +45,8 @@ public class Room : MonoBehaviour {
 
 	public Vector3 cameraPosition {
 		get {
-			float[] d = cameraPositions.Select(pt => Vector2.Distance(pt.position, LevelManager.Instance.player.transform.position)).ToArray();
+			float pPos = Vector3.Dot(LevelManager.Instance.mainCamera.transform.right, LevelManager.Instance.player.transform.position - LevelManager.Instance.mainCamera.transform.position);
+			float[] d = cameraPositions.Select(pt => Mathf.Abs(Vector3.Dot(LevelManager.Instance.mainCamera.transform.right, pt.position - LevelManager.Instance.mainCamera.transform.position) - pPos)).ToArray();
 
 			CameraDistancePoints[] clostest = cameraPositions.Select((pt, i) => new CameraDistancePoints(pt.position, d[i])).OrderBy(e => e.dist).Take(2).ToArray();
 			return clostest[0].Interpolate(clostest[1]);
