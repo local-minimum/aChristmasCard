@@ -2,6 +2,38 @@
 using System.Collections.Generic;
 using System.Linq;
 
+
+class CameraDistancePoints : Object {
+	private Vector3 _pos;
+	private float _dist;
+
+	public Vector3 pos {
+		get {
+			return _pos;
+		}
+	}
+
+	public float dist {
+		get {
+			return _dist;
+		}
+	}
+
+	public CameraDistancePoints(Vector3 pos, float dist) {
+		_pos = pos;
+		_dist = dist;
+	}
+
+	public Vector3 Interpolate(CameraDistancePoints other) {
+		float f = Vector2.Dot(LevelManager.Instance.player.transform.position - pos, other.pos - pos);
+		if (f < 0)
+			return pos;
+		f /= Vector3.Distance(pos, other.pos);
+
+		return Vector3.Lerp(pos, other.pos,  f);
+	}
+}
+
 public class Room : MonoBehaviour {
 
 	public LayerMask interestPointLayers;
@@ -10,6 +42,16 @@ public class Room : MonoBehaviour {
 	private List<InterestPoint> walkingPoints = new List<InterestPoint>();
 
 	public bool playerInRoom = true;
+	public Transform[] cameraPositions;
+
+	public Vector3 cameraPosition {
+		get {
+			float[] d = cameraPositions.Select(pt => Vector2.Distance(pt.position, LevelManager.Instance.player.transform.position)).ToArray();
+
+			CameraDistancePoints[] clostest = cameraPositions.Select((pt, i) => new CameraDistancePoints(pt.position, d[i])).OrderBy(e => e.dist).Take(2).ToArray();
+			return clostest[0].Interpolate(clostest[1]);
+		}
+	}
 
 	// Use this for initialization
 	void Awake () {
