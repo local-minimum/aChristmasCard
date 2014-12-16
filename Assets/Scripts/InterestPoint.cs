@@ -60,7 +60,7 @@ public class InterestPoint : MonoBehaviour {
 			pos ++;
 		}
 
-		Debug.Log(pos);
+//		Debug.Log(pos);
 		if (!paths.Any(p => p.Contains(other)))
 			return new InterestPoint[] {};
 		return Concat(paths.Where(p => p.Contains(other)).OrderBy(p => Distance(p)).First().Reverse().Skip(1).ToArray(), this);
