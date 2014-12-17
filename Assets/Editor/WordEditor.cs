@@ -9,7 +9,7 @@ public class WordEditor : PropertyDrawer {
 
 	public override void OnGUI (Rect position, SerializedProperty property, GUIContent label)
 	{
-
+		position.height = 16f;
 		curProp = property;
 		string name = property.FindPropertyRelative("word").stringValue;
 		if (name != "")
@@ -22,7 +22,6 @@ public class WordEditor : PropertyDrawer {
 			Rect contentPosition = EditorGUI.IndentedRect(position);
 			EditorGUI.indentLevel = 0;
 			contentPosition.y += base.GetPropertyHeight(property, label);
-			contentPosition.height /= 4;
 			EditorGUI.PropertyField(contentPosition, property.FindPropertyRelative("word"));
 			contentPosition.y += base.GetPropertyHeight(property, label);
 			EditorGUI.PropertyField(contentPosition, property.FindPropertyRelative("knownVersion"));
