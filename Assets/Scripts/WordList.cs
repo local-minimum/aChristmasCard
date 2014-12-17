@@ -18,7 +18,13 @@ public class WordPage {
 	public Word[] words;
 
 	public bool autoCompletes = false;
-	public int autoCompleteThreshold = 2;
+	public int autoCompleteThreshold = 3;
+
+	public int learnedWords {
+		get {
+			return words.Where(w => w.learned).Count();
+		}
+	}
 
 	public bool Contains(string word) {
 		return words.Where(w => w.word == word).Any();
@@ -32,9 +38,33 @@ public class WordPage {
 		Word w = words.Where(wrd => wrd.word == word).First();
 		if (w.learned)
 			return false;
-		w.learned = true;
-		player.gameObject.BroadcastMessage("FoundWord", w.word, SendMessageOptions.DontRequireReceiver);
+
+		LeanWord(player, w);
+
+		if (learnedWords >= autoCompleteThreshold)
+			LearnRest(player);
+
 		return true;
+	}
+
+	private void LeanWord(PlayerController player, Word w) {
+		w.learned = true;
+		TestFirstWord();
+		player.gameObject.BroadcastMessage("FoundWord", w.word, SendMessageOptions.DontRequireReceiver);
+
+	}
+
+	private void LearnRest(PlayerController player) {
+		foreach (Word w in words) {
+			if (w.learned)
+				continue;
+			LeanWord(player, w);
+		}
+	}
+
+	private void TestFirstWord() {
+		if (learnedWords == 1)
+			WordList.Instance.AddWordPageToIndex(this);
 	}
 	
 }
@@ -43,6 +73,7 @@ public class WordList : Singleton<WordList> {
 
 
 	public  List<WordPage> wordPages = new List<WordPage>();
+	private Dictionary<int, WordPage> index = new Dictionary<int, WordPage>();
 
 	public bool Learn(PlayerController player, string word) {
 		foreach (WordPage wp in wordPages) {
@@ -53,4 +84,14 @@ public class WordList : Singleton<WordList> {
 		return false;
 	}
 
+	public void AddWordPageToIndex(WordPage page) {
+		if (index.Values.Contains(page)) {
+			Debug.LogError("Tried to add same page twice");
+			return;
+		}
+		if (index.Count() == 0)
+			index.Add(0, page);
+		else
+			index.Add(index.Keys.Max() + 1, page);
+	}
 }

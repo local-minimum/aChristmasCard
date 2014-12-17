@@ -37,6 +37,12 @@ public class FoundWords : MonoBehaviour {
 	}
 
 	public void FoundWord(string word) {
-		wordQueue.Add (word);
+		wordQueue.Add (Captialize(word));
+	}
+
+	public static string Captialize(string s) {
+		char[] a = s.ToCharArray();
+		a[0] = char.ToUpper(a[0]);
+		return new string(a);
 	}
 }
