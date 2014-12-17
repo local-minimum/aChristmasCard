@@ -2492,12 +2492,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   words:
-  - __inspectorExpanded: 1
+  - __inspectorExpanded: 0
     learned: 0
-    word: testing
+    word: test
     unknownVersion: {fileID: 0}
     knownVersion: {fileID: 0}
-  - __inspectorExpanded: 1
+  - __inspectorExpanded: 0
     learned: 0
     word: testing
     unknownVersion: {fileID: 0}
