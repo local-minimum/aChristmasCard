@@ -34,6 +34,7 @@ public class FoundWords : MonoBehaviour {
 		text.text = wordQueue[0];
 		wordQueue.RemoveAt(0);
 		anim.SetTrigger(triggerStr);
+		WordList.Instance.LearnedWordEffect();
 	}
 
 	public void FoundWord(string word) {

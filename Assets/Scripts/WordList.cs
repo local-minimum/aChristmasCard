@@ -51,7 +51,6 @@ public class WordPage {
 		w.learned = true;
 		TestFirstWord();
 		player.gameObject.BroadcastMessage("FoundWord", w.word, SendMessageOptions.DontRequireReceiver);
-		WordList.Instance.LearnedWordEffect();
 	}
 
 	private void LearnRest(PlayerController player) {
@@ -85,13 +84,23 @@ public class WordList : Singleton<WordList> {
 	}
 
 	public void LearnedWordEffect() {
+
 		iTween.PunchScale(
 			gameObject,
 			iTween.Hash(
-			"amount", Vector3.one * 0.5f ,
+			"amount", Vector3.one * 0.2f ,
 			"delay", 1f,
 			"duration", 2f,
 			"space", Space.Self));
+
+		iTween.PunchRotation(
+			gameObject,
+			iTween.Hash(
+			"z", 50,
+			"delay", 0.7f,
+			"duration", 3f,
+			"space", Space.Self
+			));
 	}
 
 	public void AddWordPageToIndex(WordPage page) {
@@ -104,13 +113,5 @@ public class WordList : Singleton<WordList> {
 		else
 			index.Add(index.Keys.Max() + 1, page);
 
-		iTween.PunchRotation(
-			gameObject,
-			iTween.Hash(
-				"z", 30,
-				"delay", 1f,
-				"duration", 2f,
-				"space", Space.Self
-			));
 	}
 }
