@@ -2491,17 +2491,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e06107760a47e4e4b96e1fad38b1221e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  words:
-  - __inspectorExpanded: 0
-    learned: 0
-    word: test
-    unknownVersion: {fileID: 0}
-    knownVersion: {fileID: 0}
-  - __inspectorExpanded: 0
-    learned: 0
-    word: testing
-    unknownVersion: {fileID: 0}
-    knownVersion: {fileID: 0}
+  wordPages:
+  - words:
+    - learned: 0
+      word: hello
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+    - learned: 0
+      word: my
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+    - learned: 0
+      word: friend
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+  - words: []
 --- !u!114 &1273114147
 MonoBehaviour:
   m_ObjectHideFlags: 0

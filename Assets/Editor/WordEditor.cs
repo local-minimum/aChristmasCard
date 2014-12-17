@@ -10,7 +10,6 @@ public class WordEditor : PropertyDrawer {
 	public override void OnGUI (Rect position, SerializedProperty property, GUIContent label)
 	{
 		position.height = 16f;
-		curProp = property;
 		string name = property.FindPropertyRelative("word").stringValue;
 		if (name != "")
 			label.text = name;
@@ -34,8 +33,7 @@ public class WordEditor : PropertyDrawer {
 	}
 
 	public override float GetPropertyHeight (SerializedProperty property, GUIContent label) {
-		if (curProp == property)
-			return base.GetPropertyHeight(property, label);
+
 		return base.GetPropertyHeight(property, label) * (property.isExpanded ? 4 : 1);
 	}
 }

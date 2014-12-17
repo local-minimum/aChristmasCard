@@ -8,31 +8,12 @@ public class WordListEditor : Editor {
 
 	public override void OnInspectorGUI ()
 	{
-		/*
 
-		WordList myTarget = (WordList) target;
-		int listSize = EditorGUILayout.IntField("Words", myTarget.words.Count);
-		if (listSize != myTarget.words.Count) {
-			AddEmptyWords(myTarget, listSize - myTarget.words.Count);
-			TrimWords(myTarget, listSize);
-		}
-		*/
 		serializedObject.Update();
-		WordListEditor.Show(serializedObject.FindProperty("words"));
+		WordListEditor.Show(serializedObject.FindProperty("wordPages"));
 		serializedObject.ApplyModifiedProperties();
 	}
 
-	private void AddEmptyWords(WordList myTarget, int n) {
-		while (n > 0) {
-			myTarget.words.Add(new Word());
-			n--;
-		}
-	}
-
-	private void TrimWords(WordList myTarget, int expectedLength) {
-		while (myTarget.words.Count > expectedLength)
-			myTarget.words.RemoveAt(myTarget.words.Count - 1);
-	}
 
 	public static void Show (SerializedProperty list) {
 		EditorGUILayout.PropertyField(list);
