@@ -39,7 +39,7 @@ public class WordPage {
 		if (w.learned)
 			return false;
 
-		LeanWord(player, w);
+		LearnWord(player, w);
 
 		if (learnedWords >= autoCompleteThreshold)
 			LearnRest(player);
@@ -47,18 +47,18 @@ public class WordPage {
 		return true;
 	}
 
-	private void LeanWord(PlayerController player, Word w) {
+	private void LearnWord(PlayerController player, Word w) {
 		w.learned = true;
 		TestFirstWord();
 		player.gameObject.BroadcastMessage("FoundWord", w.word, SendMessageOptions.DontRequireReceiver);
-
+		WordList.Instance.LearnedWordEffect();
 	}
 
 	private void LearnRest(PlayerController player) {
 		foreach (Word w in words) {
 			if (w.learned)
 				continue;
-			LeanWord(player, w);
+			LearnWord(player, w);
 		}
 	}
 
@@ -84,6 +84,16 @@ public class WordList : Singleton<WordList> {
 		return false;
 	}
 
+	public void LearnedWordEffect() {
+		iTween.PunchScale(
+			gameObject,
+			iTween.Hash(
+			"amount", Vector3.one * 0.5f ,
+			"delay", 1f,
+			"duration", 2f,
+			"space", Space.Self));
+	}
+
 	public void AddWordPageToIndex(WordPage page) {
 		if (index.Values.Contains(page)) {
 			Debug.LogError("Tried to add same page twice");
@@ -93,5 +103,14 @@ public class WordList : Singleton<WordList> {
 			index.Add(0, page);
 		else
 			index.Add(index.Keys.Max() + 1, page);
+
+		iTween.PunchRotation(
+			gameObject,
+			iTween.Hash(
+				"z", 30,
+				"delay", 1f,
+				"duration", 2f,
+				"space", Space.Self
+			));
 	}
 }
