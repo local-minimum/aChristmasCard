@@ -25,8 +25,6 @@ public class PlayerController : MonoBehaviour {
 
 	private float nextDistance = 0f;
 
-//	private FoundWords foundWordsUI;
-
 	private InterestPoint target {
 		get {
 			if (walkPath.Count == 0)
@@ -100,8 +98,12 @@ public class PlayerController : MonoBehaviour {
 //		foundWordsUI = GetComponentInChildren<FoundWords>();
 	}
 	
+
 	// Update is called once per frame
 	void Update () {
+		if (LevelManager.Instance.uiView)
+			return;
+
 		if (CheckProximity())
 			return;
 	

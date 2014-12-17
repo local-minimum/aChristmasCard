@@ -21,10 +21,22 @@ public class LevelManager : Singleton<LevelManager> {
 
 	public float plaayTime {
 		get {
+			//TODO; add pauesefeature
 			return Time.timeSinceLevelLoad;
 		}
 	}
-
+	
+	private bool _uiView = false;
+	
+	public bool uiView {
+		get {
+			return _uiView;
+		}
+		set {
+			//TODO: Remove hover effects
+			_uiView = value;
+		}
+	}
 	// Use this for initialization
 	void Start () {
 		if (!mainCamera)
@@ -33,7 +45,10 @@ public class LevelManager : Singleton<LevelManager> {
 	
 	// Update is called once per frame
 	void Update () {
-		mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, player.room.cameraPosition, cameraSmoothness);
+		if (!uiView)
+			mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, player.room.cameraPosition, cameraSmoothness);
 
 	}
+
+
 }

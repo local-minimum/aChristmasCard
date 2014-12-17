@@ -62,7 +62,7 @@ public class Room : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update() {
-		if (playerInRoom && LevelManager.Instance.player.moveable)
+		if (playerInRoom && LevelManager.Instance.player.moveable && !LevelManager.Instance.uiView)
 			IdentifyInteraction();
 	}
 
