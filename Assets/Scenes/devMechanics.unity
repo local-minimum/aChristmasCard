@@ -1861,7 +1861,7 @@ MonoBehaviour:
   arriveDestination: .100000001
   moveable: 1
   force: 1000
-  maxVelocity: 40
+  maxVelocity: 60
   room: {fileID: 0}
   offset: {x: .200000003, y: .600000024, z: 0}
 --- !u!54 &871380518
@@ -2645,7 +2645,15 @@ MonoBehaviour:
       word: friend
       unknownVersion: {fileID: 0}
       knownVersion: {fileID: 0}
-  - words: []
+    autoCompletes: 0
+    autoCompleteThreshold: 2
+  - words:
+    - learned: 0
+      word: Family
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+    autoCompletes: 0
+    autoCompleteThreshold: 2
 --- !u!114 &1273114147
 MonoBehaviour:
   m_ObjectHideFlags: 0

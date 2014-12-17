@@ -17,8 +17,11 @@ public class WordPage {
 
 	public Word[] words;
 
+	public bool autoCompletes = false;
+	public int autoCompleteThreshold = 2;
+
 	public bool Contains(string word) {
-		return words.Select(w => w.word == word).Any();
+		return words.Where(w => w.word == word).Any();
 	}
 
 	public bool[] Knows() {

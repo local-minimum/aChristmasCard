@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour {
 
 	private float nextDistance = 0f;
 
-	private FoundWords foundWordsUI;
+//	private FoundWords foundWordsUI;
 
 	private InterestPoint target {
 		get {
@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour {
 		walkPath.Add(room.GetWalkingPointClosestTo(transform.position));
 		ArrivedAt(location);
 		transform.position = location.transform.position + offset;
-		foundWordsUI = GetComponentInChildren<FoundWords>();
+//		foundWordsUI = GetComponentInChildren<FoundWords>();
 	}
 	
 	// Update is called once per frame
@@ -148,7 +148,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void Learn(string word) {
-		foundWordsUI.FoundWord(word);
+		WordList.Instance.Learn(this, word);
 	}
 
 	public bool[] Knows(IEnumerable<string> words) {
