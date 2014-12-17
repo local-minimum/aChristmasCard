@@ -14,7 +14,9 @@ public class WordEditor : PropertyDrawer {
 		string name = property.FindPropertyRelative("word").stringValue;
 		if (name != "")
 			label.text = name;
+		label = EditorGUI.BeginProperty(position, label, property);
 		property.isExpanded = EditorGUI.Foldout(position, property.isExpanded, label, true);
+		EditorGUI.EndProperty();
 		if (property.isExpanded) {
 			int indentLvl =	EditorGUI.indentLevel;
 			Rect contentPosition = EditorGUI.IndentedRect(position);
