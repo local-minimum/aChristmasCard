@@ -84,8 +84,6 @@ public class Room : MonoBehaviour {
 		if (!Physics.Raycast(ray, out hit, 30f, interestPointLayers))
 			return;
 
-
-
 		if (Input.GetMouseButtonDown(0)) {
 			LevelManager.Instance.player.SetInterest(GetPointClosestTo(hit.point));
 		} else {
