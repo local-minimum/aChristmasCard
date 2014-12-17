@@ -9,26 +9,23 @@ public class PlayerController : MonoBehaviour {
 	[Range(0, 2)]
 	public float arriveDestination = 0.1f;
 
+	[HideInInspector]
 	public bool moveable = true;
 	private bool inTransition = false;
 
 	public float force = 500;
 	public float maxVelocity = 1f;
 
+	[HideInInspector]
 	public Room room;
+
+	public Vector3 offset;
 
 	private List<InterestPoint> walkPath = new List<InterestPoint>();
 
 	private float nextDistance = 0f;
 
 	private FoundWords foundWordsUI;
-
-	private Vector3 offset {
-		get {
-			return Vector3.up * (renderer.bounds.extents.y);
-		}
-	}
-
 
 	private InterestPoint target {
 		get {
