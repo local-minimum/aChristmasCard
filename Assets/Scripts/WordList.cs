@@ -93,14 +93,14 @@ public class WordList : Singleton<WordList> {
 			"duration", 2f,
 			"space", Space.Self));
 
-		iTween.PunchRotation(
-			gameObject,
-			iTween.Hash(
-			"z", 50,
-			"delay", 0.7f,
-			"duration", 3f,
-			"space", Space.Self
-			));
+//		iTween.PunchRotation(
+//			gameObject,
+//			iTween.Hash(
+//			"z", 10,
+//			"delay", 1f,
+//			"duration", 3f,
+//			"space", Space.Self
+//			));
 	}
 
 	public void AddWordPageToIndex(WordPage page) {
