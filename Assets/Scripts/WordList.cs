@@ -70,6 +70,7 @@ public class WordPage {
 
 public class WordList : Singleton<WordList> {
 
+	private float wordListPage;
 
 	public  List<WordPage> wordPages = new List<WordPage>();
 	private Dictionary<int, WordPage> index = new Dictionary<int, WordPage>();
@@ -114,4 +115,5 @@ public class WordList : Singleton<WordList> {
 			index.Add(index.Keys.Max() + 1, page);
 
 	}
+
 }
