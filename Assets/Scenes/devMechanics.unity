@@ -2652,8 +2652,12 @@ MonoBehaviour:
       word: Family
       unknownVersion: {fileID: 0}
       knownVersion: {fileID: 0}
-    autoCompletes: 0
-    autoCompleteThreshold: 2
+    - learned: 0
+      word: Friends
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+    autoCompletes: 1
+    autoCompleteThreshold: 1
 --- !u!114 &1273114147
 MonoBehaviour:
   m_ObjectHideFlags: 0

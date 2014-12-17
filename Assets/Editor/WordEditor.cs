@@ -34,6 +34,6 @@ public class WordEditor : PropertyDrawer {
 
 	public override float GetPropertyHeight (SerializedProperty property, GUIContent label) {
 
-		return base.GetPropertyHeight(property, label) * (property.isExpanded ? 4 : 1);
+		return base.GetPropertyHeight(property, label) * (property.isExpanded ? 5 : 1);
 	}
 }

@@ -18,6 +18,13 @@ public class WordPageEditor : PropertyDrawer {
 
 		if (property.isExpanded) {
 			EditorGUI.indentLevel += 1;
+			EditorGUILayout.PropertyField(property.FindPropertyRelative("autoCompletes"), new GUIContent("Autocompletes"));
+			if (property.FindPropertyRelative("autoCompletes").boolValue) {
+				EditorGUI.indentLevel += 1;
+				EditorGUILayout.PropertyField(property.FindPropertyRelative("autoCompleteThreshold"), new GUIContent("at threshold"));
+				EditorGUI.indentLevel -= 1;
+			}
+			EditorGUILayout.Space();
 			WordPageEditor.Show(property.FindPropertyRelative("words"));
 			EditorGUI.indentLevel -= 1;
 		}
