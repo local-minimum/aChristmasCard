@@ -3409,6 +3409,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1345479953}
   - 212: {fileID: 1345479954}
+  - 82: {fileID: 1345479955}
   m_Layer: 12
   m_Name: Radio
   m_TagString: Untagged
@@ -3451,6 +3452,64 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0403adbf66909044ba0f6a50d0f2759e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!82 &1345479955
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1345479952}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1348649165
 GameObject:
   m_ObjectHideFlags: 0
@@ -4100,7 +4159,7 @@ MonoBehaviour:
   connections: []
   zoomPosition: {fileID: 943588990}
   children:
-  - {fileID: 1715617289}
+  - {fileID: 0}
 --- !u!1 &1685322793
 GameObject:
   m_ObjectHideFlags: 0
@@ -4372,7 +4431,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1715617287}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1ba304b1617896439fa09a4a487cd4e, type: 3}
+  m_Script: {fileID: 11500000, guid: ed7d1ed4397cfe24db2a5a0da135ccbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   editMode: 0
@@ -4380,6 +4439,9 @@ MonoBehaviour:
   viewedFrom: {fileID: 1880575632}
   connections: []
   restriction: {fileID: 1674973127}
+  audioSource: {fileID: 1345479955}
+  changeStation: {fileID: 0}
+  stations: []
 --- !u!1 &1796526661
 GameObject:
   m_ObjectHideFlags: 0

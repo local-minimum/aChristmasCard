@@ -160,6 +160,10 @@ public class PlayerController : MonoBehaviour {
 		WordList.Instance.Learn(this, word);
 	}
 
+	public void NeedEnergy() {
+
+	}
+
 	public bool[] Knows(IEnumerable<string> words) {
 		return new bool[]{};
 	}
