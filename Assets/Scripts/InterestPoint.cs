@@ -21,7 +21,7 @@ public class InterestPoint : MonoBehaviour {
 	}
 
 	// Use this for initialization
-	void Awake () {
+	protected void Awake () {
 		_room = gameObject.GetComponentInParent<Room>();
 	}
 	
@@ -110,5 +110,9 @@ public class InterestPoint : MonoBehaviour {
 
 	public virtual void SpecificAction(PlayerController player) {
 		Debug.Log(string.Format("{0} {1}", this, "No specific action"));
+	}
+
+	public virtual void Apply(PlayerController player, GameObject tool) {
+
 	}
 }
