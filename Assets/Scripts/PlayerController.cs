@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour {
 
 	private float nextDistance = 0f;
 
-	private InterestPoint target {
+	public InterestPoint target {
 		get {
 			if (walkPath.Count == 0)
 				return null;
@@ -38,12 +38,14 @@ public class PlayerController : MonoBehaviour {
 				walkPath.RemoveRange(2, walkPath.Count - 2);
 			else
 				walkPath.RemoveRange(1, walkPath.Count - 1);
+			if (value == target)
+				return;
 			walkPath.AddRange(value.FindPathTo(walkPath[walkPath.Count - 1]));
 			inTransition = true;
 		}
 	}
 
-	private InterestPoint location {
+	public InterestPoint location {
 		get {
 			if (walkPath.Count == 0)
 				return null;
@@ -138,11 +140,16 @@ public class PlayerController : MonoBehaviour {
 		inTransition = pt != walkTarget;
 		if (!inTransition) {
 			rigidbody.velocity = Vector3.zero;
-			target.BroadcastMessage("Action", this, SendMessageOptions.DontRequireReceiver);
+			Debug.Log(target);
+			target.Action(this);
 		}
 	}
 
 	public void SetInterest(InterestPoint pt) {
+		if (!moveable) {
+			target.Action(this, pt);
+			return;
+		}
 		if (target == pt)
 			return;
 

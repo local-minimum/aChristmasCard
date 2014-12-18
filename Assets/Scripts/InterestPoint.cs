@@ -100,7 +100,15 @@ public class InterestPoint : MonoBehaviour {
 		return false;
 	}
 
-	public void Action(PlayerController player) {
+	public virtual void Action(PlayerController player) {
+		Debug.Log(string.Format("{0} {1}", this, "No action"));
+	}
 
+	public virtual void Action(PlayerController player, InterestPoint interest) {
+		
+	}
+
+	public virtual void SpecificAction(PlayerController player) {
+		Debug.Log(string.Format("{0} {1}", this, "No specific action"));
 	}
 }

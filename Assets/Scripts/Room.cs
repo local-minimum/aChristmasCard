@@ -43,6 +43,17 @@ public class Room : MonoBehaviour {
 	public bool playerInRoom = true;
 	public Transform[] cameraPositions;
 
+	private Transform _zoomPosition;
+
+	public Vector3 zoomPosition {
+		get {
+			if (_zoomPosition)
+				return _zoomPosition.position;
+			return cameraPosition;
+		}
+
+	}
+
 	public Vector3 cameraPosition {
 		get {
 			float pPos = Vector3.Dot(LevelManager.Instance.mainCamera.transform.right, LevelManager.Instance.player.transform.position - LevelManager.Instance.mainCamera.transform.position);
@@ -62,7 +73,7 @@ public class Room : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update() {
-		if (playerInRoom && LevelManager.Instance.player.moveable && !LevelManager.Instance.uiView)
+		if (playerInRoom && !LevelManager.Instance.uiView)
 			IdentifyInteraction();
 	}
 
@@ -84,11 +95,17 @@ public class Room : MonoBehaviour {
 		if (!Physics.Raycast(ray, out hit, 30f, interestPointLayers))
 			return;
 
-		if (Input.GetMouseButtonDown(0)) {
+		Debug.DrawLine(LevelManager.Instance.mainCamera.transform.position,
+		               hit.point);
+		if (Input.GetButtonDown("Fire1")) {
 			LevelManager.Instance.player.SetInterest(GetPointClosestTo(hit.point));
-		} else {
+		} else if (LevelManager.Instance.player.moveable) {
 			LevelManager.Instance.hoverCanvas.SetHoverPoint(GetWalkingPointClosestTo(hit.point));
 		}
 
+	}
+
+	public void SetZoomPosition(Transform t) {
+		_zoomPosition = t;
 	}
 }
