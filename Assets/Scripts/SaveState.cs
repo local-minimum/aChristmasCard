@@ -4,13 +4,20 @@ using System.Collections;
 public class SaveState : Singleton<SaveState> {
 
 
-	public float wordListPage {
+	public int wordListPage {
 		get {
-			return PlayerPrefs.GetFloat("wordListPage", -1);
+			if (PlayerPrefs.GetInt("wordListPage", -1) < 0 && WordList.Instance.Length > 0)
+				wordListPage = 0;
+
+			return PlayerPrefs.GetInt("wordListPage", -1);
 		}
 
 		set {
-			PlayerPrefs.SetFloat("wordListPage", value);
+			if (value < 0 && WordList.Instance.Length > 0)
+				value = 0;
+			else if (value < -1)
+				value = -1;
+			PlayerPrefs.SetInt("wordListPage", value);
 		}
 	}
 

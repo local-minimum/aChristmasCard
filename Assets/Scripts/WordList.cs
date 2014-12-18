@@ -10,6 +10,11 @@ public class Word {
 	public Sprite unknownVersion;
 	public Sprite knownVersion;
 
+	public Sprite image {
+		get {
+			return learned ? knownVersion : unknownVersion;
+		}
+	}
 }
 
 [System.Serializable]
@@ -33,7 +38,7 @@ public class WordPage {
 	public bool[] Knows() {
 		return words.Select(w => w.learned).ToArray();
 	}
-
+	
 	public bool Learn(PlayerController player, string word) {
 		Word w = words.Where(wrd => wrd.word == word).First();
 		if (w.learned)
@@ -104,16 +109,37 @@ public class WordList : Singleton<WordList> {
 //			));
 	}
 
+	public int Length {
+		get {
+			if (index.Count() == 0)
+				return 0;
+			else
+				return index.Keys.Max() + 1;
+		}
+	}
+
 	public void AddWordPageToIndex(WordPage page) {
 		if (index.Values.Contains(page)) {
 			Debug.LogError("Tried to add same page twice");
 			return;
 		}
-		if (index.Count() == 0)
-			index.Add(0, page);
-		else
-			index.Add(index.Keys.Max() + 1, page);
 
+			index.Add(Length, page);
+
+	}
+
+	public WordPage CurrentPage() {
+		if (index.ContainsKey(SaveState.Instance.wordListPage))
+			return index[SaveState.Instance.wordListPage];
+		return null;
+	}
+
+	public bool HasNextPage() {
+		return index.ContainsKey(SaveState.Instance.wordListPage + 1);
+	}
+
+	public bool HasPrevPage() {
+		return index.ContainsKey(SaveState.Instance.wordListPage - 1);
 	}
 
 }

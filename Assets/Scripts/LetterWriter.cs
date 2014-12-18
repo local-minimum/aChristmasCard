@@ -9,6 +9,7 @@ public class LetterWriter : Singleton<LetterWriter> {
 	public void ShowLetterView() {
 		wordbookAnimator.SetTrigger("Show");
 		LevelManager.Instance.uiView = true;
+		WorldListUI.Instance.DisplayCurrentPage();
 	}
 
 	public void Hide() {
