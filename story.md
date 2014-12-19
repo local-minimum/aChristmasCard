@@ -81,7 +81,7 @@ Wordlist
  * _[Name]_ : Look in mirror next to door in MAIN ROOM
  * _sorry_ : Upon breaking vase in MAIN ROOM
  * _you_, _your_ : U-shaped magnet on fridge in KITCHEN
- * _feel_ : Entering dark BEDROOM, no light in cieling.
+ * _feel_ : Entering dark BEDROOM, no light in ceiling.
  * _up_ : Ladder to second floor or attic
  * _celebrating_ : Hearing sounds from neighbours and happy people outside window in ROOM X
  * _Christmas_ : Unopened present under christmas tree in MAIN ROOM
@@ -93,20 +93,20 @@ Wordlist
   * _tall_ bookshelf (that has the photo album) MAIN ROOM
   * _wall_ empty wall in BATHROOM
  * _missed_ : Missing phone call | Homophone _mist_ from kettle in KITCHEN 
- * _[Relative]_ :
+ * _[Relative]_ : ??? Grandma in picture on wall
  * _baked_ : Stove in KITCHEN
  * _tasty_ : Character eating something in KITCHEN
  * _pie_ : Math, a circle, a round mat on the floor as homophone _PI_ in BATHROOM
  * _devoured_ : Monsters eat cake in MEMORY
- * _like_ : Taking the clothing one approves of in BED ROOM to stop freezing.
- * _pack_ : Coffert under bed in BEDROOM 
- * _starving_ : Character refused to enter KITCHEN until stomach sound
+ * _like_ : Turn painting over in BEDROOM
+ * _pack_ : Suitcase under bed in BEDROOM 
+ * _starving_ : ??? Character refused to enter KITCHEN until stomach sound
  * _raptors_ : Monster in MEMORY
  * _lit_ : Flashlight on required for BEDROOM as there's no light there
  * _cosy_ : Clothes in BEDROOM | Tea kettle warmer in KITCHEN
- * _fire_ : Heating food in KITCHEN causes smoke thinks fire
- * _put_ : Starts game inventory slot full with newspaper, putting it down in MAIN ROOM table, or KITCHEN table
- * _together_ : When having brought the pair togeather
+ * _fire_ : Heating food in KITCHEN causes smoke thinks fire (candle? toaster?)
+ * _put_ : ??? Starts game inventory slot full with newspaper, putting it down in MAIN ROOM table, or KITCHEN table
+ * _together_ : When having brought the pair together (new present + old toy)
  * _jigsaw puzzle_ : Knock over vase, put together after done hungry MAIN ROOM
  * _ugly_ : Open closet in BEDROOM
  * _castle_ : Trying to leave, "My home is my castle" MAIN ROOM
@@ -116,10 +116,10 @@ Wordlist
  * _new_ : Ad in newspapaer
  * _tie_ : Seing christmas present tied with ribbon, need scissors from KITCHEN
  * _great_ : Part of rhyme series
-  * _plate_ in KITCHEN
-  * _hate_ ugly painting in BEDROOM
-  * _straight_ christmas tree is not standing correctly in MAIN ROOM
-  * _weight_ scale in BATHROOM
+  * _plate_ : in KITCHEN
+  * _hate_ : ugly painting in BEDROOM
+  * _straight_ : christmas tree is not standing correctly in MAIN ROOM
+  * _weight_ : scale in BATHROOM
  * _mood_ : Change radio station to bad music
  * _started_ : open suitcase, put toothbrush in
  * _talking_ : Find battery to put into radio on KITCHEN table.
@@ -128,7 +128,7 @@ Wordlist
  * _visit_ : First clicking to go into BATHROOM after having drunk tea (not following character into sceen).
  * _soon_ : Clock on wall in KITCHEN
  * _Love_ : Hug in MEMORY
- * _[Brother/Sister Rosemary | Dusty]_ : Name sound like wored of thing
+ * _[Rosemary]_ : Spice in KITCHEN
  
 Scenes
 ======
@@ -161,7 +161,7 @@ Need to be hungry to go into kitchen
 In kitchen get scissors to open present
 Present has batteries
 Batteries to listen to radio and be able to enter bedroom
-Teddy in bed is door to memory scene
+X in bedroom is door to memory scene
 
 Character
 =========
