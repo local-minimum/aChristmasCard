@@ -19,7 +19,7 @@ public class LevelManager : Singleton<LevelManager> {
 		}
 	}
 
-	public float plaayTime {
+	public float playTime {
 		get {
 			//TODO; add pauesefeature
 			return Time.timeSinceLevelLoad;

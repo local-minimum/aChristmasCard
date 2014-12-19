@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 
 public class FoundWords : MonoBehaviour {
@@ -21,7 +21,7 @@ public class FoundWords : MonoBehaviour {
 
 	void Update() {
 		if (anim.GetCurrentAnimatorStateInfo(0).IsName(readyState) && 
-		    LevelManager.Instance.plaayTime - showTime > minBetweenT)
+		    LevelManager.Instance.playTime - showTime > minBetweenT)
 
 			NextWord();
 	}
@@ -30,7 +30,7 @@ public class FoundWords : MonoBehaviour {
 		if (wordQueue.Count == 0)
 			return;
 
-		showTime = LevelManager.Instance.plaayTime;
+		showTime = LevelManager.Instance.playTime;
 		text.text = wordQueue[0];
 		wordQueue.RemoveAt(0);
 		anim.SetTrigger(triggerStr);
