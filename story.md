@@ -1,4 +1,4 @@
-**SPOILERS AHEAD, READING THIS WILL RUIN THE ENTIER GAME**
+**SPOILERS AHEAD, READING THIS WILL RUIN THE ENTIRE GAME**
 .
 
 .
@@ -80,9 +80,9 @@ Wordlist
 
  * _[Name]_ : Look in mirror next to door in MAIN ROOM
  * _sorry_ : Upon breaking vase in MAIN ROOM
- * _you_, _your_ : Underground sign poster in BEDROOM
+ * _you_, _your_ : U-shaped magnet on fridge in KITCHEN
  * _feel_ : Entering dark BEDROOM, no light in cieling.
- * _up_ : Stairs to second floor or attic
+ * _up_ : Ladder to second floor or attic
  * _celebrating_ : Hearing sounds from neighbours and happy people outside window in ROOM X
  * _Christmas_ : Unopened present under christmas tree in MAIN ROOM
  * _year_ : Calendar next to door in MAIN ROOM
