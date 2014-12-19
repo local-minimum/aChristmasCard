@@ -3913,6 +3913,7 @@ GameObject:
   - 4: {fileID: 1345479953}
   - 212: {fileID: 1345479954}
   - 82: {fileID: 1345479955}
+  - 65: {fileID: 1345479956}
   m_Layer: 12
   m_Name: Radio
   m_TagString: Untagged
@@ -4013,6 +4014,18 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!65 &1345479956
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1345479952}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.05999994, y: 3.98000002, z: 1.49000001}
+  m_Center: {x: .529999971, y: -.699999988, z: 0}
 --- !u!1 &1348649165
 GameObject:
   m_ObjectHideFlags: 0
@@ -5482,8 +5495,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 1984942971}
   - 33: {fileID: 1984942974}
-  - 64: {fileID: 1984942973}
   - 23: {fileID: 1984942972}
+  - 65: {fileID: 1984942973}
   m_Layer: 12
   m_Name: Table
   m_TagString: Untagged
@@ -5525,8 +5538,8 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!64 &1984942973
-MeshCollider:
+--- !u!65 &1984942973
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -5535,9 +5548,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 1, y: .300000012, z: .200000003}
+  m_Center: {x: 0, y: .360000014, z: 0}
 --- !u!33 &1984942974
 MeshFilter:
   m_ObjectHideFlags: 0
