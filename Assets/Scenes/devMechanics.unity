@@ -278,7 +278,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 85298773}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af1eac9d923f84c459af3ebc6be51ea0, type: 3}
+  m_Script: {fileID: 11500000, guid: 2994085b314bf7c429504f7ffb75a341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   editMode: 0
@@ -296,6 +296,8 @@ MonoBehaviour:
   - {fileID: 1975064732}
   - {fileID: 996037067}
   closeTrigger: Close
+  learnWordFail: bad
+  learnWordSucceed: 
 --- !u!1 &100211951
 GameObject:
   m_ObjectHideFlags: 0
@@ -4106,15 +4108,7 @@ MonoBehaviour:
   wordPages:
   - words:
     - learned: 0
-      word: hello
-      unknownVersion: {fileID: 0}
-      knownVersion: {fileID: 0}
-    - learned: 0
-      word: my
-      unknownVersion: {fileID: 0}
-      knownVersion: {fileID: 0}
-    - learned: 0
-      word: friend
+      word: bad
       unknownVersion: {fileID: 0}
       knownVersion: {fileID: 0}
     autoCompletes: 0
