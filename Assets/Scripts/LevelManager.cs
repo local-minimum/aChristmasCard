@@ -11,6 +11,8 @@ public class LevelManager : Singleton<LevelManager> {
 	private PlayerController _player;
 	public Camera mainCamera;
 
+//	public Texture2D mouseCursor;
+
 	public PlayerController player {
 		get {
 			if (_player == null)
@@ -41,6 +43,7 @@ public class LevelManager : Singleton<LevelManager> {
 	void Start () {
 		if (!mainCamera)
 			mainCamera = Camera.main;
+//		Cursor.SetCursor(mouseCursor, Vector2.zero, CursorMode.ForceSoftware);
 	}
 	
 	// Update is called once per frame
