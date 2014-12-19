@@ -1067,6 +1067,7 @@ MonoBehaviour:
   - {fileID: 806586390}
   - {fileID: 947308850}
   - {fileID: 887217258}
+  ObjectsCollector: {fileID: 0}
 --- !u!1 &345374707
 GameObject:
   m_ObjectHideFlags: 0
@@ -3382,11 +3383,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interestPointLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 12800
   cameraPositions:
   - {fileID: 178134051}
   - {fileID: 176512553}
   - {fileID: 345374708}
+  ObjectsCollector: {fileID: 0}
 --- !u!1 &996037066
 GameObject:
   m_ObjectHideFlags: 0
@@ -3819,7 +3821,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1177321534}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0439999998, y: .167999998, z: 0}
+  m_LocalPosition: {x: .224999994, y: .167999998, z: -.0299999993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 961977159}
@@ -4825,7 +4827,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1588838215}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.188999996, y: -.202000007, z: 0}
+  m_LocalPosition: {x: -.35800001, y: -.0719999969, z: -.0299999993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 961977159}
@@ -5270,7 +5272,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1691370582}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -18,6 +18,13 @@ public class InterestPoint : MonoBehaviour {
 		get {
 			return _room;
 		}
+
+		set {
+			_room.RemoveInterest(this);
+			value.AddInterest(this);
+			transform.parent = value.ObjectsCollector.transform;
+			_room = value;
+		}
 	}
 
 	// Use this for initialization

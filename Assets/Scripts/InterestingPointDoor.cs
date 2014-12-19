@@ -23,12 +23,14 @@ public class InterestingPointDoor : InterestPointTrigger {
 		passageTrail.Reverse();
 		animator.SetTrigger(closeTrigger);
 		player.room = viewedFrom.room;
+		room = viewedFrom.room;
 		player.SetTargetPath(viewedFrom);
 		player.playerLocked = false;
 		player.moveable = true;
 //		player.target = viewedFrom;
 //		player = null;
 		inTransition = false;
+		pathIndex = 0;
 	}
 
 	void Update() {

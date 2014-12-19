@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour {
 				walkPath.RemoveRange(2, walkPath.Count - 2);
 			else
 				walkPath.RemoveRange(1, walkPath.Count - 1);
+			Debug.Log(string.Format("targeting {0}", value));
 			if (value == target)
 				return;
 			walkPath.AddRange(value.FindPathTo(walkPath[walkPath.Count - 1]));
@@ -172,7 +173,7 @@ public class PlayerController : MonoBehaviour {
 		inTransition = pt != walkTarget;
 		if (!inTransition) {
 			rigidbody.velocity = Vector3.zero;
-			Debug.Log(target);
+//			Debug.Log(target);
 			target.Action(this);
 		}
 	}

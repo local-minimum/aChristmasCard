@@ -50,6 +50,8 @@ public class Room : MonoBehaviour {
 
 	private Transform _zoomPosition;
 
+	public GameObject ObjectsCollector;
+
 	public Vector3 zoomPosition {
 		get {
 			if (_zoomPosition)
@@ -73,7 +75,10 @@ public class Room : MonoBehaviour {
 	void Awake () {
 		interactions.AddRange(gameObject.GetComponentsInChildren<InterestPoint>());
 		walkingPoints.AddRange(interactions.Where(ip => ip.walkingPoint));
-
+		if (ObjectsCollector == null) {
+			ObjectsCollector = new GameObject();
+			ObjectsCollector.name = "Stuff";
+		}
 	}
 	
 	// Update is called once per frame
@@ -94,6 +99,7 @@ public class Room : MonoBehaviour {
 	}
 
 	void IdentifyInteraction () {
+
 		Ray ray = LevelManager.Instance.mainCamera.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
 
@@ -112,5 +118,13 @@ public class Room : MonoBehaviour {
 
 	public void SetZoomPosition(Transform t) {
 		_zoomPosition = t;
+	}
+
+	public void AddInterest(InterestPoint pt) {
+		interactions.Add(pt);
+	}
+
+	public void RemoveInterest(InterestPoint pt) {
+		interactions.Remove(pt);
 	}
 }
