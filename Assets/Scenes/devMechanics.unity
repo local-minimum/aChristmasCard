@@ -278,7 +278,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 85298773}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7361027257f20024d86ca8cef5495515, type: 3}
+  m_Script: {fileID: 11500000, guid: af1eac9d923f84c459af3ebc6be51ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   editMode: 0
@@ -291,6 +291,7 @@ MonoBehaviour:
   - OpenLeft
   - Close
   animator: {fileID: 635107052}
+  altViewedFrom: {fileID: 0}
 --- !u!1 &100211951
 GameObject:
   m_ObjectHideFlags: 0
@@ -4580,6 +4581,7 @@ GameObject:
   - 124: {fileID: 1615429974}
   - 81: {fileID: 1615429973}
   - 82: {fileID: 1615429978}
+  - 114: {fileID: 1615429979}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4710,6 +4712,21 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &1615429979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1615429972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50e4e25fd58e878489f05545bfb5ecc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: capture_{0}_{1}.jpg
+  leadingZeros: 3
+  recordKey: 114
+  fps: 14
 --- !u!1 &1643535880
 GameObject:
   m_ObjectHideFlags: 0

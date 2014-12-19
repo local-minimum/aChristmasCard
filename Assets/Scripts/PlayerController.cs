@@ -168,4 +168,10 @@ public class PlayerController : MonoBehaviour {
 		return new bool[]{};
 	}
 
+	public bool hasLight {
+		get {
+			return false;
+		}
+	}
+
 }

@@ -35,7 +35,7 @@ public class InterestPointTrigger : InterestPoint {
 		}
 
 		animator.SetTrigger(triggerSequence[nextTrigger]);
-
+		SpecificAction(player);
 		nextTrigger += addToNext;
 	}
 }
