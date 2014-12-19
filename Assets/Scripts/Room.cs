@@ -40,7 +40,12 @@ public class Room : MonoBehaviour {
 	private List<InterestPoint> interactions = new List<InterestPoint>();
 	private List<InterestPoint> walkingPoints = new List<InterestPoint>();
 
-	public bool playerInRoom = true;
+	public bool playerInRoom {
+		get {
+			return LevelManager.Instance.player.room == this;
+		}
+	}
+
 	public Transform[] cameraPositions;
 
 	private Transform _zoomPosition;

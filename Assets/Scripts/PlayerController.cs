@@ -19,9 +19,19 @@ public class PlayerController : MonoBehaviour {
 
 	public float force = 500;
 	public float maxVelocity = 1f;
+	
+	private Room _room = null;
 
-	[HideInInspector]
-	public Room room;
+	public Room room {
+		get {
+			return _room;
+		}
+
+		set {
+			transform.parent = value.transform;
+			_room = value;
+		}
+	}
 
 	public Vector3 offset;
 

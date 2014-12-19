@@ -16,17 +16,15 @@ public class InterestingPointDoor : InterestPointTrigger {
 	}
 
 	void UnlockPlayer() {
-		viewedFrom.room.playerInRoom = false;
+
 		InterestPoint pt = altViewedFrom;
 		altViewedFrom = viewedFrom;
 		viewedFrom = pt;
-		viewedFrom.room.playerInRoom = false;
 		passageTrail.Reverse();
 		animator.SetTrigger(closeTrigger);
-		player.transform.parent = player.room.transform;
+		player.room = viewedFrom.room;
 		player.SetTargetPath(viewedFrom);
 		player.playerLocked = false;
-//		player.target = viewedFrom;
 		player = null;
 		inTransition = false;
 	}
