@@ -110,7 +110,7 @@ Wordlist
  * _jigsaw puzzle_ : Knock over vase, put together after done hungry MAIN ROOM
  * _ugly_ : Open closet in BEDROOM
  * _castle_ : Trying to leave, "My home is my castle" MAIN ROOM
- * _pair_ : Identifying either one of the two in a pairing (e.g. pears)
+ * _pair_ : Identifying either one of the two in a pairing (e.g. pears) Or just a pear.
  * _socks_ : In BATHROOM in laundry pile
  * _parents_ : In MEMORY
  * _new_ : Ad in newspapaer
