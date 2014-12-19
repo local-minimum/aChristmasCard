@@ -13,6 +13,7 @@ public class InterestingPointDoor : InterestPointTrigger {
 	{
 		player.playerLocked = true;
 		this.player = player;
+		player.room = altViewedFrom.room;
 		inTransition = true;
 	}
 
@@ -22,8 +23,9 @@ public class InterestingPointDoor : InterestPointTrigger {
 			altViewedFrom = viewedFrom;
 			viewedFrom = pt;
 			passageTrail.Reverse();
-			player.room = viewedFrom.room;
 			room = viewedFrom.room;
+		} else {
+			player.room = viewedFrom.room;
 		}
 		animator.SetTrigger(closeTrigger);
 

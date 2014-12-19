@@ -25,6 +25,7 @@ public class InterestPointDoorOption : InterestingPointDoor {
 					}
 				} else if (pathIndex < 0) {
 					UnlockPlayer(viewedFrom);
+					pathDirection *= -1;
 				}
 			}
 			
