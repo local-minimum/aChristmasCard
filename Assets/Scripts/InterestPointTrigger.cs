@@ -23,8 +23,12 @@ public class InterestPointTrigger : InterestPoint {
 	{
 		if (nextTrigger >= triggerSequence.Count) {
 			if (loop) {
-				addToNext *= -1;
-				nextTrigger += 2 * addToNext;
+				if (loopBounce) {
+					addToNext *= -1;
+					nextTrigger += 2 * addToNext;
+				} else {
+					nextTrigger = 0;
+				}
 			} else {
 				return;
 			}

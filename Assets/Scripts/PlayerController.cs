@@ -150,8 +150,8 @@ public class PlayerController : MonoBehaviour {
 			target.Action(this, pt);
 			return;
 		}
-		if (target == pt)
-			return;
+//		if (target == pt)
+//			return;
 
 		target = pt;
 	}
