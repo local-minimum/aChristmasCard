@@ -25,7 +25,9 @@ public class InterestingPointDoor : InterestPointTrigger {
 		player.room = viewedFrom.room;
 		player.SetTargetPath(viewedFrom);
 		player.playerLocked = false;
-		player = null;
+		player.moveable = true;
+//		player.target = viewedFrom;
+//		player = null;
 		inTransition = false;
 	}
 
