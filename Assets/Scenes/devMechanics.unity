@@ -2821,7 +2821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arriveIntermediate: .200000003
-  arriveDestination: .100000001
+  arriveDestination: .0199999996
   moveable: 1
   playerLocked: 0
   force: 1000

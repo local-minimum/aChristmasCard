@@ -27,13 +27,19 @@ public class InterestingPointDoor : InterestPointTrigger {
 		} else {
 			player.room = viewedFrom.room;
 		}
-		animator.SetTrigger(closeTrigger);
 
-		player.SetTargetPath(viewedFrom);
+		StartCoroutine( closeAnimation());
 		player.playerLocked = false;
+		player.SetTargetPath(viewedFrom);
 		player.moveable = true;
 		inTransition = false;
 		pathIndex = 0;
+	}
+
+	IEnumerator<WaitForSeconds> closeAnimation() {
+		yield return new WaitForSeconds(1f);
+		animator.SetTrigger(closeTrigger);
+
 	}
 
 	protected virtual void Update() {
