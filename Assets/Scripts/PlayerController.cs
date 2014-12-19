@@ -11,6 +11,10 @@ public class PlayerController : MonoBehaviour {
 
 	[HideInInspector]
 	public bool moveable = true;
+
+	[HideInInspector]
+	public bool playerLocked = false;
+
 	private bool inTransition = false;
 
 	public float force = 500;
@@ -70,6 +74,10 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	public Vector3 GetAim(Vector3 other) {
+		return (other - (transform.position - offset)).normalized;
+	}
+
 	private bool nextIsWalkTarget {
 		get {
 			return walkPath[walkPath.Count - 1].walkingPoint ? (walkPath.Count == 2) : (walkPath.Count == 3);
@@ -91,10 +99,15 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	public void SetTargetPath(InterestPoint pt) {
+		walkPath.Clear();
+		walkPath.Add(pt);
+	}
+
 	// Use this for initialization
 	void Start () {
 		room = gameObject.GetComponentInParent<Room>();
-		walkPath.Add(room.GetWalkingPointClosestTo(transform.position));
+		SetTargetPath(room.GetWalkingPointClosestTo(transform.position));
 		ArrivedAt(location);
 		transform.position = location.transform.position + offset;
 //		foundWordsUI = GetComponentInChildren<FoundWords>();
@@ -103,15 +116,31 @@ public class PlayerController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (LevelManager.Instance.uiView)
+		if (LevelManager.Instance.uiView || playerLocked)
 			return;
 
 		if (CheckProximity())
 			return;
-	
+
+		Move(aim);
+	}
+
+	public void Move(Vector3 aim) {
+		
 		rigidbody.AddForce(aim * force * Time.deltaTime, ForceMode.Force);
 		rigidbody.velocity = Vector3.ClampMagnitude(rigidbody.velocity, maxVelocity);
+	}
 
+	public bool CheckProximity(Vector3 other, bool nextIsWalkTarget) {
+		nextDistance = Vector3.Distance(other, transform.position - offset);
+
+		//		Debug.Log(nextDistance);
+		if (nextIsWalkTarget) {
+			if (nextDistance < arriveDestination)
+				return true;
+		} else if (nextDistance < arriveIntermediate)
+			return true;
+		return false;
 	}
 
 	bool CheckProximity() {
@@ -119,14 +148,7 @@ public class PlayerController : MonoBehaviour {
 		if (!inTransition)
 			return true;
 
-		nextDistance = Vector3.Distance(walkPath[1].transform.position, transform.position - offset);
-		bool arrived = false;
-//		Debug.Log(nextDistance);
-		if (nextIsWalkTarget) {
-			if (nextDistance < arriveDestination)
-				arrived = true;
-		} else if (nextDistance < arriveIntermediate)
-			arrived = true;
+		bool arrived = CheckProximity(walkPath[1].transform.position,nextIsWalkTarget);
 
 		if (arrived)
 			ArrivedAt(walkPath[1]);
