@@ -58,7 +58,6 @@ public class InterestPointRadio : InterestPointRestricted {
 		if (!hasEnergy && tool.tag == "battery") {
 			player.Drop(tool);
 			hasEnergy = true;
-			//Batteries are not visible in radio thus no instanciation!
 		}
 	}
 }

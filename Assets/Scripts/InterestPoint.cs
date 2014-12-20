@@ -29,6 +29,15 @@ public class InterestPoint : MonoBehaviour {
 		}
 	}
 
+	private List<DropPosition> _dropPositions;
+	public List<DropPosition> dropPositions {
+		get {
+			if (_dropPositions == null)
+				_dropPositions = gameObject.GetComponentsInChildren<DropPosition>().ToList<DropPosition>();
+			return _dropPositions;
+		}
+	}
+
 	public Room room {
 		get {
 			return _room;
@@ -137,5 +146,12 @@ public class InterestPoint : MonoBehaviour {
 
 	public virtual void Apply(PlayerController player, GameObject tool) {
 
+		DropPosition[] empties = dropPositions.Where(p => p.CanTake(tool)).ToArray();
+
+		if (empties.Length > 0) {
+			if (!empties[Random.Range(0, empties.Length - 1)].Place(player.Drop(tool)))
+				Debug.LogError(string.Format("{0} was lost because of {1}", tool.name, name));
+			return;
+		}
 	}
 }

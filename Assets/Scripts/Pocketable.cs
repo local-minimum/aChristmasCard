@@ -28,5 +28,9 @@ public class Pocketable : MonoBehaviour {
 			Debug.LogError(string.Format("The corresponding prefabs must have different instance types, not so for {0) and {1}",
 			                             this.name, prefab.name));
 		}
+
+		if (this.tag != prefab.tag) {
+			Debug.LogError(string.Format("Corresponding pocketables must have the same tag, not true for {0} and {1}", this.name, prefab.name));
+		}
 	}
 }

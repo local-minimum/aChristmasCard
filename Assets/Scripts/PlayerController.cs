@@ -233,13 +233,14 @@ public class PlayerController : MonoBehaviour {
 		return placeInEmptySlot(thing.tag == "batteries" ? batteryPositions : inventoryPositions, pocketThing);
 	}
 
-	public void Drop(GameObject thing) {
+	public GameObject Drop(GameObject thing) {
 		foreach (Transform t in (thing.tag == "battery" ? batteryPositions : inventoryPositions)) {
 			if (thing.transform.IsChildOf(t)) {
 				Destroy(thing.gameObject, 0.5f);
-				return;
+				return thing.GetComponent<Pocketable>().GetCorresponding();
 			}
 		}
+		return null;
 	}
 
 }
