@@ -21,6 +21,10 @@ public class PlayerController : MonoBehaviour {
 	public float maxVelocity = 1f;
 	
 	private Room _room = null;
+	
+	public List<Transform> inventoryPositions = new List<Transform>();
+	public List<Transform> batteryPositions = new List<Transform>();
+	public GameObject uiBatteryPrefab;
 
 	public Room room {
 		get {
@@ -204,6 +208,37 @@ public class PlayerController : MonoBehaviour {
 	public bool hasLight {
 		get {
 			return false;
+		}
+	}
+
+	private bool placeInEmptySlot(List<Transform> slots, Pocketable item) {
+		foreach (Transform t in slots) {
+			if (t.childCount == 0) {
+				item.GetCorresponding().transform.SetParent(t);
+				Destroy(item.gameObject, 0.5f);
+				return true;
+			}
+		}
+		return false;
+	}
+
+	                                                                    
+	public bool PickUp(GameObject thing) {
+		Pocketable pocketThing = thing.GetComponent<Pocketable>();
+
+		//Can thing be placed in inventory
+		if (pocketThing == null || pocketThing.version != Pocketable.InstanceType.WORLD)
+			return false;
+
+		return placeInEmptySlot(thing.tag == "batteries" ? batteryPositions : inventoryPositions, pocketThing);
+	}
+
+	public void Drop(GameObject thing) {
+		foreach (Transform t in (thing.tag == "battery" ? batteryPositions : inventoryPositions)) {
+			if (thing.transform.IsChildOf(t)) {
+				Destroy(thing.gameObject, 0.5f);
+				return;
+			}
 		}
 	}
 

@@ -52,4 +52,13 @@ public class InterestPointRadio : InterestPointRestricted {
 		player.Learn(words[station]);
 		allowNext = true;
 	}
+
+	public override void Apply (PlayerController player, GameObject tool)
+	{
+		if (!hasEnergy && tool.tag == "battery") {
+			player.Drop(tool);
+			hasEnergy = true;
+			//Batteries are not visible in radio thus no instanciation!
+		}
+	}
 }

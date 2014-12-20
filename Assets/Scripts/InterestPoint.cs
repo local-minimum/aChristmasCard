@@ -14,6 +14,21 @@ public class InterestPoint : MonoBehaviour {
 
 	public List<InterestPoint> connections = new List<InterestPoint>();
 
+	private Pocketable _pocketable = null;
+	private bool checkedPocketable = false;
+
+	public Pocketable pocketable {
+		get {
+			if (!checkedPocketable) {
+				_pocketable = GetComponentInParent<Pocketable>();
+				if (_pocketable && _pocketable.tag != tag)
+					_pocketable = null;
+				checkedPocketable = true;
+			}
+			return _pocketable;
+		}
+	}
+
 	public Room room {
 		get {
 			return _room;
@@ -108,11 +123,12 @@ public class InterestPoint : MonoBehaviour {
 	}
 
 	public virtual void Action(PlayerController player) {
-		Debug.Log(string.Format("{0} {1}", this, "No action"));
+
+
 	}
 
 	public virtual void Action(PlayerController player, InterestPoint interest) {
-		
+
 	}
 
 	public virtual void SpecificAction(PlayerController player) {
