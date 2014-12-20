@@ -45,8 +45,10 @@ public class InterestPoint : MonoBehaviour {
 
 		set {
 			_room.RemoveInterest(this);
-			value.AddInterest(this);
-			transform.parent = value.ObjectsCollector.transform;
+			if (value != null) {
+				value.AddInterest(this);
+				transform.parent = value.ObjectsCollector.transform;
+			}
 			_room = value;
 		}
 	}
@@ -141,6 +143,8 @@ public class InterestPoint : MonoBehaviour {
 	}
 
 	public virtual void SpecificAction(PlayerController player) {
+		if (pocketable && player.PickUp(this))
+			return;
 		Debug.Log(string.Format("{0} {1}", this, "No specific action"));
 	}
 

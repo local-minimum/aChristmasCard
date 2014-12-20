@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour {
 	
 	public List<Transform> inventoryPositions = new List<Transform>();
 	public List<Transform> batteryPositions = new List<Transform>();
-	public GameObject uiBatteryPrefab;
 
 	public Room room {
 		get {
@@ -162,8 +161,12 @@ public class PlayerController : MonoBehaviour {
 
 		if (!inTransition)
 			return true;
+		if (walkPath.Count < 2) {
+			inTransition = false;
+			return true;
+		}
 
-		bool arrived = CheckProximity(walkPath[1].transform.position,nextIsWalkTarget);
+		bool arrived =  CheckProximity(walkPath[1].transform.position,nextIsWalkTarget);
 
 		if (arrived)
 			ArrivedAt(walkPath[1]);
@@ -187,8 +190,6 @@ public class PlayerController : MonoBehaviour {
 			target.Action(this, pt);
 			return;
 		}
-//		if (target == pt)
-//			return;
 
 		target = pt;
 	}
@@ -211,30 +212,35 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	private bool placeInEmptySlot(List<Transform> slots, Pocketable item) {
+	private bool placeInEmptySlot(List<Transform> slots, InterestPoint item) {
 		foreach (Transform t in slots) {
 			if (t.childCount == 0) {
-				item.GetCorresponding().transform.SetParent(t);
-				Destroy(item.gameObject, 0.5f);
+				item.room = null;
+				GameObject uiItem = item.pocketable.GetCorresponding();
+				uiItem.transform.SetParent(t);
+				RectTransform rt = uiItem.GetComponent<RectTransform>();
+				rt.anchoredPosition = Vector2.zero;
+				rt.rotation = Quaternion.identity;
+				Destroy(item.pocketable.gameObject, 0.5f);
 				return true;
 			}
+			Debug.Log(string.Format("{0} {1}", t, t.childCount));
 		}
 		return false;
 	}
 
 	                                                                    
-	public bool PickUp(GameObject thing) {
-		Pocketable pocketThing = thing.GetComponent<Pocketable>();
-
+	public bool PickUp(InterestPoint thing) {
+		Debug.Log("Checking thing");
 		//Can thing be placed in inventory
-		if (pocketThing == null || pocketThing.version != Pocketable.InstanceType.WORLD)
+		if (thing.pocketable == null || thing.pocketable.version != Pocketable.InstanceType.WORLD)
 			return false;
-
-		return placeInEmptySlot(thing.tag == "batteries" ? batteryPositions : inventoryPositions, pocketThing);
+		Debug.Log("Thing of right sort");
+		return placeInEmptySlot(thing.tag == "Battery" ? batteryPositions : inventoryPositions, thing);
 	}
 
 	public GameObject Drop(GameObject thing) {
-		foreach (Transform t in (thing.tag == "battery" ? batteryPositions : inventoryPositions)) {
+		foreach (Transform t in (thing.tag == "Battery" ? batteryPositions : inventoryPositions)) {
 			if (thing.transform.IsChildOf(t)) {
 				Destroy(thing.gameObject, 0.5f);
 				return thing.GetComponent<Pocketable>().GetCorresponding();
