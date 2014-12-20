@@ -3,12 +3,13 @@ using System.Collections;
 using UnityEditor;
 
 [CustomEditor(typeof(InterestPointRestricted))]
-public class InterestPointRestricedEditor : InterestPointEditor {
+public class InterestPointRestricedEditor : Editor {
 	
 	
 	public override void OnInspectorGUI ()
 	{
 		
 		base.OnInspectorGUI ();
+		InterestPointEditor.BasicStatus((InterestPoint) target);
 	}
 }

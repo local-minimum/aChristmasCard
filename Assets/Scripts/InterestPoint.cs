@@ -148,14 +148,17 @@ public class InterestPoint : MonoBehaviour {
 		Debug.Log(string.Format("{0} {1}", this, "No specific action"));
 	}
 
-	public virtual void Apply(PlayerController player, GameObject tool) {
+	public virtual bool Apply(PlayerController player, GameObject tool) {
 
 		DropPosition[] empties = dropPositions.Where(p => p.CanTake(tool)).ToArray();
 
 		if (empties.Length > 0) {
 			if (!empties[Random.Range(0, empties.Length - 1)].Place(player.Drop(tool)))
 				Debug.LogError(string.Format("{0} was lost because of {1}", tool.name, name));
-			return;
+
+			return true;
 		}
+
+		return false;
 	}
 }

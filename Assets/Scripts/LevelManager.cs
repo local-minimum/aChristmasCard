@@ -48,8 +48,16 @@ public class LevelManager : Singleton<LevelManager> {
 	
 	// Update is called once per frame
 	void Update () {
-		if (uiView)
+		if (uiView) {
+			Screen.showCursor = true;
 			return;
+		} else 	if (player.cursor) {
+			player.cursor.position = Input.mousePosition;
+			Screen.showCursor = false;
+		} else {
+			Screen.showCursor = true;
+		}
+
 
 		if (player.moveable)
 			mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, player.room.cameraPosition, cameraSmoothness);

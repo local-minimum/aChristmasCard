@@ -7,7 +7,7 @@ public class DropPosition : MonoBehaviour {
 	public string[] allowPocketableTags;
 
 	void Start() {
-		if (allowPocketableTags == null) {
+		if (allowPocketableTags.Length == 0) {
 			allowPocketableTags = FindObjectsOfType<Pocketable>().Select(p => p.tag).Distinct().ToArray();
 		}
 	}
@@ -18,8 +18,8 @@ public class DropPosition : MonoBehaviour {
 
 	public bool Place(GameObject thing) {
 		if (CanTake(thing)) {
-			thing.transform.SetParent(transform);
-			thing.transform.position = Vector3.zero;
+			thing.transform.parent = transform;
+			thing.transform.localPosition = Vector3.zero;
 			thing.transform.localRotation = Quaternion.identity;
 			return true;
 		}

@@ -41,6 +41,14 @@ public class PlayerController : MonoBehaviour {
 	private List<InterestPoint> walkPath = new List<InterestPoint>();
 
 	private float nextDistance = 0f;
+	private GameObject _using = null;
+	public Transform cursor {
+		get {
+			if (_using)
+				return _using.transform;
+			return null;
+		}
+	}
 
 	public InterestPoint target {
 		get {
@@ -172,7 +180,7 @@ public class PlayerController : MonoBehaviour {
 			ArrivedAt(walkPath[1]);
 		return arrived;
 	}
-
+	
 	void ArrivedAt(InterestPoint pt) {
 		gameObject.layer = pt.gameObject.layer;
 		room = pt.room;
@@ -181,19 +189,37 @@ public class PlayerController : MonoBehaviour {
 		if (!inTransition) {
 			rigidbody.velocity = Vector3.zero;
 //			Debug.Log(target);
-			target.Action(this);
+			if (_using != null) {
+				Debug.Log("Applying");
+				if (!target.Apply(this, _using)) {
+					Sigh();
+					StopUsing();
+				}
+			} else
+				target.Action(this);
+
 		}
 	}
 
 	public void SetInterest(InterestPoint pt) {
 		if (!moveable) {
-			target.Action(this, pt);
+			if (_using != null) {
+				Debug.Log("Applying");
+				if (!target.Apply(this, _using)) {
+					Sigh();
+					StopUsing();
+				}
+			} else
+				target.Action(this, pt);
 			return;
 		}
 
 		target = pt;
 	}
 
+	public void Sigh() {
+
+	}
 	public void Learn(string word) {
 		WordList.Instance.Learn(this, word);
 	}
@@ -249,4 +275,18 @@ public class PlayerController : MonoBehaviour {
 		return null;
 	}
 
+	public void Using(GameObject thing) {
+		if (_using == null) {
+			_using = thing;
+			_using.GetComponent<UnityEngine.UI.Button>().enabled = false;
+		}
+	}
+
+	private void StopUsing() {
+		if (_using) {
+			_using.transform.localPosition = Vector3.zero;
+			_using.GetComponent<UnityEngine.UI.Button>().enabled = false;
+			_using = null;
+		}
+	}
 }

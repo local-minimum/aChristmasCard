@@ -32,5 +32,14 @@ public class Pocketable : MonoBehaviour {
 		if (this.tag != correspondingPrefab.tag) {
 			Debug.LogError(string.Format("Corresponding pocketables must have the same tag, not true for {0} and {1}", this.name, correspondingPrefab.name));
 		}
+
+		if (this.version == InstanceType.UI && gameObject.GetComponent<UnityEngine.UI.Button>() == null)
+			Debug.LogError(string.Format("UI versions of pocketables must be buttons, not so for {0}", this.name));
+	}
+
+	public void SetPlayerUsing () {
+		if (version == InstanceType.UI) {
+			LevelManager.Instance.player.Using(gameObject);
+		}
 	}
 }

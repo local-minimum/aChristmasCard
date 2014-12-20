@@ -53,11 +53,14 @@ public class InterestPointRadio : InterestPointRestricted {
 		allowNext = true;
 	}
 
-	public override void Apply (PlayerController player, GameObject tool)
+	public override bool Apply (PlayerController player, GameObject tool)
 	{
 		if (!hasEnergy && tool.tag == "battery") {
 			player.Drop(tool);
 			hasEnergy = true;
+			return true;
 		}
+		return false;
 	}
+	
 }

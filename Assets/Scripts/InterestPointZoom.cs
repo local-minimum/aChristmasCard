@@ -7,7 +7,11 @@ public class InterestPointZoom : InterestPoint {
 	public Transform zoomPosition;
 	bool zoomed = false;
 
-	public List<InterestPoint> children = new List<InterestPoint>();
+	public InterestPoint[] children {
+		get {
+			return GetComponentsInChildren<InterestPoint>();
+		}
+	}
 
 	public override void Action(PlayerController player) {
 //		Debug.Log("ZoomAction");
