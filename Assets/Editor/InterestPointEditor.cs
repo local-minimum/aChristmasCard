@@ -14,12 +14,16 @@ public class InterestPointEditor : Editor {
 	}
 
 	public static void BasicStatus (InterestPoint myTarget){
+		InterestPointEditor.BasicStatus(myTarget, "");
+	}
+
+	public static void BasicStatus (InterestPoint myTarget, string details){
 
 		EditorGUILayout.LabelField("Status:");
 		EditorGUI.indentLevel += 1;
 		EditorGUILayout.TextArea(string.Format(
-			"Object in room:\t{0}\nTotal slots:\t\t{1}\nPocketable:\t{2}", 
-			myTarget.room, myTarget.dropPositions.Count, myTarget.pocketable != null));
+			"Object in room:\t{0}\nTotal slots:\t\t{1}\nPocketable:\t{2}\n{3}", 
+			myTarget.room, myTarget.dropPositions.Count, myTarget.pocketable != null, details));
 		EditorGUI.indentLevel -= 1;
 	}
 }

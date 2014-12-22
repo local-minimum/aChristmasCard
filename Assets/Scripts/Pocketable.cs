@@ -12,6 +12,13 @@ public class Pocketable : MonoBehaviour {
 		return (GameObject) Instantiate(correspondingPrefab);
 	}
 
+//	Vector3 _initialLocalScale;
+//	public Vector3 localScale {
+//		get {
+//
+//		}
+//	}
+
 	void Start() {
 		if (correspondingPrefab == null) {
 			Debug.LogError(string.Format("There must be a prefab to all pocketables, not present in {0}", this.name));
