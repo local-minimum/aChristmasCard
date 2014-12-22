@@ -268,7 +268,7 @@ public class PlayerController : MonoBehaviour {
 	public GameObject Drop(GameObject thing) {
 		foreach (Transform t in (thing.tag == "Battery" ? batteryPositions : inventoryPositions)) {
 			if (thing.transform.IsChildOf(t)) {
-				Destroy(thing.gameObject, 0.5f);
+				Destroy(thing.gameObject, 0.1f);
 				return thing.GetComponent<Pocketable>().GetCorresponding();
 			}
 		}
