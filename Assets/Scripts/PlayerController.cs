@@ -230,8 +230,10 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void Sigh() {
-
+		iTween.PunchRotation(LevelManager.Instance.mainCamera.gameObject,
+		                     iTween.Hash("z", 5f, "duration", 0.5f)); 
 	}
+
 	public void Learn(string word) {
 		WordList.Instance.Learn(this, word);
 	}
@@ -304,7 +306,7 @@ public class PlayerController : MonoBehaviour {
 	private void StopUsing() {
 		if (_using) {
 			_using.transform.localPosition = Vector3.zero;
-			_using.GetComponent<UnityEngine.UI.Button>().enabled = false;
+			_using.GetComponent<UnityEngine.UI.Button>().enabled = true;
 			_using = null;
 		}
 	}
