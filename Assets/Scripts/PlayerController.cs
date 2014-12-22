@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour {
 	public Vector3 offset;
 
 	private List<InterestPoint> walkPath = new List<InterestPoint>();
-
+	private bool _nextNotApply = false;
 	private float nextDistance = 0f;
 	private GameObject _using = null;
 	public Transform cursor {
@@ -189,28 +189,40 @@ public class PlayerController : MonoBehaviour {
 		if (!inTransition) {
 			rigidbody.velocity = Vector3.zero;
 //			Debug.Log(target);
-			if (_using != null) {
-				Debug.Log("Applying");
-				if (!target.Apply(this, _using)) {
+			if (_using != null && !_nextNotApply) {
+				InterestPoint.ApplyResults ar = target.Apply(this, _using);
+				Debug.Log(string.Format("Attempt to apply {0} on {1} gave {2}", _using.name, target.name, ar));
+				if (ar == InterestPoint.ApplyResults.REFUSED) {
 					Sigh();
 					StopUsing();
+				} else if (ar == InterestPoint.ApplyResults.REQUEST_ACTION) {
+					_nextNotApply = true;
+					target.Action(this);
 				}
-			} else
+			} else {
+				_nextNotApply = false;
 				target.Action(this);
+			}
 
 		}
 	}
 
 	public void SetInterest(InterestPoint pt) {
 		if (!moveable) {
-			if (_using != null) {
-				Debug.Log("Applying");
-				if (!target.Apply(this, _using)) {
+			if (_using != null && !_nextNotApply) {
+				InterestPoint.ApplyResults ar = target.Apply(this, _using, pt);
+				Debug.Log(string.Format("Attempt to apply {0} on {1} gave {2}", _using.name, target.name, ar));
+				if (ar == InterestPoint.ApplyResults.REFUSED) {
 					Sigh();
 					StopUsing();
+				} else if (ar == InterestPoint.ApplyResults.REQUEST_ACTION) {
+					_nextNotApply = true;
+					target.Action(this, pt);
 				}
-			} else
+			} else {
+				_nextNotApply = false;
 				target.Action(this, pt);
+			}
 			return;
 		}
 

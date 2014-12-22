@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 public class InterestPointRadio : InterestPointRestricted {
-
+	 
 
 	public AudioSource audioSource;
 
@@ -53,14 +53,16 @@ public class InterestPointRadio : InterestPointRestricted {
 		allowNext = true;
 	}
 
-	public override bool Apply (PlayerController player, GameObject tool)
+	public override ApplyResults Apply (PlayerController player, GameObject tool)
 	{
-		if (!hasEnergy && tool.tag == "battery") {
+		if (!hasEnergy && tool.tag == "Battery") {
+			if (player.target != restriction)
+				return ApplyResults.REQUEST_ACTION;
 			player.Drop(tool);
 			hasEnergy = true;
-			return true;
+			return ApplyResults.ACCEPTED;
 		}
-		return false;
+		return ApplyResults.REFUSED;
 	}
 	
 }

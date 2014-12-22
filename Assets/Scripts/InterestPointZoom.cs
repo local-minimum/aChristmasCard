@@ -27,6 +27,13 @@ public class InterestPointZoom : InterestPoint {
 		}
 	}
 
+	public override ApplyResults Apply (PlayerController player, GameObject tool, InterestPoint interest)
+	{
+		if (children.Contains(interest))
+			return interest.Apply(player, tool);
+		return ApplyResults.REFUSED;
+	}
+
 	public override void SpecificAction(PlayerController player){
 //		Debug.Log(string.Format("{0} zoomed: {1}", this, zoomed));
 		if (!zoomed) {

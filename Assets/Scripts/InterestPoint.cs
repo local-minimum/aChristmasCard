@@ -4,6 +4,8 @@ using System.Linq;
 
 public class InterestPoint : MonoBehaviour {
 
+	public enum ApplyResults {REFUSED, ACCEPTED, REQUEST_ACTION}
+
 	private Room _room;
 
 	public bool editMode = false;
@@ -150,7 +152,7 @@ public class InterestPoint : MonoBehaviour {
 		Debug.Log(string.Format("{0} {1}", this, "No specific action"));
 	}
 
-	public virtual bool Apply(PlayerController player, GameObject tool) {
+	public virtual ApplyResults Apply(PlayerController player, GameObject tool) {
 
 		DropPosition[] empties = dropPositions.Where(p => p.CanTake(tool)).ToArray();
 
@@ -158,10 +160,14 @@ public class InterestPoint : MonoBehaviour {
 			if (!empties[Random.Range(0, empties.Length - 1)].Place(player.Drop(tool)))
 				Debug.LogError(string.Format("{0} was lost because of {1}", tool.name, name));
 
-			return true;
+			return ApplyResults.ACCEPTED;
 		}
 
-		return false;
+		return ApplyResults.REFUSED;
+	}
+
+	public virtual ApplyResults Apply(PlayerController player, GameObject tool, InterestPoint interest) {
+		return ApplyResults.REFUSED;
 	}
 
 	public virtual void AttachingTo(GameObject parent) {
