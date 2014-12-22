@@ -161,4 +161,14 @@ public class InterestPoint : MonoBehaviour {
 
 		return false;
 	}
+
+	public virtual void AttachingTo(GameObject parent) {
+		if (connections.Count == 0 && viewedFrom == null) {
+			InterestPoint ip = parent.GetComponentInParent<InterestPoint>();
+			if (ip.viewedFrom != null)
+				viewedFrom = ip.viewedFrom;
+			else
+				viewedFrom = ip;
+		}
+	}
 }

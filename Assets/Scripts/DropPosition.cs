@@ -23,6 +23,7 @@ public class DropPosition : MonoBehaviour {
 				c.gameObject.layer = LevelManager.Instance.player.room.ObjectsCollector.layer;
 			thing.transform.localPosition = Vector3.zero;
 			thing.transform.localRotation = Quaternion.identity;
+			thing.BroadcastMessage("AttachingTo", gameObject, SendMessageOptions.DontRequireReceiver);
 			return true;
 		}
 		return false;

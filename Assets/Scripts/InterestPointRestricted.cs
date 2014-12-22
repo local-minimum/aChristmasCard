@@ -12,4 +12,10 @@ public class InterestPointRestricted : InterestPoint {
 
 	}
 
+	public override void AttachingTo (GameObject parent)
+	{
+		base.AttachingTo (parent);
+		restriction = parent.GetComponentInParent<InterestPoint>();
+	}
+
 }
