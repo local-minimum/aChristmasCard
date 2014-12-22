@@ -8,12 +8,6 @@ AnimatorController:
   m_Name: player
   serializedVersion: 2
   m_AnimatorParameters:
-  - m_Name: velocity
-    m_Type: 1
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
   - m_Name: west
     m_Type: 9
     m_DefaultFloat: 0
@@ -33,6 +27,12 @@ AnimatorController:
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   - m_Name: south
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: still
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -122,8 +122,8 @@ Transition:
   m_TransitionDuration: .100000001
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 4
-    m_ConditionEvent: velocity
+  - m_ConditionMode: 1
+    m_ConditionEvent: still
     m_EventTreshold: .00100000005
     m_ExitTime: .899999976
   m_Atomic: 1
@@ -189,7 +189,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: df8f4e93a842f7840ba5ebebfc390e5e, type: 2}
+  - {fileID: 7400000, guid: b6372b154fd306749bb568b11cc3dfa1, type: 2}
   m_ParentStateMachine: {fileID: 110756452}
   m_Position: {x: 204, y: -12, z: 0}
   m_IKOnFeet: 0
@@ -204,7 +204,7 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: b6372b154fd306749bb568b11cc3dfa1, type: 2}
+  - {fileID: 7400000, guid: df8f4e93a842f7840ba5ebebfc390e5e, type: 2}
   m_ParentStateMachine: {fileID: 110756452}
   m_Position: {x: 204, y: 156, z: 0}
   m_IKOnFeet: 0
@@ -242,6 +242,18 @@ StateMachine:
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
+    data:
+      first: {fileID: 110294062}
+      second: []
+    data:
+      first: {fileID: 110204320}
+      second: []
+    data:
+      first: {fileID: 110230926}
+      second: []
+    data:
+      first: {fileID: 110267968}
+      second: []
     data:
       first: {fileID: 0}
       second:

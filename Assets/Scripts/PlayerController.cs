@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour {
 
+	public enum PlayerDirections {N, NW, W, SW, S, SE, E, NE, UP, DOWN, NONE};
+
 	[Range(0, 4)]
 	public float arriveIntermediate = 1f;
 
@@ -42,6 +44,39 @@ public class PlayerController : MonoBehaviour {
 	private bool _nextNotApply = false;
 	private float nextDistance = 0f;
 	private GameObject _using = null;
+	private Animator anim;
+
+	public PlayerDirections currentDirection {
+		get {
+			Vector3 v = rigidbody.velocity.normalized;
+
+			if (rigidbody.velocity.magnitude < 0.001f)
+				return PlayerDirections.NONE;
+			else if (v.y > 0.001f)
+				return PlayerDirections.UP;
+			else if (v.y < -0.001f)
+				return PlayerDirections.DOWN;
+
+			int a = Mathf.RoundToInt((Vector3.Angle(-Vector3.right, v) - 180) / 45);
+			if (a == 0)
+				return PlayerDirections.E;
+			else if (a == 1)
+				return PlayerDirections.NE;
+			else if (a == 2)
+				return PlayerDirections.N;
+			else if (a == 3)
+				return PlayerDirections.NW;
+			else if (a == -1)
+				return PlayerDirections.SE;
+			else if (a == -2)
+				return PlayerDirections.S;
+			else if (a == -3)
+				return PlayerDirections.SW;
+
+			return PlayerDirections.W;
+		}
+	}
+
 	public Transform cursor {
 		get {
 			if (_using)
@@ -132,12 +167,14 @@ public class PlayerController : MonoBehaviour {
 		SetTargetPath(room.GetWalkingPointClosestTo(transform.position));
 		ArrivedAt(location);
 		transform.position = location.transform.position + offset;
-//		foundWordsUI = GetComponentInChildren<FoundWords>();
+		anim = GetComponent<Animator>();
 	}
 	
 
 	// Update is called once per frame
 	void Update () {
+		SetPlayerDirection();
+
 		if (LevelManager.Instance.uiView || playerLocked)
 			return;
 
@@ -147,10 +184,45 @@ public class PlayerController : MonoBehaviour {
 		Move(aim);
 	}
 
+	private void SetPlayerDirection() {
+		switch (currentDirection) {
+			case PlayerDirections.NONE:
+				anim.SetTrigger("still");
+				break;
+			case PlayerDirections.E:
+				anim.SetTrigger("east");
+				break;
+			case PlayerDirections.W:
+				anim.SetTrigger("west");
+				break;
+			case PlayerDirections.N:
+				anim.SetTrigger("north");
+				break;
+			case PlayerDirections.S:
+				anim.SetTrigger("south");
+				break;
+			case PlayerDirections.NE:
+				anim.SetTrigger("east");
+				break;
+			case PlayerDirections.SE:
+				anim.SetTrigger("east");
+				break;
+			case PlayerDirections.NW:
+				anim.SetTrigger("west");
+				break;
+			case PlayerDirections.SW:
+				anim.SetTrigger("west");
+				break;
+
+
+		}
+	}
+
 	public void Move(Vector3 aim) {
 		
 		rigidbody.AddForce(aim * force * Time.deltaTime, ForceMode.Force);
 		rigidbody.velocity = Vector3.ClampMagnitude(rigidbody.velocity, maxVelocity);
+
 	}
 
 	public bool CheckProximity(Vector3 other, bool nextIsWalkTarget) {
