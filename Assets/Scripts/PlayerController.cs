@@ -256,10 +256,17 @@ public class PlayerController : MonoBehaviour {
 				item.room = null;
 				GameObject uiItem = item.pocketable.GetCorresponding();
 				uiItem.transform.SetParent(t);
-				RectTransform rt = uiItem.GetComponent<RectTransform>();
-				rt.anchoredPosition = Vector2.zero;
-				rt.rotation = Quaternion.identity;
-				Destroy(item.pocketable.gameObject, 0.5f);
+//				RectTransform rt = uiItem.GetComponent<RectTransform>();
+//				rt.anchoredPosition = Vector2.zero;
+//				rt.rotation = Quaternion.identity;
+				uiItem.transform.rotation = Quaternion.identity;
+				uiItem.transform.position = LevelManager.Instance.mainCamera.WorldToScreenPoint(item.transform.position);
+				iTween.MoveTo(uiItem.gameObject,
+				              iTween.Hash("position", t.position,
+				            			  "space", Space.World,
+				            			"duration", 1f,
+				            "easetype", iTween.EaseType.easeOutBounce));
+				Destroy(item.pocketable.gameObject, 0.1f);
 				return true;
 			}
 			Debug.Log(string.Format("{0} {1}", t, t.childCount));
