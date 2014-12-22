@@ -44,10 +44,12 @@ public class InterestPoint : MonoBehaviour {
 		}
 
 		set {
-			_room.RemoveInterest(this);
+			if (_room)
+				_room.RemoveInterest(this);
 			if (value != null) {
 				value.AddInterest(this);
-				transform.parent = value.ObjectsCollector.transform;
+				if (!GetComponentsInParent<Transform>().Contains(value.ObjectsCollector.transform))
+					transform.parent = value.ObjectsCollector.transform;
 			}
 			_room = value;
 		}
@@ -170,5 +172,6 @@ public class InterestPoint : MonoBehaviour {
 			else
 				viewedFrom = ip;
 		}
+		room = parent.GetComponentInParent<Room>();
 	}
 }
