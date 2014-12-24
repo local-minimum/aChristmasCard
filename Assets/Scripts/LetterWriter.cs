@@ -8,7 +8,7 @@ public class LetterWriter : Singleton<LetterWriter> {
 
 	public void ShowLetterView() {
 		wordbookAnimator.SetTrigger("Show");
-		LevelManager.Instance.uiView = true;
+		LevelManager.Instance.SetUIFocus(gameObject);
 		WorldListUI.Instance.DisplayCurrentPage();
 	}
 
@@ -19,6 +19,6 @@ public class LetterWriter : Singleton<LetterWriter> {
 
 	IEnumerator<WaitForSeconds> DelayEnablePlay() {
 		yield return new WaitForSeconds(delayBeforePlay);
-		LevelManager.Instance.uiView = false;
+		LevelManager.Instance.RemoveUIFocus(gameObject);
 	}
 }

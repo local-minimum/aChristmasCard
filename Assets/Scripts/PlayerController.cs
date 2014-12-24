@@ -283,7 +283,7 @@ public class PlayerController : MonoBehaviour {
 		if (!moveable) {
 			if (_using != null && !_nextNotApply) {
 				InterestPoint.ApplyResults ar = target.Apply(this, _using, pt);
-				Debug.Log(string.Format("Attempt to apply {0} on {1} gave {2}", _using.name, target.name, ar));
+				Debug.Log(string.Format("Attempt to apply {0} on {1} via {2} gave {3}", _using.name, pt.name, target.name, ar));
 				if (ar == InterestPoint.ApplyResults.REFUSED) {
 					Sigh();
 					StopUsing();
@@ -359,10 +359,14 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public GameObject Drop(GameObject thing) {
+		return Drop(thing, true);
+	}
+
+	public GameObject Drop(GameObject thing, bool getCorresponding) {
 		foreach (Transform t in (thing.tag == "Battery" ? batteryPositions : inventoryPositions)) {
 			if (thing.transform.IsChildOf(t)) {
 				Destroy(thing.gameObject, 0.1f);
-				return thing.GetComponent<Pocketable>().GetCorresponding();
+				return getCorresponding ? thing.GetComponent<Pocketable>().GetCorresponding() : null;
 			}
 		}
 		return null;

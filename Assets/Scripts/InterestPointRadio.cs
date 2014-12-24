@@ -15,7 +15,8 @@ public class InterestPointRadio : InterestPointRestricted {
 
 	public bool hasEnergy = false;
 
-	void Start() {
+	new void Start() {
+		base.Start();
 		while (words.Count < stations.Count)
 			words.Add("");
 	}
@@ -58,7 +59,7 @@ public class InterestPointRadio : InterestPointRestricted {
 		if (!hasEnergy && tool.tag == "Battery") {
 			if (player.target != restriction)
 				return ApplyResults.REQUEST_ACTION;
-			player.Drop(tool);
+			player.Drop(tool, false);
 			hasEnergy = true;
 			return ApplyResults.ACCEPTED;
 		}

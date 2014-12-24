@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class LevelManager : Singleton<LevelManager> {
 
@@ -28,16 +29,13 @@ public class LevelManager : Singleton<LevelManager> {
 		}
 	}
 	
-	private bool _uiView = false;
+	private HashSet<GameObject> _uiView = new HashSet<GameObject>();
 	
 	public bool uiView {
 		get {
-			return _uiView;
+			return _uiView.Any();
 		}
-		set {
-			//TODO: Remove hover effects
-			_uiView = value;
-		}
+
 	}
 	// Use this for initialization
 	void Start () {
@@ -65,5 +63,12 @@ public class LevelManager : Singleton<LevelManager> {
 			mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, player.room.zoomPosition, cameraSmoothness);
 	}
 
+	public void SetUIFocus(GameObject ui) {
+		_uiView.Add(ui);
+	}
+
+	public void RemoveUIFocus(GameObject ui) {
+		_uiView.Remove(ui);
+	}
 
 }

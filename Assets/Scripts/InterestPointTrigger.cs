@@ -14,7 +14,8 @@ public class InterestPointTrigger : InterestPoint {
 	private int addToNext = 1;
 
 
-	void Start() {
+	new void Start() {
+		base.Start();
 		if (animator == null)
 			animator = GetComponentInParent<Animator>();
 	}

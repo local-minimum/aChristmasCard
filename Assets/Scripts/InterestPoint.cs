@@ -61,6 +61,17 @@ public class InterestPoint : MonoBehaviour {
 	protected void Awake () {
 		_room = gameObject.GetComponentInParent<Room>();
 	}
+
+	protected void Start() {
+		if (connections.Count() == 0 && viewedFrom == null && transform.parent != null) {
+			InterestPoint ip = transform.parent.GetComponentInParent<InterestPoint>();
+			if (ip && ip.walkingPoint)
+				viewedFrom = ip;
+			else if (ip)
+				viewedFrom = ip.viewedFrom;
+
+		}
+	}
 	
 	// Update is called once per frame
 	void Update () {
