@@ -26,4 +26,8 @@ public class WordUI : UIitem {
 	public void SetWord(Word word) {
 		currentWord = word;
 	}
+
+	public void DragMe() {
+		LetterWriter.Instance.currentWord = this;
+	}
 }

@@ -77,6 +77,7 @@ public class LevelManager : Singleton<LevelManager> {
 
 	public T UIwithFocusByType<T>() where T : UnityEngine.Component {
 		GameObject uiGO = _uiView.Where(gO => gO.GetComponent<T>() != null).FirstOrDefault();
+		Debug.Log(string.Format("Current UI focus ({0}): {1}", _uiView.Count(), string.Join(", ", _uiView.Select(gO => gO.name).ToArray())));
 		if (uiGO != null) 
 			return uiGO.GetComponent<T>();
 		return null;

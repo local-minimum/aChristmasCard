@@ -47,7 +47,7 @@ public class WorldListUI : Singleton<WorldListUI> {
 		Color c = btn.image.color;
 		c.a = alpha;
 		btn.image.color = c;
-		btn.enabled = (alpha == 0);
+		btn.enabled = (alpha != 0);
 	}
 
 
