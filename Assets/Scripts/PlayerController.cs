@@ -379,7 +379,7 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	private void StopUsing() {
+	public void StopUsing() {
 		if (_using) {
 			_using.transform.localPosition = Vector3.zero;
 			_using.GetComponent<UnityEngine.UI.Button>().enabled = true;

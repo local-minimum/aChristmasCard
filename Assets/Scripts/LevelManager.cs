@@ -74,4 +74,11 @@ public class LevelManager : Singleton<LevelManager> {
 	public bool UIhasFocus(GameObject ui) {
 		return _uiView.Contains(ui);
 	}
+
+	public T UIwithFocusByType<T>() where T : UnityEngine.Component {
+		GameObject uiGO = _uiView.Where(gO => gO.GetComponent<T>() != null).FirstOrDefault();
+		if (uiGO != null) 
+			return uiGO.GetComponent<T>();
+		return null;
+	}
 }

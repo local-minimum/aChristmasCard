@@ -5,12 +5,20 @@ public class DropPositionWord : MonoBehaviour {
 
 	private UnityEngine.UI.Image img;
 	public string word;
+	private bool _knownWord = false;
+
+	public bool knownWord {
+		get {
+			return _knownWord;
+		}
+	}
 
 	void Start() {
 		img = GetComponent<UnityEngine.UI.Image>();
 		Word wrd = WordList.Instance.GetWord(word);
 		if (wrd != null) {
-			if (SaveState.Instance.GetSolvedLetterWord(word))
+			_knownWord = SaveState.Instance.GetSolvedLetterWord(word);
+			if (_knownWord)
 				img.sprite = wrd.knownVersion;
 			else
 				img.sprite = wrd.unknownVersion;
