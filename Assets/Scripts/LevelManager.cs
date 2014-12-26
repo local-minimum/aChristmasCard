@@ -12,6 +12,18 @@ public class LevelManager : Singleton<LevelManager> {
 	private PlayerController _player;
 	public Camera mainCamera;
 
+	public static PlayerController Player {
+		get {
+			return instance.player;
+		}
+	}
+
+	public static Camera MainCamera {
+		get {
+			return instance.mainCamera;
+		}
+	}
+
 //	public Texture2D mouseCursor;
 
 	public PlayerController player {

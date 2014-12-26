@@ -302,7 +302,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void Sigh() {
-		iTween.PunchRotation(LevelManager.Instance.mainCamera.gameObject,
+		iTween.PunchRotation(LevelManager.MainCamera.gameObject,
 		                     iTween.Hash("z", 5f, "duration", 0.5f)); 
 	}
 
@@ -334,7 +334,7 @@ public class PlayerController : MonoBehaviour {
 //				rt.anchoredPosition = Vector2.zero;
 //				rt.rotation = Quaternion.identity;
 				uiItem.transform.rotation = Quaternion.identity;
-				uiItem.transform.position = LevelManager.Instance.mainCamera.WorldToScreenPoint(item.transform.position);
+				uiItem.transform.position = LevelManager.MainCamera.WorldToScreenPoint(item.transform.position);
 				iTween.MoveTo(uiItem.gameObject,
 				              iTween.Hash("position", t.position,
 				            			  "space", Space.World,

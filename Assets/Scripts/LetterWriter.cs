@@ -16,7 +16,7 @@ public class LetterWriter : Singleton<LetterWriter> {
 		set {
 			_currentWord = value;
 			placingWord = true;
-			LevelManager.Instance.player.Using(value.gameObject);
+			LevelManager.Player.Using(value.gameObject);
 		}
 	}
 
@@ -63,7 +63,7 @@ public class LetterWriter : Singleton<LetterWriter> {
 				} else
 					Debug.Log(string.Format("Player tried solving {0} with {1}", dropPos.word, _currentWord.word));
 			}
-			LevelManager.Instance.player.StopUsing();
+			LevelManager.Player.StopUsing();
 			placingWord = false;
 		} else {
 
