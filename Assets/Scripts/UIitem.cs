@@ -10,4 +10,5 @@ public class UIitem : MonoBehaviour {
 	void OnMouseExit() {
 		LevelManager.Instance.RemoveUIFocus(gameObject);
 	}
+
 }

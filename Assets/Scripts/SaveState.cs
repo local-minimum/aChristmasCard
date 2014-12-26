@@ -3,6 +3,7 @@ using System.Collections;
 
 public class SaveState : Singleton<SaveState> {
 
+	private string letterWord = "letterWord_{0}";
 
 	public int wordListPage {
 		get {
@@ -23,5 +24,13 @@ public class SaveState : Singleton<SaveState> {
 
 	public void ClearSaveSate() {
 		wordListPage = -1;
+	}
+
+	public void SetSolvedLetterWord(string word) {
+		PlayerPrefs.SetInt(string.Format(letterWord, word), 1);
+	}
+
+	public bool GetSolvedLetterWord(string word) {
+		return PlayerPrefs.GetInt(string.Format(letterWord, word, 0)) == 1;
 	}
 }

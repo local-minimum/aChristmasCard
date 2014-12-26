@@ -71,4 +71,7 @@ public class LevelManager : Singleton<LevelManager> {
 		_uiView.Remove(ui);
 	}
 
+	public bool UIhasFocus(GameObject ui) {
+		return _uiView.Contains(ui);
+	}
 }

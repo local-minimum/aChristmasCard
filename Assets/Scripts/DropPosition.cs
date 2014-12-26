@@ -4,16 +4,16 @@ using System.Linq;
 
 public class DropPosition : MonoBehaviour {
 
-	public string[] allowPocketableTags;
+	public string[] allowedTags;
 
-	void Start() {
-		if (allowPocketableTags.Length == 0) {
-			allowPocketableTags = FindObjectsOfType<Pocketable>().Select(p => p.tag).Distinct().ToArray();
+	protected void Start() {
+		if (allowedTags.Length == 0) {
+			allowedTags = FindObjectsOfType<Pocketable>().Select(p => p.tag).Distinct().ToArray();
 		}
 	}
 
 	public bool CanTake(GameObject thing) {
-		return transform.childCount == 0 && allowPocketableTags.Contains(thing.tag);
+		return transform.childCount == 0 && allowedTags.Contains(thing.tag);
 	}
 
 	public bool Place(GameObject thing) {

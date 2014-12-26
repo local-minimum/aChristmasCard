@@ -35,6 +35,10 @@ public class WordPage {
 		return words.Where(w => w.word == word).Any();
 	}
 
+	public Word GetWord(string word) {
+		return words.Where(w => w.word == word).FirstOrDefault();
+	}
+
 	public bool[] Knows() {
 		return words.Select(w => w.learned).ToArray();
 	}
@@ -142,4 +146,10 @@ public class WordList : Singleton<WordList> {
 		return index.ContainsKey(SaveState.Instance.wordListPage - 1);
 	}
 
+	public Word GetWord(string word) {
+		IEnumerable<WordPage> res = wordPages.Where(wp => wp.Contains(word));
+		if (res.Any())
+			return res.First().GetWord(word);
+		return null;
+	}
 }
