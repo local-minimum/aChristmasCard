@@ -3,11 +3,11 @@ using System.Collections;
 
 public class UIitem : MonoBehaviour {
 
-	void OnMouseEnter() {
+	public void OnMouseEnter() {
 		LevelManager.Instance.SetUIFocus(gameObject);
 	}
 
-	void OnMouseExit() {
+	public void OnMouseExit() {
 		LevelManager.Instance.RemoveUIFocus(gameObject);
 	}
 

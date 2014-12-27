@@ -76,6 +76,7 @@ public class LevelManager : Singleton<LevelManager> {
 	}
 
 	public void SetUIFocus(GameObject ui) {
+//		Debug.Log(string.Format("Adding {0} to {1} long focus list", ui, _uiView.Count()));
 		_uiView.Add(ui);
 	}
 
