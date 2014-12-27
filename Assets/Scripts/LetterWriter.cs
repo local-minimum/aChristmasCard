@@ -4,11 +4,49 @@ using System.Linq;
 
 public class LetterWriter : Singleton<LetterWriter> {
 
+	public static bool InLetterView {
+		get {
+			return Instance.letterView;
+		}
+	}
+
+	public static Transform Cursor {
+		get {
+			return Instance.cursor;
+		}
+	}
+
 	public Animator wordbookAnimator;
 	public float delayBeforePlay = 1f;
 	private bool letterView = false;
 	private bool placingWord = false;
 
+	private Vector3 cursorOrigin;
+	private Quaternion cursorRotation;
+	private Transform _cursor;
+	public Transform cursor {
+		get {
+			return _cursor;
+		}
+
+		set {
+
+			if (value == null && _cursor != null) {
+				cursor.position = cursorOrigin;
+				cursor.rotation = cursorRotation;
+				_cursor.gameObject.GetComponent<UnityEngine.UI.Button>().enabled = true;
+				_cursor = null;
+			} if (_cursor == null && value != null) {
+				cursorOrigin = value.position;
+				cursorRotation = value.rotation;
+				value.gameObject.GetComponent<UnityEngine.UI.Button>().enabled = false;
+				_cursor = value;
+				_cursor.rotation = Quaternion.identity;
+			} else if (_cursor != null) {
+				Debug.Log(string.Format("Letter writer cursor {0} can't be activated while using {1}", value.name, _cursor.name));
+			}
+		}
+	}
 
 	private WordUI _currentWord;
 
@@ -16,7 +54,7 @@ public class LetterWriter : Singleton<LetterWriter> {
 		set {
 			_currentWord = value;
 			placingWord = true;
-			LevelManager.Player.Using(value.gameObject);
+			cursor = value.transform;
 		}
 	}
 
@@ -63,7 +101,7 @@ public class LetterWriter : Singleton<LetterWriter> {
 				} else
 					Debug.Log(string.Format("Player tried solving {0} with {1}", dropPos.word, _currentWord.word));
 			}
-			LevelManager.Player.StopUsing();
+			cursor = null;
 			placingWord = false;
 		} else {
 

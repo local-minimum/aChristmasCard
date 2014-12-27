@@ -59,7 +59,13 @@ public class LevelManager : Singleton<LevelManager> {
 	// Update is called once per frame
 	void Update () {
 		if (uiView) {
-			Screen.showCursor = true;
+			if (LetterWriter.InLetterView) {
+				if (LetterWriter.Cursor) {
+					LetterWriter.Cursor.position = Input.mousePosition;
+					Screen.showCursor = false;
+				} else
+					Screen.showCursor = true;
+			}
 			return;
 		} else 	if (player.cursor) {
 			player.cursor.position = Input.mousePosition;

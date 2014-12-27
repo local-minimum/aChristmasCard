@@ -28,6 +28,7 @@ public class WordUI : UIitem {
 	}
 
 	public void DragMe() {
+		Debug.Log(this);
 		LetterWriter.Instance.currentWord = this;
 	}
 }
