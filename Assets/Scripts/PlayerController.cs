@@ -376,6 +376,7 @@ public class PlayerController : MonoBehaviour {
 		if (_using == null) {
 			_using = thing;
 			_using.GetComponent<UnityEngine.UI.Button>().enabled = false;
+			Screen.showCursor = false;
 		}
 	}
 
@@ -384,6 +385,7 @@ public class PlayerController : MonoBehaviour {
 			_using.transform.localPosition = Vector3.zero;
 			_using.GetComponent<UnityEngine.UI.Button>().enabled = true;
 			_using = null;
+			Screen.showCursor = true;
 		}
 	}
 }

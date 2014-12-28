@@ -104,19 +104,14 @@ public class LevelManager : Singleton<LevelManager> {
 	void Update () {
 		if (uiView) {
 			if (LetterWriter.InLetterView) {
-				if (LetterWriter.Cursor) {
+				if (LetterWriter.Cursor)
 					LetterWriter.Cursor.position = Input.mousePosition;
-					Screen.showCursor = false;
-				} else
-					Screen.showCursor = true;
+
 			}
 			return;
-		} else 	if (player.cursor) {
+		} else 	if (player.cursor)
 			player.cursor.position = Input.mousePosition;
-			Screen.showCursor = false;
-		} else {
-			Screen.showCursor = true;
-		}
+
 
 
 		if (player.moveable)
