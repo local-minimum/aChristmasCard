@@ -15,3 +15,4 @@ Graphics
 --------
 
 * Specific shader for applying words on sprite textures
+* Letter view bg should have words, one small text still, one big lettters
