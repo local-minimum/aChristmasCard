@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.UI;
 
 public class LetterWriter : Singleton<LetterWriter> {
 
@@ -15,7 +16,7 @@ public class LetterWriter : Singleton<LetterWriter> {
 			return Instance.cursor;
 		}
 	}
-
+	
 	public Animator wordbookAnimator;
 	public float delayBeforePlay = 1f;
 	private bool letterView = false;
