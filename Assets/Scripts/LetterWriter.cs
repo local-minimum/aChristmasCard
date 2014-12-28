@@ -33,7 +33,7 @@ public class LetterWriter : Singleton<LetterWriter> {
 		set {
 
 			if (value == null && _cursor != null) {
-				Screen.showCursor = false;
+//				Screen.showCursor = false;
 				cursor.position = cursorOrigin;
 				cursor.rotation = cursorRotation;
 				_cursor.gameObject.GetComponent<UnityEngine.UI.Button>().enabled = true;
@@ -46,7 +46,7 @@ public class LetterWriter : Singleton<LetterWriter> {
 				value.gameObject.GetComponent<UnityEngine.UI.Button>().enabled = false;
 				_cursor = value;
 //				_cursor.rotation = Quaternion.identity;
-				Screen.showCursor = true;
+//				Screen.showCursor = true;
 			} else if (_cursor != null) {
 				Debug.Log(string.Format("Letter writer cursor {0} can't be activated while using {1}", value.name, _cursor.name));
 			}
