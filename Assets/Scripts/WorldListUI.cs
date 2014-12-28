@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class WorldListUI : Singleton<WorldListUI> {
 
-	public UnityEngine.UI.Button[] wordButtons;
-	public UnityEngine.UI.Button nextButton;
-	public UnityEngine.UI.Button prevButton;
+	public WordUI[] wordButtons;
+	public Button nextButton;
+	public Button prevButton;
 
 	public void NextPage() {
 		SaveState.Instance.wordListPage += 1;
@@ -25,30 +26,14 @@ public class WorldListUI : Singleton<WorldListUI> {
 			return;
 		}
 
-		for (int i = 0; i<wordButtons.Length; i++) {
-			if (i < wp.words.Length) {
-				wordButtons[i].image.sprite = wp.words[i].image;
-				TweakButton(wordButtons[i], 0.9f);
-			} else {
-				TweakButton(wordButtons[i], 0);
-			}
+		for (int i = 0; i<wordButtons.Length; i++)
+			wordButtons[i].SetWord(i < wp.words.Length ? wp.words[i] : null);
 
-
-		}
 	}
 
 	private void BlankPage() {
-		for (int i=0; i< wordButtons.Length; i++) {
-			TweakButton(wordButtons[i], 0);
-		}
+		for (int i=0; i< wordButtons.Length; i++)
+			wordButtons[i].SetWord(null);
 	}
-
-	private void TweakButton(UnityEngine.UI.Button btn, float alpha) {
-		Color c = btn.image.color;
-		c.a = alpha;
-		btn.image.color = c;
-		btn.enabled = (alpha != 0);
-	}
-
 
 }

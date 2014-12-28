@@ -9484,11 +9484,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wordButtons:
-  - {fileID: 320847457}
-  - {fileID: 1578759465}
-  - {fileID: 1847291801}
-  - {fileID: 1122594279}
-  - {fileID: 1808482315}
+  - {fileID: 320847456}
+  - {fileID: 1578759464}
+  - {fileID: 1847291800}
+  - {fileID: 1122594278}
+  - {fileID: 1808482314}
   nextButton: {fileID: 338722868}
   prevButton: {fileID: 1211730204}
 --- !u!114 &2069730259

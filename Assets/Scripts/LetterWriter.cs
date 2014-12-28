@@ -37,13 +37,15 @@ public class LetterWriter : Singleton<LetterWriter> {
 				cursor.position = cursorOrigin;
 				cursor.rotation = cursorRotation;
 				_cursor.gameObject.GetComponent<UnityEngine.UI.Button>().enabled = true;
+				if (_currentWord)
+					currentWord = null;
 				_cursor = null;
 			} if (_cursor == null && value != null) {
 				cursorOrigin = value.position;
 				cursorRotation = value.rotation;
 				value.gameObject.GetComponent<UnityEngine.UI.Button>().enabled = false;
 				_cursor = value;
-				_cursor.rotation = Quaternion.identity;
+//				_cursor.rotation = Quaternion.identity;
 				Screen.showCursor = true;
 			} else if (_cursor != null) {
 				Debug.Log(string.Format("Letter writer cursor {0} can't be activated while using {1}", value.name, _cursor.name));
@@ -55,9 +57,16 @@ public class LetterWriter : Singleton<LetterWriter> {
 
 	public WordUI currentWord {
 		set {
-			_currentWord = value;
-			placingWord = true;
-			cursor = value.transform;
+			if (value == null) {
+				if (_currentWord)
+					_currentWord.UnDragMe();
+				_currentWord = value;
+				placingWord = false;
+			} else {
+				_currentWord = value;
+				placingWord = true;
+				cursor = value.transform;
+			}
 		}
 	}
 
@@ -105,7 +114,6 @@ public class LetterWriter : Singleton<LetterWriter> {
 					Debug.Log(string.Format("Player tried solving {0} with {1}", dropPos.word, _currentWord.word));
 			}
 			cursor = null;
-			placingWord = false;
 		} else {
 
 		}

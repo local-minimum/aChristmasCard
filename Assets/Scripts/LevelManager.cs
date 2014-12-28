@@ -104,8 +104,8 @@ public class LevelManager : Singleton<LevelManager> {
 	void Update () {
 		if (uiView) {
 			if (LetterWriter.InLetterView) {
-				if (LetterWriter.Cursor)
-					LetterWriter.Cursor.position = Input.mousePosition;
+//				if (LetterWriter.Cursor)
+//					LetterWriter.Cursor.position = Input.mousePosition;
 
 			}
 			return;
