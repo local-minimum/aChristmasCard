@@ -61,14 +61,17 @@ public class LevelManager : Singleton<LevelManager> {
 		if (!mainCamera)
 			mainCamera = Camera.main;
 		if (debug) {
-			debugText = AddTextUI(new Vector2(150, 100), new Vector2(10, -10), "DebugTextUI");
+			debugText = AddTextUI(new Vector2(150, 100), new Vector2(10, 10), Vector2.zero, Vector2.zero, "DebugTextUI");
 		
 		}
 //		Cursor.SetCursor(mouseCursor, Vector2.zero, CursorMode.ForceSoftware);
 	}
 
-
 	Text AddTextUI(Vector2 size, Vector2 offset, string name) {
+		return AddTextUI(size, offset, Vector2.up, Vector2.up, name);
+	}
+
+	Text AddTextUI(Vector2 size, Vector2 offset, Vector2 anchor, Vector2 pivot, string name) {
 		GameObject gO = new GameObject();
 		gO.name = name;
 		gO.transform.parent = screenCanvas.transform;
@@ -89,9 +92,9 @@ public class LevelManager : Singleton<LevelManager> {
 		t.font =  (Font) Resources.GetBuiltinResource(typeof(Font), "Arial.ttf");
 		t.color = debugFontColor;
 		RectTransform rt = gO.GetComponent<RectTransform>();
-		rt.anchorMax = Vector2.up;
-		rt.anchorMin = Vector2.up;
-		rt.pivot = Vector2.up;
+		rt.anchorMax = anchor;
+		rt.anchorMin = anchor;
+		rt.pivot = pivot;
 		rt.anchoredPosition = offset;
 		rt.sizeDelta = size;
 		return t;
