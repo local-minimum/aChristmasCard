@@ -16,3 +16,9 @@ Graphics
 
 * Specific shader for applying words on sprite textures
 * Letter view bg should have words, one small text still, one big lettters
+* Active word when solving letter neads to be clearer that it is active
+
+Game Logic
+----------
+
+* When solving word, putting word in wrong place should invoke sigh
