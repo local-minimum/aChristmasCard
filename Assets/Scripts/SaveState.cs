@@ -37,19 +37,19 @@ public class SaveState : Singleton<SaveState> {
 	}
 
 	public void SetSolvedLetterWord(string word) {
-		PlayerPrefs.SetInt(string.Format(solvedLetterWord, word), 1);
+		PlayerPrefs.SetInt(string.Format(solvedLetterWord, word.ToLower()), 1);
 	}
 
 	public bool GetSolvedLetterWord(string word) {
-		return PlayerPrefs.GetInt(string.Format(solvedLetterWord, word, 0)) == 1;
+		return PlayerPrefs.GetInt(string.Format(solvedLetterWord, word.ToLower(), 0)) == 1;
 	}
 
 	public void SetLearnedLetterWord(string word) {
-		PlayerPrefs.SetInt(string.Format(letterWord, word), 1);
+		PlayerPrefs.SetInt(string.Format(letterWord, word.ToLower()), 1);
 	}
 
 	public bool GetLearnedLetterWord(string word) {
-		return PlayerPrefs.GetInt(string.Format(letterWord, word), 0) == 1;
+		return PlayerPrefs.GetInt(string.Format(letterWord, word.ToLower()), 0) == 1;
 	}
 
 	public int GetWordListIndex(int indexInList) {
