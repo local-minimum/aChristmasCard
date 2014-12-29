@@ -159,7 +159,8 @@ public class InterestPoint : MonoBehaviour {
 	}
 
 	public virtual void Action(PlayerController player, InterestPoint interest) {
-
+		if (word != "")
+			player.Learn(word);
 	}
 
 	public virtual void SpecificAction(PlayerController player) {
