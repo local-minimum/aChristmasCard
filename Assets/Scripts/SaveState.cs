@@ -5,6 +5,17 @@ public class SaveState : Singleton<SaveState> {
 
 	private string letterWord = "letterWord_{0}";
 	private string solvedLetterWord = "letterWordSolved_{0}";
+	private string wordPageListToIndex = "wordPageListToIndex_{0}";
+
+	public static int WordListPage {
+		get {
+			return Instance.wordListPage;
+		}
+
+		set {
+			Instance.wordListPage = value;
+		}
+	}
 
 	public int wordListPage {
 		get {
@@ -37,6 +48,14 @@ public class SaveState : Singleton<SaveState> {
 
 	public bool GetLearnedLetterWord(string word) {
 		return PlayerPrefs.GetInt(string.Format(letterWord, word), 0) == 1;
+	}
+
+	public int GetWordListIndex(int indexInList) {
+		return PlayerPrefs.GetInt(string.Format(wordPageListToIndex, indexInList), -1);
+	}
+
+	public void SetWordListIndex(int indexInList, int index) {
+		PlayerPrefs.SetInt(string.Format(wordPageListToIndex, indexInList), index);
 	}
 
 	public void ClearSaveSate() {

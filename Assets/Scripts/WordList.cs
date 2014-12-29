@@ -124,6 +124,14 @@ public class WordList : Singleton<WordList> {
 		return false;
 	}
 
+	void Start() {
+		for (int i=0; i<wordPages.Count(); i++) {
+			int idX = SaveState.Instance.GetWordListIndex(i);
+			if (idX>=0)
+				index.Add(idX, wordPages[i]);
+		}
+	}
+
 	public void LearnedWordEffect() {
 
 		iTween.PunchScale(
@@ -159,22 +167,23 @@ public class WordList : Singleton<WordList> {
 			return;
 		}
 
-			index.Add(Length, page);
+		SaveState.Instance.SetWordListIndex(wordPages.IndexOf(page),Length);
+		index.Add(Length, page);
 
 	}
 
 	public WordPage CurrentPage() {
-		if (index.ContainsKey(SaveState.Instance.wordListPage))
-			return index[SaveState.Instance.wordListPage];
+		if (index.ContainsKey(SaveState.WordListPage))
+			return index[SaveState.WordListPage];
 		return null;
 	}
 
 	public bool HasNextPage() {
-		return index.ContainsKey(SaveState.Instance.wordListPage + 1);
+		return index.ContainsKey(SaveState.WordListPage + 1);
 	}
 
 	public bool HasPrevPage() {
-		return index.ContainsKey(SaveState.Instance.wordListPage - 1);
+		return index.ContainsKey(SaveState.WordListPage - 1);
 	}
 
 	public Word GetWord(string word) {
