@@ -36,14 +36,14 @@ public class LetterWriter : Singleton<LetterWriter> {
 //				Screen.showCursor = false;
 				cursor.position = cursorOrigin;
 				cursor.rotation = cursorRotation;
-				_cursor.gameObject.GetComponent<UnityEngine.UI.Button>().enabled = true;
+				_cursor.gameObject.GetComponent<Button>().enabled = true;
 				if (_currentWord)
 					currentWord = null;
 				_cursor = null;
 			} if (_cursor == null && value != null) {
 				cursorOrigin = value.position;
 				cursorRotation = value.rotation;
-				value.gameObject.GetComponent<UnityEngine.UI.Button>().enabled = false;
+				value.gameObject.GetComponent<Button>().enabled = false;
 				_cursor = value;
 //				_cursor.rotation = Quaternion.identity;
 //				Screen.showCursor = true;
@@ -108,7 +108,7 @@ public class LetterWriter : Singleton<LetterWriter> {
 			if (dropPos) {
 				if (dropPos.Apply(_currentWord)) {
 					Debug.Log(string.Format("Player solved {0}", _currentWord.word));
-					int otherPlaces = wordPositions.Where(wPos => !wPos.knownWord && wPos.Apply(_currentWord)).Count();
+					int otherPlaces = wordPositions.Where(wPos => !wPos.solvedWord && wPos.Apply(_currentWord)).Count();
 					Debug.Log(string.Format("Solved {0} other instances of {1}", otherPlaces, _currentWord.word));
 				} else
 					Debug.Log(string.Format("Player tried solving {0} with {1}", dropPos.word, _currentWord.word));

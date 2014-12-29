@@ -5,23 +5,19 @@ public class DropPositionWord : MonoBehaviour {
 
 	private UnityEngine.UI.Image img;
 	public string word;
-	private bool _knownWord = false;
+	private Word _word;
 
-	public bool knownWord {
+	public bool solvedWord {
 		get {
-			return _knownWord;
+			return _word.solved;
 		}
 	}
 
 	void Start() {
 		img = GetComponent<UnityEngine.UI.Image>();
-		Word wrd = WordList.Instance.GetWord(word);
-		if (wrd != null) {
-			_knownWord = SaveState.Instance.GetSolvedLetterWord(word);
-			if (_knownWord)
-				img.sprite = wrd.knownVersion;
-			else
-				img.sprite = wrd.unknownVersion;
+		_word = WordList.Instance.GetWord(word);
+		if (_word != null) {
+			img.sprite = _word.solutionImage;
 		} else
 			Debug.LogError(string.Format("Word {0} not known to WordList",  word));
 	}
@@ -34,7 +30,8 @@ public class DropPositionWord : MonoBehaviour {
 	public bool Apply(WordUI wordUI) {
 		if (CanTake(wordUI)) {
 			SaveState.Instance.SetSolvedLetterWord(wordUI.word);
-			img.sprite = wordUI.knownSprite;
+			_word.solved = true;
+			img.sprite = _word.solutionImage;
 			return true;
 		}
 

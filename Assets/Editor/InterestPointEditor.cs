@@ -21,9 +21,9 @@ public class InterestPointEditor : Editor {
 
 		EditorGUILayout.LabelField("Status:");
 		EditorGUI.indentLevel += 1;
-		EditorGUILayout.TextArea(string.Format(
+		EditorGUILayout.HelpBox(string.Format(
 			"Object in room:\t{0}\nTotal slots:\t\t{1}\nPocketable:\t{2}\n{3}", 
-			myTarget.room, myTarget.dropPositions.Count, myTarget.pocketable != null, details));
+			myTarget.room, myTarget.dropPositions.Count, myTarget.pocketable != null, details), MessageType.Info);
 		EditorGUI.indentLevel -= 1;
 	}
 }

@@ -5,14 +5,45 @@ using System.Linq;
 [System.Serializable]
 public class Word {
 
-	public bool learned = false;
 	public string word;
 	public Sprite unknownVersion;
 	public Sprite knownVersion;
 
+	public bool learned {
+		get {
+			return SaveState.Instance.GetLearnedLetterWord(word);
+		}
+
+		set {
+			if (value)
+				SaveState.Instance.SetLearnedLetterWord(word);
+			else
+				Debug.LogWarning("Can't unlearn words");
+		}
+	}
+
+	public bool solved {
+		get {
+			return SaveState.Instance.GetSolvedLetterWord(word);
+		}
+
+		set {
+			if (value)
+				SaveState.Instance.SetSolvedLetterWord(word);
+			else
+				Debug.LogWarning("Can't unsolve words");
+		}
+	}
+
 	public Sprite image {
 		get {
 			return learned ? knownVersion : unknownVersion;
+		}
+	}
+
+	public Sprite solutionImage {
+		get {
+			return solved ? knownVersion : unknownVersion;
 		}
 	}
 }
@@ -151,5 +182,15 @@ public class WordList : Singleton<WordList> {
 		if (res.Any())
 			return res.First().GetWord(word);
 		return null;
+	}
+
+	public IEnumerable<string> AllWords {
+		get {
+			foreach (WordPage wp in wordPages) {
+				foreach (Word w in wp.words)
+					yield return w.word;
+
+			}
+		}
 	}
 }
