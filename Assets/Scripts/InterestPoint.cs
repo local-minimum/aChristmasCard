@@ -11,6 +11,8 @@ public class InterestPoint : MonoBehaviour {
 	public bool editMode = false;
 
 	public bool walkingPoint = true;
+	
+	public string word;
 
 	public InterestPoint viewedFrom;
 
@@ -52,6 +54,7 @@ public class InterestPoint : MonoBehaviour {
 				value.AddInterest(this);
 				if (!GetComponentsInParent<Transform>().Contains(value.ObjectsCollector.transform))
 					transform.parent = value.ObjectsCollector.transform;
+				gameObject.layer = value.ObjectsCollector.layer;
 			}
 			_room = value;
 		}
@@ -59,7 +62,7 @@ public class InterestPoint : MonoBehaviour {
 
 	// Use this for initialization
 	protected void Awake () {
-		_room = gameObject.GetComponentInParent<Room>();
+		room = gameObject.GetComponentInParent<Room>();
 	}
 
 	protected void Start() {
@@ -149,7 +152,9 @@ public class InterestPoint : MonoBehaviour {
 	}
 
 	public virtual void Action(PlayerController player) {
-
+	
+		if (word != "")
+			player.Learn(word);
 
 	}
 

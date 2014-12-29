@@ -390,6 +390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editMode: 0
   walkingPoint: 0
+  word: 
   viewedFrom: {fileID: 891902195}
   connections: []
   loop: 1
@@ -446,6 +447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editMode: 0
   walkingPoint: 0
+  word: 
   viewedFrom: {fileID: 891902195}
   connections: []
   loop: 1
@@ -502,6 +504,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editMode: 1
   walkingPoint: 1
+  word: 
   viewedFrom: {fileID: 0}
   connections:
   - {fileID: 186236191}
@@ -605,6 +608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editMode: 1
   walkingPoint: 1
+  word: 
   viewedFrom: {fileID: 0}
   connections:
   - {fileID: 891902195}
@@ -792,6 +796,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editMode: 1
   walkingPoint: 1
+  word: 
   viewedFrom: {fileID: 0}
   connections:
   - {fileID: 100211953}
@@ -1912,14 +1917,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 423881947}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5be0feaa9f584ab47b4eda6922c2832a, type: 3}
+  m_Script: {fileID: 11500000, guid: 596da83a37141824ba0c5653fd4e1289, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   editMode: 1
   walkingPoint: 0
+  word: God
   viewedFrom: {fileID: 100211953}
   connections: []
-  word: God
 --- !u!1 &437580247
 GameObject:
   m_ObjectHideFlags: 0
@@ -2103,8 +2108,10 @@ Transform:
   - {fileID: 47538211}
   - {fileID: 2108517950}
   - {fileID: 1809838449}
-  m_Father: {fileID: 942032160}
-  m_RootOrder: 8
+  - {fileID: 1732312102}
+  - {fileID: 1581242360}
+  m_Father: {fileID: 2041226827}
+  m_RootOrder: 6
 --- !u!212 &447690846
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2481,7 +2488,7 @@ GameObject:
   - 33: {fileID: 540785392}
   - 23: {fileID: 540785391}
   - 65: {fileID: 540785390}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Frontdoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4214,6 +4221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editMode: 1
   walkingPoint: 1
+  word: 
   viewedFrom: {fileID: 0}
   connections:
   - {fileID: 1880575632}
@@ -4375,7 +4383,6 @@ Transform:
   - {fileID: 1989563512}
   - {fileID: 311417154}
   - {fileID: 711607218}
-  - {fileID: 447690845}
   m_Father: {fileID: 341768002}
   m_RootOrder: 4
 --- !u!1 &942977696
@@ -5697,6 +5704,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editMode: 1
   walkingPoint: 1
+  word: 
   viewedFrom: {fileID: 0}
   connections:
   - {fileID: 1588838217}
@@ -5804,6 +5812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editMode: 1
   walkingPoint: 1
+  word: 
   viewedFrom: {fileID: 0}
   connections:
   - {fileID: 1922523723}
@@ -6381,6 +6390,64 @@ Light:
   m_ShadowAngle: 0
   m_IndirectIntensity: 1
   m_AreaSize: {x: 1, y: 1}
+--- !u!1 &1345089383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1345089384}
+  - 114: {fileID: 1345089386}
+  - 65: {fileID: 1345089385}
+  m_Layer: 0
+  m_Name: wordPt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1345089384
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1345089383}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.349999994, y: 1.03999996, z: -.799999237}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1732312102}
+  m_RootOrder: 0
+--- !u!65 &1345089385
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1345089383}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 14, y: 12, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1345089386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1345089383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ba304b1617896439fa09a4a487cd4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editMode: 0
+  walkingPoint: 0
+  word: bad
+  viewedFrom: {fileID: 252080465}
+  connections: []
+  restriction: {fileID: 1732312103}
 --- !u!1 &1345479952
 GameObject:
   m_ObjectHideFlags: 0
@@ -7375,6 +7442,33 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 1224938639}
   m_GameObject: {fileID: 1578759460}
+--- !u!1 &1581242359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1581242360}
+  m_Layer: 0
+  m_Name: zoomPt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1581242360
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1581242359}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -28.7999992}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 447690845}
+  m_RootOrder: 10
 --- !u!1 &1588838215
 GameObject:
   m_ObjectHideFlags: 0
@@ -7416,6 +7510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editMode: 1
   walkingPoint: 1
+  word: 
   viewedFrom: {fileID: 0}
   connections:
   - {fileID: 1177321536}
@@ -7846,6 +7941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editMode: 1
   walkingPoint: 0
+  word: 
   viewedFrom: {fileID: 1880575632}
   connections: []
   zoomPosition: {fileID: 943588990}
@@ -8054,13 +8150,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editMode: 0
   walkingPoint: 0
+  word: 
   viewedFrom: {fileID: 1880575632}
   connections: []
   restriction: {fileID: 1674973127}
   audioSource: {fileID: 1345479955}
   changeStation: {fileID: 0}
-  stations: []
-  words: []
+  stations:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  words:
+  - 
+  - bad
+  - 
   hasEnergy: 0
 --- !u!1 &1717781042
 GameObject:
@@ -8188,6 +8291,52 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1718267401}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1732312101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1732312102}
+  - 114: {fileID: 1732312103}
+  m_Layer: 0
+  m_Name: windowPt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1732312102
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1732312101}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .349999994, y: -1.03999996, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1345089384}
+  m_Father: {fileID: 447690845}
+  m_RootOrder: 9
+--- !u!114 &1732312103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1732312101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4526bb2bdc58f5b43b8819d4fa0bb37f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editMode: 0
+  walkingPoint: 0
+  word: 
+  viewedFrom: {fileID: 252080465}
+  connections: []
+  zoomPosition: {fileID: 1581242360}
 --- !u!1 &1786742329
 GameObject:
   m_ObjectHideFlags: 0
@@ -9066,6 +9215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editMode: 1
   walkingPoint: 1
+  word: 
   viewedFrom: {fileID: 0}
   connections:
   - {fileID: 891902195}
@@ -9147,6 +9297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editMode: 1
   walkingPoint: 1
+  word: 
   viewedFrom: {fileID: 0}
   connections:
   - {fileID: 252080465}
@@ -9473,6 +9624,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editMode: 0
   walkingPoint: 0
+  word: 
   viewedFrom: {fileID: 0}
   connections: []
   restriction: {fileID: 0}
@@ -9653,6 +9805,7 @@ Transform:
   - {fileID: 449406997}
   - {fileID: 1718267402}
   - {fileID: 540785389}
+  - {fileID: 447690845}
   m_Father: {fileID: 341768002}
   m_RootOrder: 2
 --- !u!1 &2042768017

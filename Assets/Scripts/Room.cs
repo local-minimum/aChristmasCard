@@ -78,6 +78,7 @@ public class Room : MonoBehaviour {
 		if (ObjectsCollector == null) {
 			ObjectsCollector = new GameObject();
 			ObjectsCollector.name = "Stuff";
+			ObjectsCollector.transform.parent = gameObject.transform;
 		}
 	}
 	
