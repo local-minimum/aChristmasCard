@@ -3,9 +3,11 @@ using System.Collections;
 
 public class SaveState : Singleton<SaveState> {
 
+	private string currentWordListPage = "wordListPage";
 	private string letterWord = "letterWord_{0}";
 	private string solvedLetterWord = "letterWordSolved_{0}";
 	private string wordPageListToIndex = "wordPageListToIndex_{0}";
+	private string wordPageListHighestListIndex = "wordPageListHighestIndex";
 
 	public static int WordListPage {
 		get {
@@ -19,10 +21,10 @@ public class SaveState : Singleton<SaveState> {
 
 	public int wordListPage {
 		get {
-			if (PlayerPrefs.GetInt("wordListPage", -1) < 0 && WordList.Instance.Length > 0)
+			if (PlayerPrefs.GetInt(currentWordListPage, -1) < 0 && WordList.Instance.Length > 0)
 				wordListPage = 0;
 
-			return PlayerPrefs.GetInt("wordListPage", -1);
+			return PlayerPrefs.GetInt(currentWordListPage, -1);
 		}
 
 		set {
@@ -30,7 +32,7 @@ public class SaveState : Singleton<SaveState> {
 				value = 0;
 			else if (value < -1)
 				value = -1;
-			PlayerPrefs.SetInt("wordListPage", value);
+			PlayerPrefs.SetInt(currentWordListPage, value);
 		}
 	}
 
@@ -55,19 +57,30 @@ public class SaveState : Singleton<SaveState> {
 	}
 
 	public void SetWordListIndex(int indexInList, int index) {
+		if (index > PlayerPrefs.GetInt(wordPageListHighestListIndex, -1))
+			PlayerPrefs.SetInt(wordPageListHighestListIndex, indexInList);
 		PlayerPrefs.SetInt(string.Format(wordPageListToIndex, indexInList), index);
 	}
 
-	public void ClearSaveSate() {
+	public void RestAll() {
+		PlayerPrefs.DeleteAll();
+	}
+
+	public void NewGame() {
 
 		//Resetting page in word list
-		wordListPage = -1;
+		PlayerPrefs.SetInt(currentWordListPage, -1);
 
 		//Knowing no words
 		foreach (string word in WordList.Instance.AllWords) {
-			PlayerPrefs.SetInt(string.Format(letterWord, word), 0);
-			PlayerPrefs.SetInt(string.Format(solvedLetterWord, word), 0);
+			PlayerPrefs.DeleteKey(string.Format(letterWord, word));
+			PlayerPrefs.DeleteKey(string.Format(solvedLetterWord, word));
 		}
+
+		//Clearing word page index
+		for (int i=0; i<=PlayerPrefs.GetInt(wordPageListHighestListIndex, 999); i++)
+			PlayerPrefs.DeleteKey(string.Format(wordPageListToIndex, i));
+		PlayerPrefs.SetInt(wordPageListHighestListIndex, -1);
 
 		//TODO: Player position
 
