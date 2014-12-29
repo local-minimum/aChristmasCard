@@ -5,8 +5,10 @@ Game Logic
 ----------
 
 * Need a secondary button, or way of showing that player wants to cancel applying currently active/using object.
-
 * Need to have intuitive way of cancelling zoom view
+* Menu should be outside building
+* New game needs to refresh all instances in scene, not only the save state
+* Save state needs to know character position and where things are / what is solved / state of things.
 
 Minor Issues
 ============
