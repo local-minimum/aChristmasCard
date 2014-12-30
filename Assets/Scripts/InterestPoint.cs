@@ -152,21 +152,25 @@ public class InterestPoint : MonoBehaviour {
 	}
 
 	public virtual void Action(PlayerController player) {
-	
+		Debug.Log("Trying action on restricted point " + gameObject.name);
 		if (word != "")
 			player.Learn(word);
 
 	}
 
 	public virtual void Action(PlayerController player, InterestPoint interest) {
-		if (word != "")
-			player.Learn(word);
+		Debug.Log("Trying indirect " +
+			"action on restricted point " + gameObject.name);
 	}
 
 	public virtual void SpecificAction(PlayerController player) {
+		if (word != "")
+			player.Learn(word);
+
 		if (pocketable && player.PickUp(this))
 			return;
-		Debug.Log(string.Format("{0} {1}", this, "No specific action"));
+
+//		Debug.Log(string.Format("{0} {1}", this, "No specific action"));
 	}
 
 	public virtual ApplyResults Apply(PlayerController player, GameObject tool) {

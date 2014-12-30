@@ -13,6 +13,7 @@ public class InterestPointRestricted : InterestPoint {
 	}
 
 	public override void Action(PlayerController player) {
+		Debug.Log("Trying action on restricted point " + gameObject.name);
 		if (player.target == this)
 			player.target = restriction;
 
