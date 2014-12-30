@@ -8,6 +8,7 @@ public class LevelManager : Singleton<LevelManager> {
 	public MouseHover hoverCanvas;
 	public Canvas screenCanvas;
 	private Text debugText;
+	private Text debugText2;
 	public int debugFontSize;
 	public Color debugFontColor = Color.red;
 	public Color debugBgColor = Color.gray;
@@ -62,7 +63,7 @@ public class LevelManager : Singleton<LevelManager> {
 			mainCamera = Camera.main;
 		if (debug) {
 			debugText = AddTextUI(new Vector2(150, 100), new Vector2(10, 10), Vector2.zero, Vector2.zero, "DebugTextUI");
-		
+			debugText2 = AddTextUI(new Vector2(150, 100), new Vector2(10, 120), Vector2.zero, Vector2.zero, "DebugWordList");
 		}
 //		Cursor.SetCursor(mouseCursor, Vector2.zero, CursorMode.ForceSoftware);
 	}
@@ -123,6 +124,9 @@ public class LevelManager : Singleton<LevelManager> {
 	void OnGUI() {
 		if (debug) {
 			debugText.text = string.Format("<b>Hovering {0}:</b>\n\t", _uiView.Count()) + string.Join("\n\t", _uiView.Select(gO => gO.name).ToArray());
+			debugText2.text = string.Format(
+				"<b>Word List index:</b>\n\tPages:\t{0}\n\tCurrent page:\t{1}\n\tHas Next:\t{2}\n\tHas Prev:\t{3}",
+				WordList.Instance.Length, SaveState.WordListPage, WordList.Instance.HasNextPage(), WordList.Instance.HasPrevPage());
 		}
 	}
 

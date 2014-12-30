@@ -26,11 +26,13 @@ public class WordListPageSwitcher : Singleton<WordListPageSwitcher> {
 	}
 
 	public void HoverNext() {
-		anim.SetTrigger(NextAnimationHover);
+		if (WordList.Instance.HasNextPage())
+			anim.SetTrigger(NextAnimationHover);
 	}
 
 	public void HoverPrev() {
-		anim.SetTrigger(PrevAnimationHover);
+		if (WordList.Instance.HasPrevPage())
+			anim.SetTrigger(PrevAnimationHover);
 	}
 
 	public void RemoveHoverEffect() {
