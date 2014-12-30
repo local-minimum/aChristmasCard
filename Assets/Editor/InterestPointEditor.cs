@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEditor;
 
-[CustomEditor(typeof(InterestPoint))]
+[CustomEditor(typeof(InterestPoint), true)]
 public class InterestPointEditor : Editor {
 
 	

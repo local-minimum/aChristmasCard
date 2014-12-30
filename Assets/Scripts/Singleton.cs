@@ -12,19 +12,13 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
 			{
 				T[] res = FindObjectsOfType<T>();
 
-				if (res.Length == 1)
+				if (res.Length == 0)
+					Debug.LogError(string.Format(
+						"There must be an instance of {0} in the scene", typeof(T).FullName));
+				else
 					instance = res[0];
-				else {
-					Debug.LogError(
-						string.Format(
-						"Exactly 1 instance of {0} required and allowed, found {1}.",
-						typeof(T), res.Length));
-					foreach (T inst in res)
-						Debug.LogError(string.Format(
-							"Instance of {0} on {1}",
-							typeof(T), inst.gameObject));
 
-				}
+
 			}
 			return instance;
 		}

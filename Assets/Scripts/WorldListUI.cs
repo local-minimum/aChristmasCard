@@ -8,14 +8,6 @@ public class WorldListUI : Singleton<WorldListUI> {
 	public Button nextButton;
 	public Button prevButton;
 
-	public void NextPage() {
-		SaveState.Instance.wordListPage += 1;
-	}
-
-	public void PrevPage() {
-		SaveState.Instance.wordListPage -= 1;
-	}
-
 	public void DisplayCurrentPage() {
 		WordPage wp = WordList.Instance.CurrentPage();
 
@@ -29,11 +21,13 @@ public class WorldListUI : Singleton<WorldListUI> {
 		for (int i = 0; i<wordButtons.Length; i++)
 			wordButtons[i].SetWord(i < wp.words.Length ? wp.words[i] : null);
 
+		nextButton.enabled = WordList.Instance.HasNextPage();
+		prevButton.enabled = WordList.Instance.HasPrevPage();
 	}
 
 	private void BlankPage() {
 		for (int i=0; i< wordButtons.Length; i++)
 			wordButtons[i].SetWord(null);
 	}
-
+	
 }
