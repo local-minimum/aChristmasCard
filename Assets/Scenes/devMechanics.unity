@@ -2075,7 +2075,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11415930, guid: 4110e1b896b977a4981f0122464aff53, type: 2}
       propertyPath: wordPages.Array.data[2].words.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11415930, guid: 4110e1b896b977a4981f0122464aff53, type: 2}
       propertyPath: wordPages.Array.data[3].words.Array.size
@@ -2331,7 +2331,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11415930, guid: 4110e1b896b977a4981f0122464aff53, type: 2}
       propertyPath: wordPages.Array.data[2].words.Array.data[0].word
-      value: you
+      value: u
       objectReference: {fileID: 0}
     - target: {fileID: 11415930, guid: 4110e1b896b977a4981f0122464aff53, type: 2}
       propertyPath: wordPages.Array.data[2].autoCompleteThreshold
@@ -2339,7 +2339,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11415930, guid: 4110e1b896b977a4981f0122464aff53, type: 2}
       propertyPath: wordPages.Array.data[2].words.Array.data[1].word
-      value: your
+      value: you
       objectReference: {fileID: 0}
     - target: {fileID: 11415930, guid: 4110e1b896b977a4981f0122464aff53, type: 2}
       propertyPath: wordPages.Array.data[3].words.Array.data[0].word
@@ -2848,6 +2848,14 @@ Prefab:
     - target: {fileID: 11415930, guid: 4110e1b896b977a4981f0122464aff53, type: 2}
       propertyPath: wordPages.Array.data[41].words.Array.data[3].word
       value: Oregano
+      objectReference: {fileID: 0}
+    - target: {fileID: 11415930, guid: 4110e1b896b977a4981f0122464aff53, type: 2}
+      propertyPath: wordPages.Array.data[2].autoCompletes
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11415930, guid: 4110e1b896b977a4981f0122464aff53, type: 2}
+      propertyPath: wordPages.Array.data[2].words.Array.data[2].word
+      value: your
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -4332,7 +4340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editMode: 0
-  walkingPoint: 1
+  walkingPoint: 0
   word: grandma
   viewedFrom: {fileID: 0}
   connections: []
@@ -4711,8 +4719,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 580392758}
   - 33: {fileID: 580392761}
-  - 64: {fileID: 580392760}
   - 23: {fileID: 580392759}
+  - 114: {fileID: 580392762}
+  - 65: {fileID: 580392760}
   m_Layer: 0
   m_Name: fridge magnet
   m_TagString: Untagged
@@ -4752,8 +4761,8 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!64 &580392760
-MeshCollider:
+--- !u!65 &580392760
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -4762,9 +4771,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 1.10000002, y: 1.10000002, z: .200000003}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &580392761
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4772,6 +4780,22 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 580392757}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &580392762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 580392757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 596da83a37141824ba0c5653fd4e1289, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editMode: 0
+  walkingPoint: 0
+  word: u
+  viewedFrom: {fileID: 0}
+  connections: []
 --- !u!1 &610614913
 GameObject:
   m_ObjectHideFlags: 0
@@ -10159,13 +10183,16 @@ MonoBehaviour:
     autoCompletes: 0
     autoCompleteThreshold: 1
   - words:
+    - word: u
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
     - word: you
       unknownVersion: {fileID: 0}
       knownVersion: {fileID: 0}
     - word: your
       unknownVersion: {fileID: 0}
       knownVersion: {fileID: 0}
-    autoCompletes: 0
+    autoCompletes: 1
     autoCompleteThreshold: 1
   - words:
     - word: feel
@@ -14667,7 +14694,7 @@ MonoBehaviour:
   - {fileID: 0}
   words:
   - 
-  - bad
+  - talk
   - 
   hasEnergy: 0
 --- !u!1 &1916183711
