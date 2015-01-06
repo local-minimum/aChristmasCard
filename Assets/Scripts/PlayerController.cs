@@ -34,7 +34,11 @@ public class PlayerController : MonoBehaviour {
 
 		set {
 			transform.parent = value.transform;
+			if (_room)
+				_room.BroadcastMessage("onPlayerExit", this, SendMessageOptions.DontRequireReceiver);
 			_room = value;
+			if (_room)
+				_room.BroadcastMessage("onPlayerEnter", this, SendMessageOptions.DontRequireReceiver);
 		}
 	}
 
