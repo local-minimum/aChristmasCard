@@ -127,7 +127,7 @@ Wordlist
  * _visit_ : First clicking to go into BATHROOM after having drunk tea (not following character into sceen).
  * _soon_ : Clock on wall in KITCHEN
  * _Love_ : Hug in MEMORY
- * _[Rosemary]_ : Spice in KITCHEN
+ * _[Rosemary]_ : Spice in KITCHEN, you get three other and associate this one when all other done
  
 Scenes
 ======
