@@ -9,6 +9,7 @@ Game Logic
 * Menu should be outside building
 * New game needs to refresh all instances in scene, not only the save state
 * Save state needs to know character position and where things are / what is solved / state of things.
+* Room broadcasts to self about player leaving and entering, used for getting mail at game start as well as stove/fire thing.
 
 Minor Issues
 ============
