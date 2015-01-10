@@ -8,6 +8,7 @@ public class SaveState : Singleton<SaveState> {
 	private string solvedLetterWord = "letterWordSolved_{0}";
 	private string wordPageListToIndex = "wordPageListToIndex_{0}";
 	private string wordPageListHighestListIndex = "wordPageListHighestIndex";
+	private string eventStr = "event_{0}";
 
 	public static int WordListPage {
 		get {
@@ -62,6 +63,14 @@ public class SaveState : Singleton<SaveState> {
 		PlayerPrefs.SetInt(string.Format(wordPageListToIndex, indexInList), index);
 	}
 
+	public bool GetEventFire() {
+		return PlayerPrefs.GetInt(string.Format(eventStr, "fire"), 0) == 1;
+	}
+
+	public void	 SetEventFire(bool val) {
+		PlayerPrefs.SetInt(string.Format(eventStr, "fire"), val ? 1 : 0);
+	}
+
 	public void RestAll() {
 		PlayerPrefs.DeleteAll();
 	}
@@ -87,8 +96,8 @@ public class SaveState : Singleton<SaveState> {
 
 		//TODO; Player inventory
 
-		//TODO: Object statuses
-
+		//TODO: Event statuses
+		SetEventFire(false);
 
 	}
 }

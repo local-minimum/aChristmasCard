@@ -558,7 +558,7 @@ MonoBehaviour:
   - {fileID: 996037067}
   closeTrigger: Close
   learnWordFail: dark
-  learnWordSucceed: 
+  learnWordSucceed: light
   requireLight: 1
 --- !u!1 &86534161
 GameObject:
@@ -702,7 +702,7 @@ MonoBehaviour:
   - {fileID: 1319514738}
   closeTrigger: Close
   learnWordFail: 
-  learnWordSucceed: 
+  learnWordSucceed: starving
   requireLight: 0
 --- !u!1 &100211951
 GameObject:
@@ -757,8 +757,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 105081185}
   - 33: {fileID: 105081188}
-  - 64: {fileID: 105081187}
   - 23: {fileID: 105081186}
+  - 65: {fileID: 105081189}
+  - 114: {fileID: 105081187}
   m_Layer: 11
   m_Name: teapot
   m_TagString: Untagged
@@ -798,8 +799,38 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!64 &105081187
-MeshCollider:
+--- !u!114 &105081187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 105081184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fec2226454f5d6449a0fe8bcdab85f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editMode: 0
+  walkingPoint: 0
+  word: 
+  viewedFrom: {fileID: 0}
+  connections: []
+  loop: 0
+  loopBounce: 0
+  triggerSequence:
+  - removeCosy
+  animator: {fileID: 0}
+  triggerWords:
+  - tea
+--- !u!33 &105081188
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 105081184}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &105081189
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -808,16 +839,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!33 &105081188
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 105081184}
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 1, y: 1, z: .200000003}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &107695098
 GameObject:
   m_ObjectHideFlags: 0
@@ -2426,7 +2449,8 @@ GameObject:
   - 4: {fileID: 326703757}
   - 33: {fileID: 326703760}
   - 23: {fileID: 326703758}
-  - 65: {fileID: 326703759}
+  - 65: {fileID: 326703761}
+  - 114: {fileID: 326703759}
   m_Layer: 13
   m_Name: Painting
   m_TagString: Untagged
@@ -2443,7 +2467,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.01999998, y: -.639999986, z: 9.52999973}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 857830805}
   m_Father: {fileID: 792065797}
   m_RootOrder: 0
 --- !u!23 &326703758
@@ -2466,7 +2491,37 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!65 &326703759
+--- !u!114 &326703759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 326703756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fec2226454f5d6449a0fe8bcdab85f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editMode: 0
+  walkingPoint: 0
+  word: ugly
+  viewedFrom: {fileID: 0}
+  connections: []
+  loop: 0
+  loopBounce: 0
+  triggerSequence:
+  - flip
+  animator: {fileID: 0}
+  triggerWords:
+  - like
+--- !u!33 &326703760
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 326703756}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &326703761
 BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -2476,15 +2531,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.10000002, y: 1.10000002, z: .200000003}
+  m_Size: {x: 1, y: 1, z: .100000001}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &326703760
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 326703756}
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &338722866
 GameObject:
   m_ObjectHideFlags: 0
@@ -2939,7 +2987,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11415930, guid: 4110e1b896b977a4981f0122464aff53, type: 2}
       propertyPath: wordPages.Array.data[20].words.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11415930, guid: 4110e1b896b977a4981f0122464aff53, type: 2}
       propertyPath: wordPages.Array.data[21].words.Array.size
@@ -3275,7 +3323,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11415930, guid: 4110e1b896b977a4981f0122464aff53, type: 2}
       propertyPath: wordPages.Array.data[20].words.Array.data[0].word
-      value: cosy
+      value: tea
       objectReference: {fileID: 0}
     - target: {fileID: 11415930, guid: 4110e1b896b977a4981f0122464aff53, type: 2}
       propertyPath: wordPages.Array.data[20].autoCompleteThreshold
@@ -3652,6 +3700,14 @@ Prefab:
     - target: {fileID: 11415930, guid: 4110e1b896b977a4981f0122464aff53, type: 2}
       propertyPath: wordPages.Array.data[3].words.Array.data[2].word
       value: scared
+      objectReference: {fileID: 0}
+    - target: {fileID: 11415930, guid: 4110e1b896b977a4981f0122464aff53, type: 2}
+      propertyPath: wordPages.Array.data[20].words.Array.data[1].word
+      value: pot
+      objectReference: {fileID: 0}
+    - target: {fileID: 11415930, guid: 4110e1b896b977a4981f0122464aff53, type: 2}
+      propertyPath: wordPages.Array.data[20].words.Array.data[2].word
+      value: cosy
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -7494,6 +7550,62 @@ MeshFilter:
   m_PrefabInternal: {fileID: 809941200}
   m_GameObject: {fileID: 854273955}
   m_Mesh: {fileID: 4300000, guid: e2250adf44c2c184c954b1373c6c63e1, type: 3}
+--- !u!1 &857830804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 857830805}
+  - 33: {fileID: 857830807}
+  - 23: {fileID: 857830806}
+  m_Layer: 13
+  m_Name: Painting
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &857830805
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 857830804}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: .0209999997}
+  m_LocalScale: {x: 1, y: 1, z: -1}
+  m_Children: []
+  m_Father: {fileID: 326703757}
+  m_RootOrder: 0
+--- !u!23 &857830806
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 857830804}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: c93422b51e2a4b7409b218ea9c1ec1ff, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &857830807
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 857830804}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &862310783
 GameObject:
   m_ObjectHideFlags: 0
@@ -11838,6 +11950,12 @@ MonoBehaviour:
     autoCompletes: 1
     autoCompleteThreshold: 1
   - words:
+    - word: tea
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+    - word: pot
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
     - word: cosy
       unknownVersion: {fileID: 0}
       knownVersion: {fileID: 0}
@@ -16954,9 +17072,9 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1916183711}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7361027257f20024d86ca8cef5495515, type: 3}
+  m_Script: {fileID: 11500000, guid: 1faccc816c9234a4a937d976d56bec1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   editMode: 0
@@ -16969,6 +17087,7 @@ MonoBehaviour:
   triggerSequence:
   - eat
   animator: {fileID: 0}
+  fireEvent: 1
 --- !u!1 &1916526602
 GameObject:
   m_ObjectHideFlags: 0
@@ -16978,8 +17097,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 1916526603}
   - 33: {fileID: 1916526606}
-  - 64: {fileID: 1916526605}
   - 23: {fileID: 1916526604}
+  - 114: {fileID: 1916526607}
+  - 65: {fileID: 1916526605}
   m_Layer: 0
   m_Name: waste basket
   m_TagString: Untagged
@@ -17019,8 +17139,8 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!64 &1916526605
-MeshCollider:
+--- !u!65 &1916526605
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -17029,9 +17149,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 1, y: 1, z: .200000003}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1916526606
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -17039,6 +17158,26 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1916526602}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1916526607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1916526602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130fea879ae7853498d59b624245da9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editMode: 0
+  walkingPoint: 1
+  word: 
+  viewedFrom: {fileID: 0}
+  connections: []
+  acceptableTrash: []
+  missPlace: {fileID: 0}
+  missWord: miss
+  hitWord: put
 --- !u!1 &1922523721
 GameObject:
   m_ObjectHideFlags: 0
@@ -17903,7 +18042,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2034870978}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b41654ff21c391346a0ea6513fc7e52b, type: 3}
+  m_Script: {fileID: 11500000, guid: fec2226454f5d6449a0fe8bcdab85f32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   editMode: 0
@@ -18682,7 +18821,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2115232893}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .363999993, y: -.266000003, z: 0}
+  m_LocalPosition: {x: .391000003, y: -.064000003, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 386330089}
@@ -18695,14 +18834,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2115232893}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 596da83a37141824ba0c5653fd4e1289, type: 3}
+  m_Script: {fileID: 11500000, guid: 1faccc816c9234a4a937d976d56bec1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   editMode: 1
   walkingPoint: 1
-  word: 
+  word: fire
   viewedFrom: {fileID: 0}
   connections: []
+  loop: 0
+  loopBounce: 0
+  triggerSequence: []
+  animator: {fileID: 0}
+  fireEvent: 1
 --- !u!1 &2119877404
 GameObject:
   m_ObjectHideFlags: 0
