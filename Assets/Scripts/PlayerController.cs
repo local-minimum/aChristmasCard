@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class PlayerController : MonoBehaviour {
 
@@ -324,9 +325,14 @@ public class PlayerController : MonoBehaviour {
 
 	public bool hasLight {
 		get {
-			return false;
+			return Has("light");
 		}
 	}
+
+	public bool Has(string objectTag) {
+		return inventoryPositions.Where(t => t.GetComponentsInChildren<Transform>()
+		                                .Select(t2 => t2.tag).Contains(objectTag)).Any();
+ 	}
 
 	private bool placeInEmptySlot(List<Transform> slots, InterestPoint item) {
 		foreach (Transform t in slots) {
