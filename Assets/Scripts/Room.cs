@@ -38,7 +38,9 @@ public class Room : MonoBehaviour {
 	public LayerMask interestPointLayers;
 
 	private List<InterestPoint> interactions = new List<InterestPoint>();
-	private List<InterestPoint> walkingPoints = new List<InterestPoint>();
+
+	[HideInInspector]
+	public List<InterestPoint> walkingPoints = new List<InterestPoint>();
 
 	public bool playerInRoom {
 		get {
@@ -51,6 +53,9 @@ public class Room : MonoBehaviour {
 	private Transform _zoomPosition;
 
 	public GameObject ObjectsCollector;
+
+	[Range(0f, 3f)]
+	public float walkPointMaxDistConnector = 1f;
 
 	public Vector3 zoomPosition {
 		get {
@@ -73,7 +78,8 @@ public class Room : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-		interactions.AddRange(gameObject.GetComponentsInChildren<InterestPoint>());
+
+		interactions.AddRange(gameObject.GetComponentsInChildren<InterestPoint>().Where(pt => !interactions.Contains(pt)));
 		walkingPoints.AddRange(interactions.Where(ip => ip.walkingPoint));
 		if (ObjectsCollector == null) {
 			ObjectsCollector = new GameObject();
@@ -122,7 +128,8 @@ public class Room : MonoBehaviour {
 	}
 
 	public void AddInterest(InterestPoint pt) {
-		interactions.Add(pt);
+		if (!interactions.Contains(pt))
+			interactions.Add(pt);
 	}
 
 	public void RemoveInterest(InterestPoint pt) {

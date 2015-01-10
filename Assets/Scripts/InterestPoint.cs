@@ -66,6 +66,9 @@ public class InterestPoint : MonoBehaviour {
 	}
 
 	protected void Start() {
+		if (walkingPoint && connections.Count() == 0)
+			connections.AddRange(room.walkingPoints.Where(wp => wp != this && Vector3.Distance(wp.transform.position, transform.position) < room.walkPointMaxDistConnector));
+
 		if (connections.Count() == 0 && viewedFrom == null && transform.parent != null) {
 			InterestPoint ip = transform.parent.GetComponentInParent<InterestPoint>();
 			if (ip && ip.walkingPoint)

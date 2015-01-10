@@ -6,6 +6,7 @@ public class InterestPointDoorOption : InterestingPointDoor {
 	private int pathDirection = 1;
 	public string learnWordFail = "";
 	public string learnWordSucceed = "";
+	public bool requireLight = true;
 
 	protected override void Update ()
 	{
@@ -14,7 +15,7 @@ public class InterestPointDoorOption : InterestingPointDoor {
 			if (player.CheckProximity(passageTrail[pathIndex].position, pathIndex == passageTrail.Count - 1)) {
 				pathIndex += pathDirection;
 				if (pathIndex >= passageTrail.Count) {
-					if (player.hasLight) {
+					if (!requireLight || player.hasLight) {
 						UnlockPlayer(altViewedFrom);
 						player.Learn(learnWordSucceed);
 						return;
