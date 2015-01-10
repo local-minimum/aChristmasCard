@@ -1,15 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class InterestPointPresent : MonoBehaviour {
+public class InterestPointPresent : InterestPointTrigger {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public override void Action (PlayerController player)
+	{
+		if (player.hasLight)
+			base.Action (player);
 	}
 }

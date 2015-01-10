@@ -10,7 +10,7 @@ public class InterestPointTrigger : InterestPoint {
 
 	public Animator animator;
 
-	private int nextTrigger = 0;
+	protected int nextTrigger = 0;
 	private int addToNext = 1;
 
 
