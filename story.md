@@ -84,7 +84,7 @@ Wordlist
  * _feel_ : Entering dark BEDROOM, no light in ceiling. (DARK FEEL SCARED)
  * _up_ : Vase high up on bookcase in MAIN ROOM
  * _celebrating_ : Hearing sounds from neighbours and happy people outside window in ROOM X
- * _Christmas_ : Unopened present under christmas tree in MAIN ROOM
+ * _Christmas_ : Christmas tree in after having been straightened MAIN ROOM
  * _year_ : Calendar next to door in MAIN ROOM
  * _family_ : Photo album MAIN ROOM
  * _all_ : Character starts to rhyme _wall_, _small_, _fall_, _tall_, _call_, _ball_, _all_ upon noting the second in the rhyme series.
