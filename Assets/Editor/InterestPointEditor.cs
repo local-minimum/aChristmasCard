@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 using UnityEditor;
 
 [CustomEditor(typeof(InterestPoint), true)]
@@ -10,12 +10,24 @@ public class InterestPointEditor : Editor {
 	{
 		
 		base.OnInspectorGUI ();
+//		IPextension(target);
 		InterestPointEditor.BasicStatus((InterestPoint) target);
 	}
 
 	public static void BasicStatus (InterestPoint myTarget){
 		InterestPointEditor.BasicStatus(myTarget, "");
 	}
+//
+//	public static void IPextension (SerializedObject myTarget) {
+//		SerializedProperty list = myTarget.FindProperty("successfullApplications");
+//		EditorGUILayout.PropertyField(list);
+//		EditorGUI.indentLevel += 1;
+//		if (list.isExpanded) {
+//			EditorGUILayout.PropertyField(list.FindPropertyRelative("Array.size"));
+//			foreach (KeyValuePair<string, string> kvp in list.FindPropertyRelative("Arra
+//		}
+//		EditorGUI.indentLevel -= 1;
+//	}
 
 	public static void BasicStatus (InterestPoint myTarget, string details){
 

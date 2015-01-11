@@ -63,6 +63,22 @@ public class SaveState : Singleton<SaveState> {
 		PlayerPrefs.SetInt(string.Format(wordPageListToIndex, indexInList), index);
 	}
 
+	public bool GetFoodInOven() {
+		return PlayerPrefs.GetInt(string.Format(eventStr, "foodInOven"), 0) == 1;
+	}
+
+	public void SetFoodInOven(bool val) {
+		PlayerPrefs.SetInt(string.Format(eventStr, "foodInOven"), val ? 1 : 0);
+	}
+
+	public bool GetFoodCooking() {
+		return PlayerPrefs.GetInt(string.Format(eventStr, "cooking"), 0) == 1;
+	}
+
+	public void SetFoodCooking(bool val) {
+		PlayerPrefs.SetInt(string.Format(eventStr, "cooking"), val ? 1 : 0);
+	}
+
 	public bool GetEventFire() {
 		return PlayerPrefs.GetInt(string.Format(eventStr, "fire"), 0) == 1;
 	}

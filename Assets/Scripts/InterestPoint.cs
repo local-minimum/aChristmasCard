@@ -13,6 +13,7 @@ public class InterestPoint : MonoBehaviour {
 	public bool walkingPoint = true;
 	
 	public string word;
+	public string pocketingWord;
 
 	public InterestPoint viewedFrom;
 
@@ -69,7 +70,7 @@ public class InterestPoint : MonoBehaviour {
 	}
 
 	[ExecuteInEditMode]
-	protected void Start() {
+	protected virtual void Start() {
 		if (walkingPoint && connections.Count() == 0)
 			connections.AddRange(room.walkingPoints.Where(wp => wp != this && Vector3.Distance(wp.transform.position, transform.position) < room.walkPointMaxDistConnector));
 
@@ -177,9 +178,10 @@ public class InterestPoint : MonoBehaviour {
 		if (word != "")
 			player.Learn(word);
 
-		if (pocketable && player.PickUp(this))
+		if (pocketable && player.PickUp(this)) {
+			player.Learn(pocketingWord);
 			return;
-
+		}
 //		Debug.Log(string.Format("{0} {1}", this, "No specific action"));
 	}
 

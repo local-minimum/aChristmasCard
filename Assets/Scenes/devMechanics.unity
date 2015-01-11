@@ -544,6 +544,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 0
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 891902195}
   connections: []
   loop: 1
@@ -629,7 +630,7 @@ Transform:
   m_LocalScale: {x: .699999988, y: .300000012, z: 1}
   m_Children: []
   m_Father: {fileID: 792065797}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!114 &86534166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -644,6 +645,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 0
   word: pack
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!1 &99156389
@@ -688,6 +690,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 0
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 1922523723}
   connections: []
   loop: 1
@@ -746,6 +749,7 @@ MonoBehaviour:
   editMode: 1
   walkingPoint: 1
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!1 &105081184
@@ -813,6 +817,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 0
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
   loop: 0
@@ -883,6 +888,7 @@ MonoBehaviour:
   editMode: 1
   walkingPoint: 1
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!1 &111819588
@@ -1185,6 +1191,7 @@ MonoBehaviour:
   editMode: 1
   walkingPoint: 1
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!1 &201981508
@@ -1480,6 +1487,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 0
   word: tall
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!33 &233503306
@@ -1641,6 +1649,7 @@ MonoBehaviour:
   editMode: 1
   walkingPoint: 1
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!1001 &268279319
@@ -1740,6 +1749,7 @@ MonoBehaviour:
   editMode: 1
   walkingPoint: 0
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 1880575632}
   connections: []
   zoomPosition: {fileID: 247830639}
@@ -2199,6 +2209,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 0
   word: small
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
   loop: 0
@@ -2470,7 +2481,7 @@ Transform:
   m_Children:
   - {fileID: 857830805}
   m_Father: {fileID: 792065797}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!23 &326703758
 Renderer:
   m_ObjectHideFlags: 0
@@ -2504,7 +2515,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editMode: 0
   walkingPoint: 0
-  word: ugly
+  word: hate
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
   loop: 0
@@ -4003,13 +4015,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editMode: 0
   walkingPoint: 0
-  word: Christmas
+  word: tie
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
   loop: 0
   loopBounce: 0
   triggerSequence: []
   animator: {fileID: 0}
+  opensWith: scissors
+  presentUIVersion: {fileID: 0}
 --- !u!1 &386330088
 GameObject:
   m_ObjectHideFlags: 0
@@ -4882,6 +4897,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 0
   word: thyme
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
   restriction: {fileID: 1786968478}
@@ -4969,6 +4985,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 0
   word: socks
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!33 &492345773
@@ -5131,7 +5148,7 @@ Transform:
   m_LocalScale: {x: .200000003, y: .300000012, z: 1}
   m_Children: []
   m_Father: {fileID: 792065797}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!23 &499669850
 Renderer:
   m_ObjectHideFlags: 0
@@ -5433,6 +5450,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 0
   word: home
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!1 &549269520
@@ -5500,6 +5518,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 0
   word: grandma
+  pocketingWord: 
   viewedFrom: {fileID: 969018911}
   connections: []
 --- !u!33 &549269524
@@ -5615,6 +5634,7 @@ MonoBehaviour:
   editMode: 1
   walkingPoint: 0
   word: God
+  pocketingWord: 
   viewedFrom: {fileID: 100211953}
   connections: []
 --- !u!1 &554330626
@@ -5682,6 +5702,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 0
   word: weight
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!33 &554330630
@@ -5968,8 +5989,36 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 0
   word: u
+  pocketingWord: 
   viewedFrom: {fileID: 1061830445}
   connections: []
+--- !u!1 &588146431
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 588146432}
+  m_Layer: 13
+  m_Name: WalkTrail
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &588146432
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 588146431}
+  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
+  m_LocalPosition: {x: 1.98000002, y: -1.97000003, z: 7.51999998}
+  m_LocalScale: {x: -1, y: 2.0999999, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2130666023}
+  m_RootOrder: 2
 --- !u!1 &615507352
 GameObject:
   m_ObjectHideFlags: 0
@@ -7155,6 +7204,7 @@ MonoBehaviour:
   editMode: 1
   walkingPoint: 1
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!1 &792065796
@@ -7182,6 +7232,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 2130666023}
   - {fileID: 326703757}
   - {fileID: 1108677570}
   - {fileID: 1948782524}
@@ -7231,6 +7282,7 @@ MonoBehaviour:
   editMode: 1
   walkingPoint: 1
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!1 &806586389
@@ -8030,6 +8082,7 @@ MonoBehaviour:
   editMode: 1
   walkingPoint: 1
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!1 &905574591
@@ -8241,6 +8294,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 1
   word: '[Name]'
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
   loop: 0
@@ -8599,6 +8653,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 0
   word: year
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!1 &943588989
@@ -8925,6 +8980,7 @@ MonoBehaviour:
   editMode: 1
   walkingPoint: 1
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!1 &974223689
@@ -9175,6 +9231,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 0
   word: oregano
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
   restriction: {fileID: 1786968478}
@@ -9645,6 +9702,7 @@ MonoBehaviour:
   editMode: 1
   walkingPoint: 1
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!4 &1057325271
@@ -9701,6 +9759,7 @@ MonoBehaviour:
   editMode: 1
   walkingPoint: 1
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!1 &1062741491
@@ -10003,6 +10062,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 0
   word: plate
+  pocketingWord: 
   viewedFrom: {fileID: 803545388}
   connections: []
 --- !u!1 &1096116848
@@ -10399,7 +10459,7 @@ Transform:
   m_Children:
   - {fileID: 1133000587}
   m_Father: {fileID: 792065797}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!23 &1108677571
 Renderer:
   m_ObjectHideFlags: 0
@@ -10428,12 +10488,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1108677569}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4526bb2bdc58f5b43b8819d4fa0bb37f, type: 3}
+  m_Script: {fileID: 11500000, guid: 72ef3b5182e85c54f9be915652b4807e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   editMode: 0
   walkingPoint: 0
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
   zoomPosition: {fileID: 0}
@@ -10892,6 +10953,7 @@ MonoBehaviour:
   editMode: 1
   walkingPoint: 1
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!1 &1133000586
@@ -10948,7 +11010,7 @@ GameObject:
   - 65: {fileID: 1140935705}
   - 114: {fileID: 1140935704}
   m_Layer: 13
-  m_Name: cloths
+  m_Name: uglyCloths
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10979,7 +11041,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editMode: 0
   walkingPoint: 0
-  word: 
+  word: ugly
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
   loop: 0
@@ -11087,6 +11150,62 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1143547607}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1155440619
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1155440620}
+  - 33: {fileID: 1155440622}
+  - 23: {fileID: 1155440621}
+  m_Layer: 13
+  m_Name: RightFace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1155440620
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1155440619}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: .109999999}
+  m_LocalScale: {x: 1, y: 1, z: -1}
+  m_Children: []
+  m_Father: {fileID: 1802124841}
+  m_RootOrder: 0
+--- !u!23 &1155440621
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1155440619}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: def10311286ac0e40bee557fec7218d6, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &1155440622
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1155440619}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1157117055
 GameObject:
   m_ObjectHideFlags: 0
@@ -11185,6 +11304,7 @@ MonoBehaviour:
   editMode: 1
   walkingPoint: 1
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!1 &1185758329
@@ -11292,6 +11412,7 @@ MonoBehaviour:
   editMode: 1
   walkingPoint: 1
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!1 &1191601460
@@ -12590,6 +12711,7 @@ MonoBehaviour:
   editMode: 1
   walkingPoint: 1
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!1 &1345089383
@@ -12647,6 +12769,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 0
   word: bad
+  pocketingWord: 
   viewedFrom: {fileID: 252080465}
   connections: []
   restriction: {fileID: 1732312103}
@@ -12830,6 +12953,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: dde6b72b04d12904e9b73c6a344f5c2d, type: 3}
   m_Color: {r: .823529422, g: .733333349, b: .596078455, a: 1}
+--- !u!1 &1358203852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1358203853}
+  m_Layer: 13
+  m_Name: WalkTrailLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1358203853
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1358203852}
+  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
+  m_LocalPosition: {x: 1.49000001, y: -1.97000003, z: 7.51000023}
+  m_LocalScale: {x: -1, y: 2.0999999, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2130666023}
+  m_RootOrder: 1
 --- !u!1 &1366419083
 GameObject:
   m_ObjectHideFlags: 0
@@ -12841,6 +12991,7 @@ GameObject:
   - 33: {fileID: 1366419087}
   - 64: {fileID: 1366419086}
   - 23: {fileID: 1366419085}
+  - 114: {fileID: 1366419088}
   m_Layer: 11
   m_Name: Stove and oven
   m_TagString: Untagged
@@ -12900,6 +13051,26 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1366419083}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1366419088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1366419083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba54bf4a0986a2344a6a82ada444fc30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editMode: 0
+  walkingPoint: 1
+  word: 
+  pocketingWord: 
+  viewedFrom: {fileID: 0}
+  connections: []
+  zoomPosition: {fileID: 0}
+  stopBurningWord: 
+  startCookingWord: start
 --- !u!1 &1380740595
 GameObject:
   m_ObjectHideFlags: 0
@@ -12965,6 +13136,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 0
   word: soon
+  pocketingWord: 
   viewedFrom: {fileID: 107695100}
   connections: []
 --- !u!33 &1380740599
@@ -13233,6 +13405,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1440998369}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1453728303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1453728304}
+  m_Layer: 13
+  m_Name: WalkTrailRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1453728304
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1453728303}
+  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
+  m_LocalPosition: {x: 2.45000005, y: -1.97000003, z: 7.67000008}
+  m_LocalScale: {x: -1, y: 2.0999999, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2130666023}
+  m_RootOrder: 3
 --- !u!1 &1456377220
 GameObject:
   m_ObjectHideFlags: 0
@@ -13331,6 +13530,7 @@ MonoBehaviour:
   editMode: 1
   walkingPoint: 1
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!1 &1480035698
@@ -13528,7 +13728,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1494456043}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.30000019, y: 1, z: -5.46999979}
+  m_LocalPosition: {x: 9.30000019, y: 1, z: -5.6500001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1306584513}
@@ -13557,6 +13757,65 @@ MonoBehaviour:
   cameraPositions: []
   ObjectsCollector: {fileID: 1413270655}
   walkPointMaxDistConnector: 1
+--- !u!1 &1497297782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1497297783}
+  - 114: {fileID: 1497297784}
+  m_Layer: 13
+  m_Name: DoorPt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1497297783
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1497297782}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: .0799999982}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1802124841}
+  m_RootOrder: 1
+--- !u!114 &1497297784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1497297782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2994085b314bf7c429504f7ffb75a341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editMode: 0
+  walkingPoint: 0
+  word: 
+  pocketingWord: 
+  viewedFrom: {fileID: 891902195}
+  connections: []
+  loop: 1
+  loopBounce: 0
+  triggerSequence:
+  - OpenLeft
+  animator: {fileID: 1802124842}
+  altViewedFrom: {fileID: 1588838217}
+  passageTrail:
+  - {fileID: 1358203853}
+  - {fileID: 588146432}
+  - {fileID: 1453728304}
+  closeTrigger: Close
+  learnWordFail: 
+  learnWordSucceed: visit
+  requireLight: 0
 --- !u!1 &1508550328
 GameObject:
   m_ObjectHideFlags: 0
@@ -13779,6 +14038,7 @@ MonoBehaviour:
   editMode: 1
   walkingPoint: 1
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!1 &1520844274
@@ -14109,6 +14369,7 @@ MonoBehaviour:
   editMode: 1
   walkingPoint: 1
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!1 &1566933585
@@ -14493,6 +14754,7 @@ MonoBehaviour:
   editMode: 1
   walkingPoint: 1
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!1 &1592205573
@@ -15211,6 +15473,7 @@ MonoBehaviour:
   editMode: 1
   walkingPoint: 0
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 1880575632}
   connections: []
   zoomPosition: {fileID: 943588990}
@@ -15639,19 +15902,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1731682544}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7361027257f20024d86ca8cef5495515, type: 3}
+  m_Script: {fileID: 11500000, guid: fec2226454f5d6449a0fe8bcdab85f32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   editMode: 0
   walkingPoint: 0
   word: straight
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
   loop: 0
   loopBounce: 0
   triggerSequence:
   - straighten
+  - blink
   animator: {fileID: 0}
+  triggerWords:
+  - 
+  - Christmas
 --- !u!1 &1732312101
 GameObject:
   m_ObjectHideFlags: 0
@@ -15695,6 +15963,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 0
   word: celebrate
+  pocketingWord: 
   viewedFrom: {fileID: 252080465}
   connections: []
   zoomPosition: {fileID: 1581242360}
@@ -15763,6 +16032,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 0
   word: call
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!33 &1734091414
@@ -16065,6 +16335,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 0
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 785271732}
   connections: []
   zoomPosition: {fileID: 1887063124}
@@ -16110,6 +16381,93 @@ Transform:
   - {fileID: 887217258}
   m_Father: {fileID: 341768002}
   m_RootOrder: 1
+--- !u!1 &1802124840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1802124841}
+  - 33: {fileID: 1802124845}
+  - 23: {fileID: 1802124844}
+  - 65: {fileID: 1802124843}
+  - 95: {fileID: 1802124842}
+  m_Layer: 13
+  m_Name: LeftFace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1802124841
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1802124840}
+  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
+  m_LocalPosition: {x: 1.88, y: -.920000017, z: 7.53999996}
+  m_LocalScale: {x: -1, y: 2.0999999, z: 1}
+  m_Children:
+  - {fileID: 1155440620}
+  - {fileID: 1497297783}
+  m_Father: {fileID: 2130666023}
+  m_RootOrder: 0
+--- !u!95 &1802124842
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1802124840}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 989176ddb5b071e4ea2d23c01df788f3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!65 &1802124843
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1802124840}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.00000048, y: 1, z: .200000003}
+  m_Center: {x: 0, y: 0, z: .0799999982}
+--- !u!23 &1802124844
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1802124840}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: def10311286ac0e40bee557fec7218d6, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &1802124845
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1802124840}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1808482310
 GameObject:
   m_ObjectHideFlags: 0
@@ -16696,6 +17054,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 1
   word: pi
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
   loop: 0
@@ -16806,6 +17165,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 0
   word: tarragon
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
   restriction: {fileID: 1786968478}
@@ -16874,6 +17234,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 1
   word: family
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
   loop: 0
@@ -17102,6 +17463,7 @@ MonoBehaviour:
   editMode: 1
   walkingPoint: 1
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!1 &1887063123
@@ -17263,6 +17625,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 0
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 1880575632}
   connections: []
   restriction: {fileID: 271443082}
@@ -17273,7 +17636,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   words:
-  - 
+  - mood
   - talk
   - 
   hasEnergy: 0
@@ -17361,6 +17724,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 0
   word: tasty
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
   loop: 0
@@ -17453,6 +17817,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 1
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
   acceptableTrash: []
@@ -17501,6 +17866,7 @@ MonoBehaviour:
   editMode: 1
   walkingPoint: 1
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!1 &1923232998
@@ -17533,6 +17899,7 @@ MonoBehaviour:
   editMode: 1
   walkingPoint: 1
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!4 &1923233000
@@ -17578,7 +17945,7 @@ Transform:
   - {fileID: 317557390}
   - {fileID: 1140935703}
   m_Father: {fileID: 792065797}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!23 &1948782525
 Renderer:
   m_ObjectHideFlags: 0
@@ -18050,6 +18417,7 @@ MonoBehaviour:
   editMode: 1
   walkingPoint: 1
   word: 
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
 --- !u!1 &2018291297
@@ -18329,6 +18697,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 0
   word: up
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
   loop: 0
@@ -19121,6 +19490,7 @@ MonoBehaviour:
   editMode: 1
   walkingPoint: 1
   word: fire
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
   loop: 0
@@ -19235,6 +19605,7 @@ MonoBehaviour:
   editMode: 0
   walkingPoint: 0
   word: wall
+  pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
   zoomPosition: {fileID: 363369600}
@@ -19277,6 +19648,37 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2129082496}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2130666022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2130666023}
+  m_Layer: 13
+  m_Name: DoorToBathroom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2130666023
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2130666022}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.96000004, y: 0, z: 1.15999997}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1802124841}
+  - {fileID: 1358203853}
+  - {fileID: 588146432}
+  - {fileID: 1453728304}
+  m_Father: {fileID: 792065797}
+  m_RootOrder: 0
 --- !u!1 &2131752462
 GameObject:
   m_ObjectHideFlags: 0
