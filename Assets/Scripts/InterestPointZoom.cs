@@ -37,8 +37,10 @@ public class InterestPointZoom : InterestPoint {
 	public override void SpecificAction(PlayerController player){
 //		Debug.Log(string.Format("{0} zoomed: {1}", this, zoomed));
 		if (!zoomed) {
-			player.room.SetZoomPosition(zoomPosition);
-			player.moveable = false;
+			if (zoomPosition) {
+				player.room.SetZoomPosition(zoomPosition);
+				player.moveable = false;
+			}
 			zoomed = true;
 		} else {
 			player.moveable = true;

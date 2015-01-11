@@ -18,6 +18,8 @@ public class InterestPoint : MonoBehaviour {
 
 	public List<InterestPoint> connections = new List<InterestPoint>();
 
+	public Dictionary<string, string> successfullApplications = new Dictionary<string, string>();
+
 	private Pocketable _pocketable = null;
 	private bool checkedPocketable = false;
 
@@ -61,10 +63,12 @@ public class InterestPoint : MonoBehaviour {
 	}
 
 	// Use this for initialization
+	[ExecuteInEditMode]
 	protected void Awake () {
 		room = gameObject.GetComponentInParent<Room>();
 	}
 
+	[ExecuteInEditMode]
 	protected void Start() {
 		if (walkingPoint && connections.Count() == 0)
 			connections.AddRange(room.walkingPoints.Where(wp => wp != this && Vector3.Distance(wp.transform.position, transform.position) < room.walkPointMaxDistConnector));
@@ -186,6 +190,9 @@ public class InterestPoint : MonoBehaviour {
 		if (empties.Length > 0) {
 			if (!empties[Random.Range(0, empties.Length - 1)].Place(player.Drop(tool)))
 				Debug.LogError(string.Format("{0} was lost because of {1}", tool.name, name));
+
+			if (successfullApplications.Keys.Contains(tool.tag))
+				player.Learn(successfullApplications[tool.tag]);
 
 			return ApplyResults.ACCEPTED;
 		}
