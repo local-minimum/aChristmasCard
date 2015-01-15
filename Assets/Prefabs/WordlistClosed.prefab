@@ -14,6 +14,7 @@ GameObject:
   - 114: {fileID: 11415926}
   - 114: {fileID: 11415924}
   - 114: {fileID: 11435420}
+  - 114: {fileID: 11477202}
   m_Layer: 5
   m_Name: WordlistClosed
   m_TagString: Untagged
@@ -117,25 +118,539 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e06107760a47e4e4b96e1fad38b1221e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
   wordPages:
   - words:
-    - learned: 0
-      word: bad
+    - word: '[Name]'
       unknownVersion: {fileID: 0}
       knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
     autoCompletes: 0
     autoCompleteThreshold: 2
   - words:
-    - learned: 0
-      word: God
+    - word: sorry
       unknownVersion: {fileID: 0}
       knownVersion: {fileID: 0}
-    - learned: 0
-      word: Jul
+      learned: 0
+      solved: 0
+    autoCompletes: 0
+    autoCompleteThreshold: 1
+  - words:
+    - word: u
       unknownVersion: {fileID: 0}
       knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: you
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: your
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
     autoCompletes: 1
     autoCompleteThreshold: 1
+  - words:
+    - word: dark
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: feel
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: scared
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 0
+    autoCompleteThreshold: 1
+  - words:
+    - word: up
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 0
+    autoCompleteThreshold: 1
+  - words:
+    - word: celebrate
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: celebrating
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: celebrated
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 1
+    autoCompleteThreshold: 1
+  - words:
+    - word: Christmas
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 0
+    autoCompleteThreshold: 1
+  - words:
+    - word: year
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 0
+    autoCompleteThreshold: 1
+  - words:
+    - word: family
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 0
+    autoCompleteThreshold: 1
+  - words:
+    - word: small
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: call
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: tall
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: all
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: wall
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 1
+    autoCompleteThreshold: 3
+  - words:
+    - word: miss
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: missing
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: missed
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 1
+    autoCompleteThreshold: 1
+  - words:
+    - word: grandma
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 0
+    autoCompleteThreshold: 1
+  - words:
+    - word: tasty
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 0
+    autoCompleteThreshold: 1
+  - words:
+    - word: pi
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: pie
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 1
+    autoCompleteThreshold: 1
+  - words:
+    - word: devour
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: devouring
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: devoured
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 1
+    autoCompleteThreshold: 1
+  - words:
+    - word: like
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 0
+    autoCompleteThreshold: 1
+  - words:
+    - word: pack
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: packing
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: packed
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 1
+    autoCompleteThreshold: 1
+  - words:
+    - word: starve
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: starving
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: starved
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 1
+    autoCompleteThreshold: 1
+  - words:
+    - word: raptors
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 0
+    autoCompleteThreshold: 1
+  - words:
+    - word: light
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: lighting
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: lit
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 1
+    autoCompleteThreshold: 1
+  - words:
+    - word: tea
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: pot
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: cosy
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 0
+    autoCompleteThreshold: 1
+  - words:
+    - word: fire
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 0
+    autoCompleteThreshold: 1
+  - words:
+    - word: put
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 0
+    autoCompleteThreshold: 1
+  - words:
+    - word: together
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 0
+    autoCompleteThreshold: 1
+  - words:
+    - word: jigsaw puzzle
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 0
+    autoCompleteThreshold: 1
+  - words:
+    - word: ugly
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 0
+    autoCompleteThreshold: 1
+  - words:
+    - word: home
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: castle
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 1
+    autoCompleteThreshold: 1
+  - words:
+    - word: pair
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 0
+    autoCompleteThreshold: 1
+  - words:
+    - word: socks
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 0
+    autoCompleteThreshold: 1
+  - words:
+    - word: parents
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 0
+    autoCompleteThreshold: 1
+  - words:
+    - word: new
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 0
+    autoCompleteThreshold: 1
+  - words:
+    - word: ty
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: tie
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: tied
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 1
+    autoCompleteThreshold: 1
+  - words:
+    - word: great
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: plate
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: hate
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: straight
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: weight
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 1
+    autoCompleteThreshold: 4
+  - words:
+    - word: mood
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 0
+    autoCompleteThreshold: 1
+  - words:
+    - word: start
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: starting
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: started
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 1
+    autoCompleteThreshold: 1
+  - words:
+    - word: talk
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: talking
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: talked
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 1
+    autoCompleteThreshold: 1
+  - words:
+    - word: politics
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 0
+    autoCompleteThreshold: 1
+  - words:
+    - word: hope
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 0
+    autoCompleteThreshold: 1
+  - words:
+    - word: visit
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: visiting
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: visited
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 1
+    autoCompleteThreshold: 1
+  - words:
+    - word: soon
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 0
+    autoCompleteThreshold: 1
+  - words:
+    - word: Love
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 0
+    autoCompleteThreshold: 1
+  - words:
+    - word: Rosemary
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: Thyme
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: Terragon
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    - word: Oregano
+      unknownVersion: {fileID: 0}
+      knownVersion: {fileID: 0}
+      learned: 0
+      solved: 0
+    autoCompletes: 1
+    autoCompleteThreshold: 3
 --- !u!114 &11435420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -184,6 +699,22 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &11477202
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ac6d84dca7648fab1a3a905dbc55b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: 33a28dcb-8aa6-4f46-ab4b-319d342f5de2
+  classId: dcd7b8ef-e389-47d6-9fe1-f2e09cf43c87
+  StoreAllComponents: 1
+  Components: []
 --- !u!222 &22215930
 CanvasRenderer:
   m_ObjectHideFlags: 1

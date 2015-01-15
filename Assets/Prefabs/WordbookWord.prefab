@@ -13,6 +13,7 @@ GameObject:
   - 114: {fileID: 11434516}
   - 114: {fileID: 11434512}
   - 114: {fileID: 11417700}
+  - 114: {fileID: 11444798}
   m_Layer: 5
   m_Name: WordbookWord
   m_TagString: Untagged
@@ -165,6 +166,22 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &11444798
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ac6d84dca7648fab1a3a905dbc55b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: d4ccc672-c2cb-4906-b423-9f4b8c1e9f9d
+  classId: 02fb9077-221a-44c8-992f-b084f377ae47
+  StoreAllComponents: 1
+  Components: []
 --- !u!222 &22234516
 CanvasRenderer:
   m_ObjectHideFlags: 1
