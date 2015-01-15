@@ -172,12 +172,8 @@ namespace PointClick {
 
 		// Use this for initialization
 		void Start () {
-			Vector3 loadPos = SaveState.Instance.GetPlayerPosition();
-
-			if (loadPos != SaveState.nullVector) {
-				transform.position = loadPos;
-				room = RoomManager.GetRoomOfPlayer(loadPos);
-			} else
+	
+			if (room == null)
 				room = gameObject.GetComponentInParent<RoomManager>();
 
 			if (LevelManager.Instance.transform.parent)
@@ -278,7 +274,7 @@ namespace PointClick {
 			gameObject.layer = pt.gameObject.layer;
 			room = pt.room;
 			location = pt;
-			SaveState.Instance.SetPlayerPosition(pt.transform.position);
+//			SaveState.Instance.SetPlayerPosition(pt.transform.position);
 			inTransition = pt != walkTarget;
 			if (!inTransition) {
 				rigidbody.velocity = Vector3.zero;

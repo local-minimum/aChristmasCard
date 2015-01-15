@@ -11,32 +11,37 @@ namespace PointClick.Addons.WordPuzzle {
 		public Sprite unknownVersion;
 		public Sprite knownVersion;
 
-		public bool learned {
-			get {
-				return SaveState.Instance.GetLearnedLetterWord(word);
-			}
+		public bool learned = false;
+		public bool solved = false;
 
-			set {
-				if (value)
-					SaveState.Instance.SetLearnedLetterWord(word);
-				else
-					Debug.LogWarning("Can't unlearn words");
-			}
-		}
-
-		public bool solved {
-			get {
-				return SaveState.Instance.GetSolvedLetterWord(word);
-			}
-
-			set {
-				if (value)
-					SaveState.Instance.SetSolvedLetterWord(word);
-				else
-					Debug.LogWarning("Can't unsolve words");
-			}
-		}
-
+//		public bool learned {
+//			get {
+////				return SaveState.Instance.GetLearnedLetterWord(word);
+//				return _learned;
+//			}
+//
+//			set {
+//				if (value)
+//					_learned = value;
+//				else
+//					Debug.LogWarning("Can't unlearn words");
+//			}
+//		}
+//
+//		public bool solved {
+//			get {
+//				return _solved; //TODO: save
+////				return SaveState.Instance.GetSolvedLetterWord(word);
+//			}
+//
+//			set {
+//				if (value)
+//					SaveState.Instance.SetSolvedLetterWord(word);
+//				else
+//					Debug.LogWarning("Can't unsolve words");
+//			}
+//		}
+//
 		public Sprite image {
 			get {
 				return learned ? knownVersion : unknownVersion;
@@ -113,7 +118,8 @@ namespace PointClick.Addons.WordPuzzle {
 	public class WordList : Singleton<WordList> {
 
 		public bool debug = false;
-		private float wordListPage;
+//		private float wordListPage;
+		private int currentPage;
 
 		public  List<WordPage> wordPages = new List<WordPage>();
 		private Dictionary<int, WordPage> index = new Dictionary<int, WordPage>();
@@ -128,18 +134,18 @@ namespace PointClick.Addons.WordPuzzle {
 		}
 
 		void Start() {
-			for (int i=0; i<wordPages.Count(); i++) {
-				int idX = SaveState.Instance.GetWordListIndex(i);
-				if (idX>=0)
-					index.Add(idX, wordPages[i]);
-			}
+//			for (int i=0; i<wordPages.Count(); i++) {
+//				int idX = SaveState.Instance.GetWordListIndex(i);
+//				if (idX>=0)
+//					index.Add(idX, wordPages[i]);
+//			}
 		}
 
 		void OnGUI() {
 			if (debug)
 				PointClick.LevelManager.DebugText = string.Format(
 					"<b>Word List index:</b>\n\tPages:\t{0}\n\tCurrent page:\t{1}\n\tHas Next:\t{2}\n\tHas Prev:\t{3}",
-					Length, SaveState.WordListPage, HasNextPage(), HasPrevPage());
+					Length, currentPage, HasNextPage(), HasPrevPage());
 		}
 
 		public void LearnedWordEffect() {
@@ -177,23 +183,23 @@ namespace PointClick.Addons.WordPuzzle {
 				return;
 			}
 
-			SaveState.Instance.SetWordListIndex(wordPages.IndexOf(page),Length);
+//			SaveState.Instance.SetWordListIndex(wordPages.IndexOf(page),Length);
 			index.Add(Length, page);
 
 		}
 
 		public WordPage CurrentPage() {
-			if (index.ContainsKey(SaveState.WordListPage))
-				return index[SaveState.WordListPage];
+			if (index.ContainsKey(currentPage)) // SaveState.WordListPage))
+				return index[currentPage]; // SaveState.WordListPage];
 			return null;
 		}
 
 		public bool HasNextPage() {
-			return index.ContainsKey(SaveState.WordListPage + 1);
+			return index.ContainsKey(currentPage + 1); // SaveState.WordListPage + 1);
 		}
 
 		public bool HasPrevPage() {
-			return index.ContainsKey(SaveState.WordListPage - 1);
+			return index.ContainsKey(currentPage - 1); // SaveState.WordListPage - 1);
 		}
 
 		public Word GetWord(string word) {

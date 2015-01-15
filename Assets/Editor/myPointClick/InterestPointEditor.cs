@@ -35,8 +35,8 @@ public class InterestPointEditor : Editor {
 		EditorGUILayout.LabelField("Status:");
 		EditorGUI.indentLevel += 1;
 		string learnDetails = "";
-		if (myTarget.word != "")
-			learnDetails = string.Format("\nWord learned:\t{0}\nWord solved:\t{1}", SaveState.Instance.GetLearnedLetterWord(myTarget.word), SaveState.Instance.GetSolvedLetterWord(myTarget.word));
+//		if (myTarget.word != "")
+//			learnDetails = string.Format("\nWord learned:\t{0}\nWord solved:\t{1}", , SaveState.Instance.GetSolvedLetterWord(myTarget.word));
 
 		EditorGUILayout.HelpBox(string.Format(
 			"Object in room:\t{0}\nTotal slots:\t\t{1}\nPocketable:\t{2}{3}{4}", 
