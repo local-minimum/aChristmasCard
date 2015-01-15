@@ -35,6 +35,12 @@ namespace PointClick {
 			}
 		}
 
+		public static string DebugText {
+			set {
+				Instance.debugText2.text = value;
+			}
+		}
+
 	//	public Texture2D mouseCursor;
 
 		public PlayerController player {
@@ -107,11 +113,11 @@ namespace PointClick {
 		// Update is called once per frame
 		void Update () {
 			if (uiView) {
-				if (LetterWriter.InLetterView) {
-	//				if (LetterWriter.Cursor)
-	//					LetterWriter.Cursor.position = Input.mousePosition;
-
-				}
+//				if (LetterWriter.InLetterView) {
+//	//				if (LetterWriter.Cursor)
+//	//					LetterWriter.Cursor.position = Input.mousePosition;
+//
+//				}
 				return;
 			} else 	if (player.cursor)
 				player.cursor.position = Input.mousePosition;
@@ -127,9 +133,6 @@ namespace PointClick {
 		void OnGUI() {
 			if (debug) {
 				debugText.text = string.Format("<b>Hovering {0}:</b>\n\t", _uiView.Count()) + string.Join("\n\t", _uiView.Select(gO => gO.name).ToArray());
-				debugText2.text = string.Format(
-					"<b>Word List index:</b>\n\tPages:\t{0}\n\tCurrent page:\t{1}\n\tHas Next:\t{2}\n\tHas Prev:\t{3}",
-					WordList.Instance.Length, SaveState.WordListPage, WordList.Instance.HasNextPage(), WordList.Instance.HasPrevPage());
 			}
 		}
 

@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
-using PointClick;
 
-[CustomEditor(typeof(RoomManager))]
+[CustomEditor(typeof(PointClick.RoomManager))]
 public class RoomEditor : Editor {
 
 	public override void OnInspectorGUI ()
 	{
-		RoomManager myTarget = (RoomManager) target;
+		PointClick.RoomManager myTarget = (PointClick.RoomManager) target;
 
 		base.OnInspectorGUI ();
 		EditorGUILayout.LabelField("Status:");

@@ -112,15 +112,16 @@ namespace PointClick.Addons.WordPuzzle {
 
 	public class WordList : Singleton<WordList> {
 
+		public bool debug = false;
 		private float wordListPage;
 
 		public  List<WordPage> wordPages = new List<WordPage>();
 		private Dictionary<int, WordPage> index = new Dictionary<int, WordPage>();
 
-		public bool Learn(PlayerController player, string word) {
+		public bool Learn(PointClick.LearnedMessage msg) {
 			foreach (WordPage wp in wordPages) {
-				if (wp.Contains(word)) {
-					return wp.Learn(player, word);
+				if (wp.Contains(msg.message)) {
+					return wp.Learn(msg.player, msg.message);
 				}
 			}
 			return false;
@@ -132,6 +133,13 @@ namespace PointClick.Addons.WordPuzzle {
 				if (idX>=0)
 					index.Add(idX, wordPages[i]);
 			}
+		}
+
+		void OnGUI() {
+			if (debug)
+				PointClick.LevelManager.DebugText = string.Format(
+					"<b>Word List index:</b>\n\tPages:\t{0}\n\tCurrent page:\t{1}\n\tHas Next:\t{2}\n\tHas Prev:\t{3}",
+					Length, SaveState.WordListPage, HasNextPage(), HasPrevPage());
 		}
 
 		public void LearnedWordEffect() {

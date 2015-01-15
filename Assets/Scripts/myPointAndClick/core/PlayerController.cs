@@ -53,6 +53,8 @@ namespace PointClick {
 		private GameObject _using = null;
 		private Animator anim;
 
+		private GameObject managers;
+
 		public PlayerDirections currentDirection {
 			get {
 				Vector3 v = rigidbody.velocity.normalized;
@@ -171,11 +173,18 @@ namespace PointClick {
 		// Use this for initialization
 		void Start () {
 			Vector3 loadPos = SaveState.Instance.GetPlayerPosition();
+
 			if (loadPos != SaveState.nullVector) {
 				transform.position = loadPos;
 				room = RoomManager.GetRoomOfPlayer(loadPos);
 			} else
 				room = gameObject.GetComponentInParent<RoomManager>();
+
+			if (LevelManager.Instance.transform.parent)
+				managers = LevelManager.Instance.transform.parent.gameObject;
+			else
+				managers = LevelManager.Instance.gameObject;
+
 			SetTargetPath(room.GetWalkingPointClosestTo(transform.position));
 			ArrivedAt(location);
 			transform.position = location.transform.position + offset;
@@ -320,7 +329,8 @@ namespace PointClick {
 		}
 
 		public void Learn(string word) {
-			WordList.Instance.Learn(this, word);
+			managers.BroadcastMessage("Learn", new PointClick.LearnedMessage(this, word) ,SendMessageOptions.DontRequireReceiver);
+//			WordList.Instance.Learn(this, word);
 		}
 
 		public void NeedEnergy() {
