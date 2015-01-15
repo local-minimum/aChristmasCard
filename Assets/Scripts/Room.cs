@@ -98,6 +98,14 @@ public class Room : MonoBehaviour {
 		return interactions.OrderBy(ip => Vector3.Distance(pos, ip.transform.position)).First();
 	}
 
+	public static Room GetRoomOfPlayer(Vector3 pos) {
+		return GameObject.FindObjectsOfType<Room>()
+			.Select(r => r.GetWalkingPointClosestTo(pos))
+				.OrderBy(ip => Vector3.Distance(ip.transform.position, pos))
+				.First()
+				.room;
+	}
+
 	public InterestPoint GetWalkingPointClosestTo(Vector3 pos) {
 		InterestPoint pt = GetPointClosestTo(pos);
 		if (pt && !pt.walkingPoint)

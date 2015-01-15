@@ -9,7 +9,9 @@ public class SaveState : Singleton<SaveState> {
 	private string wordPageListToIndex = "wordPageListToIndex_{0}";
 	private string wordPageListHighestListIndex = "wordPageListHighestIndex";
 	private string eventStr = "event_{0}";
-
+	private string player = "player_{0}";
+	public static Vector3 nullVector = Vector3.down * 100f;
+	
 	public static int WordListPage {
 		get {
 			return Instance.wordListPage;
@@ -87,6 +89,27 @@ public class SaveState : Singleton<SaveState> {
 		PlayerPrefs.SetInt(string.Format(eventStr, "fire"), val ? 1 : 0);
 	}
 
+	public Vector3 GetPlayerPosition() {
+		if (PlayerPrefs.HasKey(string.Format(player, "x")) && PlayerPrefs.HasKey(string.Format(player, "y")) && PlayerPrefs.HasKey(string.Format(player, "z")))
+			return new Vector3(PlayerPrefs.GetFloat(string.Format(player, "x")),
+			                   PlayerPrefs.GetFloat(string.Format(player, "y")),
+			                   PlayerPrefs.GetFloat(string.Format(player, "z")));
+
+		return nullVector;
+	}
+
+	public void SetPlayerPosition(Vector3 pos) {
+		if (pos == nullVector) {
+			PlayerPrefs.DeleteKey(string.Format(player, "x"));
+			PlayerPrefs.DeleteKey(string.Format(player, "y"));
+			PlayerPrefs.DeleteKey(string.Format(player, "z"));
+		} else {
+			PlayerPrefs.SetFloat(string.Format(player, "x"), pos.x);
+			PlayerPrefs.SetFloat(string.Format(player, "y"), pos.y);
+			PlayerPrefs.SetFloat(string.Format(player, "z"), pos.z);
+		}
+	}
+
 	public void RestAll() {
 		PlayerPrefs.DeleteAll();
 	}
@@ -108,7 +131,7 @@ public class SaveState : Singleton<SaveState> {
 		PlayerPrefs.SetInt(wordPageListHighestListIndex, -1);
 
 		//TODO: Player position
-
+		SetPlayerPosition(nullVector);
 
 		//TODO; Player inventory
 

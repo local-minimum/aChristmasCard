@@ -168,7 +168,12 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		room = gameObject.GetComponentInParent<Room>();
+		Vector3 loadPos = SaveState.Instance.GetPlayerPosition();
+		if (loadPos != SaveState.nullVector) {
+			transform.position = loadPos;
+			room = Room.GetRoomOfPlayer(loadPos);
+		} else
+			room = gameObject.GetComponentInParent<Room>();
 		SetTargetPath(room.GetWalkingPointClosestTo(transform.position));
 		ArrivedAt(location);
 		transform.position = location.transform.position + offset;
@@ -262,6 +267,7 @@ public class PlayerController : MonoBehaviour {
 		gameObject.layer = pt.gameObject.layer;
 		room = pt.room;
 		location = pt;
+		SaveState.Instance.SetPlayerPosition(pt.transform.position);
 		inTransition = pt != walkTarget;
 		if (!inTransition) {
 			rigidbody.velocity = Vector3.zero;
