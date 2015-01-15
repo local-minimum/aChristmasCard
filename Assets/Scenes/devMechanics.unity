@@ -2462,6 +2462,7 @@ GameObject:
   - 23: {fileID: 326703758}
   - 65: {fileID: 326703761}
   - 114: {fileID: 326703759}
+  - 95: {fileID: 326703762}
   m_Layer: 13
   m_Name: Painting
   m_TagString: Untagged
@@ -2545,6 +2546,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: .100000001}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &326703762
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 326703756}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2bc77afa960b5244bba9629ee4867e1a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &338722866
 GameObject:
   m_ObjectHideFlags: 0
@@ -9615,7 +9631,7 @@ GameObject:
   - 23: {fileID: 1045923591}
   m_Layer: 11
   m_Name: scissors
-  m_TagString: Untagged
+  m_TagString: scissors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
