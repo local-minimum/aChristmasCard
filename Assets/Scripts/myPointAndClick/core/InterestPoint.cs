@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using FunColOps;
 
 namespace PointClick {
 
@@ -8,6 +9,7 @@ namespace PointClick {
 
 		public enum ApplyResults {REFUSED, ACCEPTED, REQUEST_ACTION}
 
+		[SerializeThis]
 		private RoomManager _room;
 
 		public bool editMode = false;
@@ -23,7 +25,10 @@ namespace PointClick {
 
 		public Dictionary<string, string> successfullApplications = new Dictionary<string, string>();
 
+		[SerializeThis]
 		private Pocketable _pocketable = null;
+
+		[SerializeThis]
 		private bool checkedPocketable = false;
 
 		public Pocketable pocketable {
@@ -39,6 +44,7 @@ namespace PointClick {
 		}
 
 		private List<DropPosition> _dropPositions;
+
 		public List<DropPosition> dropPositions {
 			get {
 				if (_dropPositions == null)
@@ -132,7 +138,7 @@ namespace PointClick {
 	//		Debug.Log(pos);
 			if (!paths.Any(p => p.Contains(other)))
 				return new InterestPoint[] {};
-			return Concat(paths.Where(p => p.Contains(other)).OrderBy(p => Distance(p)).First().Reverse().Skip(1).ToArray(), this);
+			return paths.Where(p => p.Contains(other)).OrderBy(p => Distance(p)).First().Reverse().Skip(1).ToArray().Conj<InterestPoint>(this);
 		}
 
 		private float Distance(InterestPoint[] path) {
@@ -143,22 +149,15 @@ namespace PointClick {
 			return f;
 		}
 
-		private Type[] Concat<Type>(Type[] arr, Type item) {
-			Type[] ret = new Type[arr.Length + 1];
-			arr.CopyTo(ret, 0);
-			ret[arr.Length] = item;
-			return ret;
-		}
-
 		public bool AddNovelRelevantPaths(InterestPoint target, InterestPoint[] query, ref List<InterestPoint[]> paths) {
 			if (connections.Contains(target)) {
-				paths.Add(Concat<InterestPoint>(query, target));
+				paths.Add(query.Conj<InterestPoint>(target));
 			 	return true;
 			} 
 
 			foreach (InterestPoint pt in connections) {
 				if (!paths.Any(p => p.Contains(pt)) || paths.Where(p => p.Contains(pt)).Max(p => System.Array.IndexOf((InterestPoint[]) p, pt)) >= query.Length + 1)
-					paths.Add(Concat<InterestPoint>(query, pt));
+					paths.Add(query.Conj<InterestPoint>(pt));
 			}
 
 			return false;

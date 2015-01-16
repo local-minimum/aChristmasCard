@@ -19,7 +19,9 @@ namespace PointClick {
 		[Range(0,1)]
 		public float cameraSmoothness = 0.5f;
 
+		[SerializeThis]
 		private PlayerController _player;
+
 		public Camera mainCamera;
 		public bool debug = false;
 
