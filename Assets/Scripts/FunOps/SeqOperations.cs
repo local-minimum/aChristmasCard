@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace FunColOps {
+namespace FunOps {
 	public static class ArrayExtender {
 
 		public static T[] Conj<T>(this T[] arr, T item) {

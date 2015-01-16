@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
-using FunColOps;
+using FunOps;
 
 namespace PointClick {
 
