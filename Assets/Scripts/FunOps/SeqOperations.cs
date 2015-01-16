@@ -112,7 +112,6 @@ namespace FunOps {
 			return arr.SubArray(0, n);
 		}
 
-
 	}
 
 	/// <summary>
