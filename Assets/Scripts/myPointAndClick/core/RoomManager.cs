@@ -144,5 +144,15 @@ namespace PointClick {
 		public void RemoveInterest(InterestPoint pt) {
 			interactions.Remove(pt);
 		}
+
+		public void Fire() {
+			if (audio)
+				audio.Play();
+		}
+
+		public void FireStop() {
+			if (audio)
+				audio.Stop();
+		}
 	}
 }

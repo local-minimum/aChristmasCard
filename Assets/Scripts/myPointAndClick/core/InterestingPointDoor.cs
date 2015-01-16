@@ -44,7 +44,9 @@ namespace PointClick {
 
 		}
 
-		protected virtual void Update() {
+		protected override void Update ()
+		{
+
 			if (inTransition) {
 
 				if (player.CheckProximity(passageTrail[pathIndex].position, pathIndex == passageTrail.Count - 1)) {

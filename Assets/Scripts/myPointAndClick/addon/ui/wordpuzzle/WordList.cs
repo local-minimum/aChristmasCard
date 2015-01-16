@@ -119,9 +119,13 @@ namespace PointClick.Addons.WordPuzzle {
 
 		public bool debug = false;
 //		private float wordListPage;
-		private int currentPage;
+
+		[SerializeThis]
+		private int currentPage = -1;
 
 		public  List<WordPage> wordPages = new List<WordPage>();
+
+		[SerializeThis]
 		private Dictionary<int, WordPage> index = new Dictionary<int, WordPage>();
 
 		public bool Learn(PointClick.LearnedMessage msg) {

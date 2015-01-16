@@ -8,27 +8,42 @@ namespace PointClick {
 		public string stopBurningWord;
 		public string startCookingWord;
 
+		[SerializeThis]
+		private bool foodInOven = false;
+
+		[SerializeThis]
+		private bool foodCooking = false;
+
+		[SerializeThis]
+		private bool foodBurning = false;
+
 		public override ApplyResults Apply (PlayerController player, GameObject tool)
 		{
 			ApplyResults res = base.Apply (player, tool);
 			if (res == ApplyResults.ACCEPTED) 
-				SaveState.Instance.SetFoodInOven(true);
+				foodInOven = true;
 			return res;
 		}
 
 		public override void Action (PlayerController player)
 		{
-			bool foodInOven = SaveState.Instance.GetFoodInOven();
-			bool foodCooking = SaveState.Instance.GetFoodCooking();
-			bool foodBurning = SaveState.Instance.GetEventFire();
+
 			if (foodBurning) {
-				SaveState.Instance.SetFoodInOven(false);
-				SaveState.Instance.SetFoodCooking(false);
-				SaveState.Instance.SetEventFire(false);
+				foodInOven = false;
+				foodBurning = false;
+				foodCooking = false;
+				LevelManager.BroadCastToRooms("FireStop");
 				player.Learn(stopBurningWord);
 			} else if (foodInOven && !foodCooking) {
-				SaveState.Instance.SetFoodCooking(true);
+				foodCooking = true;
 				player.Learn(startCookingWord);
+			}
+		}
+
+		public void LeftRoom() {
+			if (foodCooking) {
+				foodBurning = true;
+				room.Broadcast("Fire");
 			}
 		}
 	}

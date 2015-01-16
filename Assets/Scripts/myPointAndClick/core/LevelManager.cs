@@ -22,8 +22,24 @@ namespace PointClick {
 		[SerializeThis]
 		private PlayerController _player;
 
+		[SerializeThis]
+		private static RoomManager[] rooms;
+
 		public Camera mainCamera;
 		public bool debug = false;
+
+		public static RoomManager[] Rooms {
+			get {
+				if (rooms == null)
+					rooms = GameObject.FindObjectsOfType<RoomManager>();
+				return rooms;
+			}
+		}
+
+		public static void BroadCastToRooms(string message) {
+			foreach (RoomManager room in Rooms)
+				room.Broadcast(message);
+		}
 
 		public static PlayerController Player {
 			get {
@@ -47,6 +63,14 @@ namespace PointClick {
 			get {
 				return Instance.playTime;
 			}
+		}
+
+		public static void Pause() {
+
+		}
+
+		public static void Resume() {
+
 		}
 
 	//	public Texture2D mouseCursor;
@@ -76,6 +100,7 @@ namespace PointClick {
 		}
 		// Use this for initialization
 		void Start () {
+
 			if (!mainCamera)
 				mainCamera = Camera.main;
 			if (debug) {
