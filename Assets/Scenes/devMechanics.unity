@@ -628,8 +628,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 100211952}
   - 114: {fileID: 100211953}
+  - 114: {fileID: 100211954}
   m_Layer: 12
-  m_Name: Point Painting
+  m_Name: IPLpainting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -646,7 +647,7 @@ Transform:
   m_LocalScale: {x: 6, y: 9.02999973, z: 1}
   m_Children: []
   m_Father: {fileID: 1413719574}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!114 &100211953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -664,6 +665,20 @@ MonoBehaviour:
   pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
+--- !u!114 &100211954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 100211951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: 56eb679f-a2c0-4331-9048-37dd94b46cf7
+  classId: d0db4315-bbf8-4329-946a-f05153d9c168
 --- !u!1 &105081184
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,8 +1161,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 186236190}
   - 114: {fileID: 186236191}
+  - 114: {fileID: 186236192}
   m_Layer: 12
-  m_Name: Point Door
+  m_Name: IPLdoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1165,7 +1181,7 @@ Transform:
   m_Children:
   - {fileID: 1000473877}
   m_Father: {fileID: 1413719574}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!114 &186236191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1183,6 +1199,20 @@ MonoBehaviour:
   pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
+--- !u!114 &186236192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 186236189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: 92829ef9-8e0f-4b4f-af1f-c3b199cf1f15
+  classId: 5df8d07b-a915-48d3-a4ae-be497a787bc8
 --- !u!1 &201981508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,8 +1789,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 252080464}
   - 114: {fileID: 252080465}
+  - 114: {fileID: 252080466}
   m_Layer: 12
-  m_Name: Point Corner
+  m_Name: IPLcorner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1796,6 +1827,20 @@ MonoBehaviour:
   pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
+--- !u!114 &252080466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 252080463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: 981ac186-ae2a-408e-8fd7-76f6d6588bbc
+  classId: fbb03f10-4c75-4d62-8ba7-98d79b3c8de7
 --- !u!1001 &268279319
 Prefab:
   m_ObjectHideFlags: 0
@@ -3391,6 +3436,7 @@ GameObject:
   - 23: {fileID: 384265955}
   - 65: {fileID: 384265956}
   - 114: {fileID: 384265958}
+  - 114: {fileID: 384265959}
   m_Layer: 0
   m_Name: present
   m_TagString: Untagged
@@ -3472,6 +3518,22 @@ MonoBehaviour:
   animator: {fileID: 0}
   opensWith: scissors
   presentUIVersion: {fileID: 0}
+--- !u!114 &384265959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 384265953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6fd92df3c974ed690d61989eb183ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: 7b1f6356-4d36-4581-a8c2-8a38c25a9afe
+  classId: a6971d47-86be-45b3-a778-abcd2ed9de22
+  StoreAllComponents: 1
+  Components: []
 --- !u!1 &386330088
 GameObject:
   m_ObjectHideFlags: 0
@@ -7676,8 +7738,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 891902194}
   - 114: {fileID: 891902195}
+  - 114: {fileID: 891902196}
   m_Layer: 12
-  m_Name: Point NextToDoor
+  m_Name: IPLnextToDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7694,7 +7757,7 @@ Transform:
   m_LocalScale: {x: 6, y: 9.02999973, z: 1}
   m_Children: []
   m_Father: {fileID: 1413719574}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!114 &891902195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7712,6 +7775,20 @@ MonoBehaviour:
   pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
+--- !u!114 &891902196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 891902193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: 7f2a471c-1f6c-41c1-ae58-b63d61515982
+  classId: 09cdd0e7-96bc-4d97-8669-2a0967085cba
 --- !u!1 &905574591
 GameObject:
   m_ObjectHideFlags: 0
@@ -9029,6 +9106,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 999505058}
   - 114: {fileID: 999505059}
+  - 114: {fileID: 999505060}
   m_Layer: 12
   m_Name: DepoPoint
   m_TagString: Untagged
@@ -9060,6 +9138,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allowedTags: []
+--- !u!114 &999505060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 999505057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: e6faf0c0-a79c-4f27-99c7-57fb65d0df7d
+  classId: fce6b53d-7d4e-4a85-9a79-40be16b55757
 --- !u!1 &1000473876
 GameObject:
   m_ObjectHideFlags: 0
@@ -9069,6 +9161,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1000473877}
   - 114: {fileID: 1000473878}
+  - 114: {fileID: 1000473879}
   m_Layer: 12
   m_Name: DepoPoint
   m_TagString: Untagged
@@ -9100,6 +9193,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allowedTags: []
+--- !u!114 &1000473879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1000473876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: cd860911-4d55-4859-ad14-459e0318d546
+  classId: d2e4b07a-d91d-476e-b4fc-19fd2a311847
 --- !u!1 &1005812143
 GameObject:
   m_ObjectHideFlags: 0
@@ -11141,8 +11248,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 1187698422}
   - 114: {fileID: 1187698423}
+  - 114: {fileID: 1187698424}
   m_Layer: 12
-  m_Name: Point LeftOfTable
+  m_Name: IPLtableLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11177,6 +11285,20 @@ MonoBehaviour:
   pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
+--- !u!114 &1187698424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1187698421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: abd148ba-48ea-4f43-808d-1d5672c526f7
+  classId: e17e2b80-3430-4849-abca-bacdc3647760
 --- !u!1 &1191601460
 GameObject:
   m_ObjectHideFlags: 0
@@ -13209,10 +13331,10 @@ Transform:
   - {fileID: 1922523722}
   - {fileID: 252080464}
   - {fileID: 1187698422}
+  - {fileID: 1880575631}
   - {fileID: 100211952}
   - {fileID: 186236190}
   - {fileID: 891902194}
-  - {fileID: 1880575631}
   m_Father: {fileID: 2041226827}
   m_RootOrder: 14
 --- !u!1001 &1418271439
@@ -18076,8 +18198,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 1880575631}
   - 114: {fileID: 1880575632}
+  - 114: {fileID: 1880575633}
   m_Layer: 12
-  m_Name: Point RightOfTable
+  m_Name: IPLtableRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18094,7 +18217,7 @@ Transform:
   m_LocalScale: {x: 6, y: 9.02999973, z: 1}
   m_Children: []
   m_Father: {fileID: 1413719574}
-  m_RootOrder: 6
+  m_RootOrder: 3
 --- !u!114 &1880575632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18112,6 +18235,20 @@ MonoBehaviour:
   pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
+--- !u!114 &1880575633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1880575630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: ced54b15-251d-4192-99a5-d798791b2e35
+  classId: ff782146-0239-4938-8f71-bcdf38f48f81
 --- !u!1 &1887063123
 GameObject:
   m_ObjectHideFlags: 0
@@ -18408,6 +18545,7 @@ GameObject:
   - 23: {fileID: 1916526604}
   - 114: {fileID: 1916526607}
   - 65: {fileID: 1916526605}
+  - 114: {fileID: 1916526608}
   m_Layer: 0
   m_Name: waste basket
   m_TagString: Untagged
@@ -18487,6 +18625,22 @@ MonoBehaviour:
   missPlace: {fileID: 0}
   missWord: miss
   hitWord: put
+--- !u!114 &1916526608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1916526602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6fd92df3c974ed690d61989eb183ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: fcc05fff-1b0b-4d3a-aecc-c339fa39e9e0
+  classId: 4a0909be-6b4c-423e-ab1a-17607fd3fc4b
+  StoreAllComponents: 1
+  Components: []
 --- !u!1 &1922523721
 GameObject:
   m_ObjectHideFlags: 0
@@ -18496,8 +18650,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 1922523722}
   - 114: {fileID: 1922523723}
+  - 114: {fileID: 1922523724}
   m_Layer: 12
-  m_Name: Point Left Wall
+  m_Name: IPLleftWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18532,6 +18687,20 @@ MonoBehaviour:
   pocketingWord: 
   viewedFrom: {fileID: 0}
   connections: []
+--- !u!114 &1922523724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1922523721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc7f0a036bc94ddf9e7626ffd54921d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: ec64a656-af1c-4aeb-ad52-60dc41c8e7ad
+  classId: 44e939dc-7bb1-44ea-a893-ef7aecc62b13
 --- !u!1 &1923232998
 GameObject:
   m_ObjectHideFlags: 0
@@ -19243,6 +19412,7 @@ GameObject:
   - 23: {fileID: 2034870980}
   - 65: {fileID: 2034870983}
   - 114: {fileID: 2034870981}
+  - 114: {fileID: 2034870984}
   m_Layer: 0
   m_Name: vase
   m_TagString: Untagged
@@ -19325,6 +19495,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: .200000003}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2034870984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2034870978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6fd92df3c974ed690d61989eb183ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDeserializing: 0
+  _id: 630da65f-e24d-43fa-a521-dc9f75795de5
+  classId: de20c3d2-d6a1-404d-a58d-db7159ceacf1
+  StoreAllComponents: 1
+  Components: []
 --- !u!1 &2037291318
 GameObject:
   m_ObjectHideFlags: 0
@@ -19929,6 +20115,30 @@ MonoBehaviour:
     Id: 44b85ea5-6d71-443d-96d1-e948dd27b5d5
   - gameObject: {fileID: 1734091410}
     Id: 29ed3b77-1a87-4be6-8909-091fdb3eb7f1
+  - gameObject: {fileID: 2034870978}
+    Id: 630da65f-e24d-43fa-a521-dc9f75795de5
+  - gameObject: {fileID: 384265953}
+    Id: 7b1f6356-4d36-4581-a8c2-8a38c25a9afe
+  - gameObject: {fileID: 1916526602}
+    Id: fcc05fff-1b0b-4d3a-aecc-c339fa39e9e0
+  - gameObject: {fileID: 1922523721}
+    Id: ec64a656-af1c-4aeb-ad52-60dc41c8e7ad
+  - gameObject: {fileID: 252080463}
+    Id: 981ac186-ae2a-408e-8fd7-76f6d6588bbc
+  - gameObject: {fileID: 1187698421}
+    Id: abd148ba-48ea-4f43-808d-1d5672c526f7
+  - gameObject: {fileID: 1880575630}
+    Id: ced54b15-251d-4192-99a5-d798791b2e35
+  - gameObject: {fileID: 100211951}
+    Id: 56eb679f-a2c0-4331-9048-37dd94b46cf7
+  - gameObject: {fileID: 186236189}
+    Id: 92829ef9-8e0f-4b4f-af1f-c3b199cf1f15
+  - gameObject: {fileID: 1000473876}
+    Id: cd860911-4d55-4859-ad14-459e0318d546
+  - gameObject: {fileID: 891902193}
+    Id: 7f2a471c-1f6c-41c1-ae58-b63d61515982
+  - gameObject: {fileID: 999505057}
+    Id: e6faf0c0-a79c-4f27-99c7-57fb65d0df7d
 --- !u!1 &2084440008
 GameObject:
   m_ObjectHideFlags: 0
