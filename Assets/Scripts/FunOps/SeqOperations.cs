@@ -1,6 +1,13 @@
 ﻿using System.Collections.Generic;
 
+
 namespace FunOps {
+
+	/// <summary>
+	/// Array extender extends array functionality.
+	/// For all methods, no changes are ever made in place.
+	/// Extensions methods work well chained.
+	/// </summary>
 	public static class ArrayExtender {
 
 		/// <summary>
@@ -104,8 +111,13 @@ namespace FunOps {
 
 			return arr.SubArray(0, n);
 		}
+
+
 	}
 
+	/// <summary>
+	/// Base type extensions that relates to quick array construction
+	/// </summary>
 	public static class ElementExtender {
 
 		/// <summary>
