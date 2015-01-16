@@ -6,16 +6,17 @@ namespace PointClick {
 
 	public class DropPosition : MonoBehaviour {
 
-		public string[] allowedTags;
+		public string[] allowedTags = new string[] {};
 
 		protected void Start() {
-			if (allowedTags.Length == 0) {
-				allowedTags = FindObjectsOfType<Pocketable>().Select(p => p.tag).Distinct().ToArray();
-			}
+//			if (allowedTags.Length == 0) {
+//				Debug.Log("no tags");
+//				allowedTags = GameObject.FindObjectsOfType<Pocketable>().Select(p => p.tag).Distinct().ToArray();
+//			}
 		}
 
 		public bool CanTake(GameObject thing) {
-			return transform.childCount == 0 && allowedTags.Contains(thing.tag);
+			return transform.childCount == 0 && (allowedTags.Contains(thing.tag) || allowedTags.Length == 0);
 		}
 
 		public bool Place(GameObject thing) {
