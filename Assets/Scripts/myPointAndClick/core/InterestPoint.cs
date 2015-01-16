@@ -90,7 +90,7 @@ namespace PointClick {
 		
 		// Update is called once per frame
 		[ExecuteInEditMode]
-		void Update () {
+		protected virtual void Update () {
 			if (editMode) {
 				foreach (InterestPoint ip in connections)
 					Debug.DrawLine(transform.position, ip.transform.position, Color.blue);

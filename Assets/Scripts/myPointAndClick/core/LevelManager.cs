@@ -41,6 +41,12 @@ namespace PointClick {
 			}
 		}
 
+		public static float PlayTime {
+			get {
+				return Instance.playTime;
+			}
+		}
+
 	//	public Texture2D mouseCursor;
 
 		public PlayerController player {
