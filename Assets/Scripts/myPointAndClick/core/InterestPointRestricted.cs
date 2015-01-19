@@ -9,7 +9,7 @@ namespace PointClick {
 
 		public InterestPoint restriction;
 
-		new protected void Start() {
+		new virtual protected void Start() {
 			base.Start();
 			if (restriction == null && transform.parent != null)
 				restriction = transform.parent.GetComponentInParent<InterestPoint>();

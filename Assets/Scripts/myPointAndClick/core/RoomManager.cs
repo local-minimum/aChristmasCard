@@ -49,11 +49,19 @@ namespace PointClick {
 			}
 		}
 
+		public bool lit {
+			get {
+				return lightSources.Where(l => l.enabled).Any();
+			}
+		}
+
 		public Transform[] cameraPositions;
 
 		private Transform _zoomPosition;
 
 		public GameObject ObjectsCollector;
+
+		private Light[] lightSources;
 
 		[Range(0f, 3f)]
 		public float walkPointMaxDistConnector = 1f;
@@ -87,6 +95,8 @@ namespace PointClick {
 				ObjectsCollector.name = "Stuff";
 				ObjectsCollector.transform.parent = gameObject.transform;
 			}
+
+			lightSources = GetComponentsInChildren<Light>().Where(l => l.tag != "flashlight").ToArray();
 		}
 		
 		// Update is called once per frame
