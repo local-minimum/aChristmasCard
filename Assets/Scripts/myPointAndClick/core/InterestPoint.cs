@@ -102,10 +102,10 @@ namespace PointClick {
 					Debug.DrawLine(transform.position, ip.transform.position, Color.blue);
 			}
 		}
-
-		public bool Contains(InterestPoint pt) {
-			return connections.Contains(pt);
-		}
+//
+//		public bool Contains(InterestPoint pt) {
+//			return connections.Contains(pt);
+//		}
 
 		public InterestPoint[] FindPathTo(InterestPoint other) {
 			if (connections.Contains(other))
