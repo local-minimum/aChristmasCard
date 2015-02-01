@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-namespace PointClick {
+namespace PointClick.Old {
 
 	public class InterestPointRadio : InterestPointRestricted {
 		 

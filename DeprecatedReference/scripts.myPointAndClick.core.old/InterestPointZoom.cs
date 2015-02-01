@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PointClick {
+namespace PointClick.Old {
 
 	public class InterestPointZoom : InterestPoint {
 

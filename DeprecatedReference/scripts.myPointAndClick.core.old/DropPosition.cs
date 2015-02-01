@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Linq;
 
-namespace PointClick {
+namespace PointClick.Old {
 
 	public class DropPosition : MonoBehaviour {
 

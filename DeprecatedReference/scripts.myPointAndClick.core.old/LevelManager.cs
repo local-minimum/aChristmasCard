@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine.UI;
 using PointClick;
 
-namespace PointClick {
+namespace PointClick.Old {
 
 	public class LevelManager : Singleton<LevelManager> {
 

@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-namespace PointClick {
+namespace PointClick.Old {
 
 	public class InterestPointRestricted : InterestPoint {
 
