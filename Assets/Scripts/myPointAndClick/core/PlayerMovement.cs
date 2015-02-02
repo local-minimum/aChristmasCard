@@ -127,10 +127,15 @@ namespace PointClick {
 
 		void TestArrive() {
 			Transform nextTarget = path.First();
+			WalkingPoint walkingPoint = nextTarget.GetComponent<WalkingPoint>();
+
 			float distanceToNext = Vector3.Distance(transform.position, nextTarget.position);
 			if (distanceToNext < arriveAtThreshold) {
 				nextTarget.BroadcastMessage("PlayerArrive", new WalkingMessage(player, path.Count() == 1),
 				                            SendMessageOptions.DontRequireReceiver);
+				if (walkingPoint)
+					_location = walkingPoint;
+
 				path.Remove(nextTarget);
 				SetIsWalking();
 

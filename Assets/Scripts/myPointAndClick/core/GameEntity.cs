@@ -8,6 +8,8 @@ namespace PointClick {
 		private Room _room;
 		public Room room { 
 			get  {
+				if (_room)
+					SetRoomFromParent();
 				return _room;
 			}
 			
@@ -19,10 +21,6 @@ namespace PointClick {
 					Debug.LogError(string.Format("{0} is void of room, this is not allowed", name));
 				}
 			}
-		}
-			
-		protected virtual void Awake () {
-			SetRoomFromParent();
 		}
 
 		protected void SetRoomFromParent() {

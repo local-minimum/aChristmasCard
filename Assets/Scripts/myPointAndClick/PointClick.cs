@@ -10,5 +10,14 @@ namespace PointClick {
 			this.player = player;
 			this.destination = destination;
 		}
+
+	}
+
+	public struct ActionMessage {
+		public Player player;
+
+		public ActionMessage(Player player) {
+			this.player = player;
+		}
 	}
 }

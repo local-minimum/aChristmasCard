@@ -29,19 +29,37 @@ namespace PointClick {
 		}
 	}
 
-	public class PathFinder : MonoBehaviour {
-
-		private Room _room;
+	public class PathFinder : GameEntity {
 
 		[SerializeThis]
 		public float closeWalkingPointProximityThreshold = 3f;
 
-		public Room room {
-			get {
-				if (!_room)
-					_room = GetComponent<Room>();
-				return _room;
+		
+		public float pointerRayCastingLength = 100f;
+		
+		public LayerMask clickCollisionLayers;
+
+		public Point GetPointClosestToPointer() {
+
+			//TODO: Switch to level singelton when created to get the ray
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			RaycastHit hit;
+			
+			if (!Physics.Raycast(ray, out hit, pointerRayCastingLength, clickCollisionLayers))
+				return null;
+
+			return room.points.OrderBy(p => Vector3.SqrMagnitude(p.transform.position - hit.point)).FirstOrDefault();
+			
+		}
+
+		public static WalkingPoint GetWalkingPointLocationForPoint(Point point) {
+			while (point) {
+				if (point.isType<WalkingPoint>())
+					return (WalkingPoint) point;
+
+				point = point.connections.FirstOrDefault();
 			}
+			return (WalkingPoint) point;
 		}
 
 		public WalkingPoint GetWalkingPointClosestTo(Point point) {
