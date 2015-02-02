@@ -72,6 +72,11 @@ namespace PointClick {
 			point.gameObject.layer = gameObject.layer;
 		}
 
+		public void Add(GameEntity entity) {
+			if (entity.isTypeOrSubclass<Point>())
+				AddPoint((Point) entity);
+		}
+
 
 	}
 

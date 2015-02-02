@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace PointClick {
 
-	public class Point : MonoBehaviour {
+	public class Point : GameEntity {
 
 		[SerializeField]
 		public static float gizmoSphereSize = 0.1f ;
@@ -13,47 +13,16 @@ namespace PointClick {
 
 		public bool autoUpdate = true;
 
-		private Room _room;
-		public Room room { 
-			get  {
-				return _room;
-			}
-
-			set {
-				if (value) {
-					_room = value;
-					_room.AddPoint(this);
-				} else {
-					Debug.LogError(string.Format("Point {0} is void of room, this is not allowed", name));
-				}
-			}
-		}
-
-		void Awake () {
-			SetRoomFromParent();
-		}
-
 		void Start() {
 			if (connections.Count == 0)
 				SetConnections();
 		}
-		
-		void SetRoomFromParent() {
-			room = gameObject.GetComponentInParent<Room>();
-		}
+
 
 		protected virtual void SetConnections() {
 			connections.Clear();
 			connections.Add(room.paths.GetWalkingPointClosestTo(this));
 
-		}
-
-		public bool isBaseType() {
-			return isType<Point>();
-		}
-
-		public bool isType<T>() {
-			return this.GetType() == typeof(T);
 		}
 
 		void OnDrawGizmos() {

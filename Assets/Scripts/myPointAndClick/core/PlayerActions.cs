@@ -1,15 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerActions : MonoBehaviour {
+namespace PointClick {
 
-	// Use this for initialization
-	void Start () {
-	
+	public class PlayerActions : GameEntity {
+
+		public bool selected = true;
+
+		private Room _room;
+
+		void Update () {
+			if (selected && Input.GetButtonDown("Fire1"))
+				Act();
+		}
+
+		void Act() {
+
+		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }
