@@ -44,16 +44,16 @@ namespace PointClick {
 			}
 		}
 
-		public Point GetWalkingPointClosestTo(Point point) {
+		public WalkingPoint GetWalkingPointClosestTo(Point point) {
 			return room.walkingPoints.Where(p => p != point).OrderBy(wp => Vector3.Distance(wp.transform.position, point.transform.position)).FirstOrDefault();
 			
 		}
 		
-		public Point GetWalkingPointClosestTo(Vector3 position) {
-			return room.walkingPoints.OrderBy(wp => Vector3.Distance(wp.transform.position, position)).First();
+		public WalkingPoint GetWalkingPointClosestTo(Vector3 position) {
+			return room.walkingPoints.OrderBy(wp => Vector3.Distance(wp.transform.position, position)).FirstOrDefault();
 		}
 		
-		public IEnumerable<Point> GetWalkingPointsCloseTo(Point point) {
+		public IEnumerable<WalkingPoint> GetWalkingPointsCloseTo(Point point) {
 			return room.walkingPoints.Where(p => p != point && Vector3.Distance(p.transform.position, point.transform.position) < closeWalkingPointProximityThreshold);
 		}
 

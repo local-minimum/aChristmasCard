@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 namespace PointClick {
 
@@ -8,7 +9,7 @@ namespace PointClick {
 		protected override void SetConnections ()
 		{
 			connections.Clear();
-			connections.AddRange(room.paths.GetWalkingPointsCloseTo(this));
+			connections.AddRange((Point[]) room.paths.GetWalkingPointsCloseTo(this).ToArray());
 			
 		}
 	}

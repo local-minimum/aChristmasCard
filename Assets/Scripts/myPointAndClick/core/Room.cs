@@ -7,11 +7,11 @@ namespace PointClick {
 	public class Room : MonoBehaviour {
 
 		private HashSet<Point> _points = new HashSet<Point>();
-		private HashSet<Point> _walkingPoints = new HashSet<Point>();
+		private HashSet<WalkingPoint> _walkingPoints = new HashSet<WalkingPoint>();
 
 		private PathFinder _paths;
 
-		[SerializeThis]
+		[SerializeField]
 		private Transform _pointsOrganizer;
 
 		public Transform pointsOrganizer {
@@ -29,7 +29,7 @@ namespace PointClick {
 			}
 		}
 
-		public HashSet<Point> walkingPoints {
+		public HashSet<WalkingPoint> walkingPoints {
 			get {
 				return _walkingPoints;
 			}
@@ -66,7 +66,7 @@ namespace PointClick {
 		{
 			_points.Add(point);
 			if (point.isType<WalkingPoint>())
-				_walkingPoints.Add(point);
+				_walkingPoints.Add((WalkingPoint) point);
 
 			point.transform.parent = pointsOrganizer;
 			point.gameObject.layer = gameObject.layer;
