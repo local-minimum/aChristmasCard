@@ -2,13 +2,13 @@
 using System.Collections;
 
 namespace PointClick {
-//	public struct LearnedMessage {
-//		public PlayerController player;
-//		public string message;
-//
-//		public LearnedMessage(PlayerController player, string message) {
-//			this.player = player;
-//			this.message = message;
-//		}
-//	}
+	public struct WalkingMessage {
+		public Player player;
+		public bool destination;
+
+		public WalkingMessage(Player player, bool destination) {
+			this.player = player;
+			this.destination = destination;
+		}
+	}
 }

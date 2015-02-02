@@ -64,6 +64,9 @@ namespace PointClick {
 
 		public void AddPoint(Point point)
 		{
+			if (_points.Contains(point))
+				return;
+
 			_points.Add(point);
 			if (point.isType<WalkingPoint>())
 				_walkingPoints.Add((WalkingPoint) point);
