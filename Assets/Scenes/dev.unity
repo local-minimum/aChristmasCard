@@ -97,10 +97,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 436368536}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.23000002, y: 1, z: .850000024}
+  m_LocalPosition: {x: .389999986, y: 1, z: .589999974}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 864559532}
+  m_Father: {fileID: 713874039}
   m_RootOrder: 0
 --- !u!114 &436368538
 MonoBehaviour:
@@ -115,6 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connections:
   - {fileID: 1781234344}
+  autoUpdate: 1
 --- !u!1 &512258386
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,10 +139,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 512258386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .25999999, y: 0, z: -.109999999}
+  m_LocalPosition: {x: .959999979, y: 0, z: -.150000006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 864559532}
+  m_Father: {fileID: 713874039}
   m_RootOrder: 1
 --- !u!114 &512258388
 MonoBehaviour:
@@ -158,6 +159,7 @@ MonoBehaviour:
   - {fileID: 1781234344}
   - {fileID: 594940874}
   - {fileID: 1175549149}
+  autoUpdate: 1
 --- !u!1 &594940872
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +186,7 @@ Transform:
   m_LocalPosition: {x: -.670000017, y: 1, z: -1.13999999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 864559532}
+  m_Father: {fileID: 713874039}
   m_RootOrder: 3
 --- !u!114 &594940874
 MonoBehaviour:
@@ -201,6 +203,39 @@ MonoBehaviour:
   - {fileID: 512258388}
   - {fileID: 1781234344}
   - {fileID: 1175549149}
+  autoUpdate: 1
+--- !u!1 &713874038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 713874039}
+  m_Layer: 0
+  m_Name: Points Organizer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &713874039
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 713874038}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 436368537}
+  - {fileID: 512258387}
+  - {fileID: 1781234345}
+  - {fileID: 594940873}
+  - {fileID: 1175549148}
+  m_Father: {fileID: 864559532}
+  m_RootOrder: 0
 --- !u!1 &864559531
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,11 +263,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 436368537}
-  - {fileID: 512258387}
-  - {fileID: 1781234345}
-  - {fileID: 594940873}
-  - {fileID: 1175549148}
+  - {fileID: 713874039}
   m_Father: {fileID: 0}
   m_RootOrder: 1
 --- !u!114 &864559533
@@ -365,10 +396,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1175549147}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.77999997, y: 1, z: -.550000012}
+  m_LocalPosition: {x: 1.60000002, y: 1, z: -.870000005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 864559532}
+  m_Father: {fileID: 713874039}
   m_RootOrder: 4
 --- !u!114 &1175549149
 MonoBehaviour:
@@ -383,7 +414,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connections:
   - {fileID: 512258388}
+  - {fileID: 1781234344}
   - {fileID: 594940874}
+  autoUpdate: 1
 --- !u!1 &1781234343
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,6 +447,8 @@ MonoBehaviour:
   connections:
   - {fileID: 512258388}
   - {fileID: 594940874}
+  - {fileID: 1175549149}
+  autoUpdate: 1
 --- !u!4 &1781234345
 Transform:
   m_ObjectHideFlags: 0
@@ -421,8 +456,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1781234343}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.37, y: 1, z: .0199999996}
+  m_LocalPosition: {x: -.689999998, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 864559532}
+  m_Father: {fileID: 713874039}
   m_RootOrder: 2

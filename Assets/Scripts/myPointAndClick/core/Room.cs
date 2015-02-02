@@ -11,6 +11,24 @@ namespace PointClick {
 
 		private PathFinder _paths;
 
+		[SerializeThis]
+		private Transform _pointsOrganizer;
+
+		public Transform pointsOrganizer {
+			get {
+				if (!_pointsOrganizer) {
+					_pointsOrganizer = new GameObject().transform;
+					_pointsOrganizer.transform.parent = transform;
+					_pointsOrganizer.transform.localPosition = Vector3.zero;
+					_pointsOrganizer.name = "Points Organizer";
+				}
+				return _pointsOrganizer;
+			}
+			set {
+				_pointsOrganizer = value;
+			}
+		}
+
 		public HashSet<Point> walkingPoints {
 			get {
 				return _walkingPoints;
@@ -33,7 +51,6 @@ namespace PointClick {
 			}
 		}
 
-		[ExecuteInEditMode]
 		void Awake () {
 			SetupPathFinder();
 		}
@@ -51,6 +68,8 @@ namespace PointClick {
 			if (point.isType<WalkingPoint>())
 				_walkingPoints.Add(point);
 
+			point.transform.parent = pointsOrganizer;
+			point.gameObject.layer = gameObject.layer;
 		}
 
 
