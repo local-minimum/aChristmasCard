@@ -27,12 +27,10 @@ namespace PointClick {
 			}
 		}
 
-		[ExecuteInEditMode]
 		void Awake () {
 			SetRoomFromParent();
 		}
 
-		[ExecuteInEditMode]
 		void Start() {
 			if (connections.Count == 0)
 				SetConnections();
@@ -58,12 +56,19 @@ namespace PointClick {
 
 		void OnDrawGizmos() {
 
+#if UNITY_EDITOR
+			SetRoomFromParent();
+			SetConnections();
+#endif
+
 			foreach (Point pt in connections) {
-				Gizmos.color = isType<WalkingPoint>() && pt.isType<WalkingPoint>() ? Color.blue : Color.red;
-				Gizmos.DrawLine(transform.position, pt.transform.position); 
+				if (pt) {
+					Gizmos.color = isType<WalkingPoint>() && pt.isType<WalkingPoint>() ? Color.blue : Color.red;
+					Gizmos.DrawLine(transform.position, pt.transform.position); 
+				}
 			}
 
-			Gizmos.color = isType<WalkingPoint>()  ? Color.blue : Color.red;
+			Gizmos.color = isType<WalkingPoint>() ? Color.blue : Color.red;
 			Gizmos.DrawSphere(transform.position, gizmoSphereSize);
 		}
 

@@ -97,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 436368536}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.99000001, y: 1, z: 2.32999992}
+  m_LocalPosition: {x: -.0500000007, y: 1, z: 1.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 864559532}
@@ -113,7 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 297ed410524b3c541af780dc00c4baf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connections: []
+  connections:
+  - {fileID: 1781234344}
 --- !u!1 &512258386
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +138,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 512258386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: 0}
+  m_LocalPosition: {x: .25999999, y: 0, z: -.109999999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 864559532}
@@ -153,7 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75498461f2fe7654cadfb576734d8129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connections: []
+  connections:
+  - {fileID: 1781234344}
 --- !u!1 &864559531
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,6 +165,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 864559532}
   - 114: {fileID: 864559533}
+  - 114: {fileID: 864559534}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -196,6 +199,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f1e47fe647b1d40b2d94dffb9671cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &864559534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 864559531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f2fc7d9f27e484e92b48d0a08b7e43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  closeWalkingPointProximityThreshold: 3
 --- !u!1 &1136233583
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75498461f2fe7654cadfb576734d8129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connections: []
+  connections:
+  - {fileID: 512258388}
 --- !u!4 &1781234345
 Transform:
   m_ObjectHideFlags: 0
@@ -315,7 +331,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1781234343}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: -1.11000001, y: 1, z: .370000005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 864559532}

@@ -36,21 +36,25 @@ namespace PointClick {
 		[SerializeThis]
 		public float closeWalkingPointProximityThreshold = 3f;
 
-		void Awake() {
-			_room = GetComponent<Room>();
+		public Room room {
+			get {
+				if (!_room)
+					_room = GetComponent<Room>();
+				return _room;
+			}
 		}
 
 		public Point GetWalkingPointClosestTo(Point point) {
-			return _room.walkingPoints.Where(p => p != point).OrderBy(wp => Vector3.Distance(wp.transform.position, point.transform.position)).First();
+			return room.walkingPoints.Where(p => p != point).OrderBy(wp => Vector3.Distance(wp.transform.position, point.transform.position)).FirstOrDefault();
 			
 		}
 		
 		public Point GetWalkingPointClosestTo(Vector3 position) {
-			return _room.walkingPoints.OrderBy(wp => Vector3.Distance(wp.transform.position, position)).First();
+			return room.walkingPoints.OrderBy(wp => Vector3.Distance(wp.transform.position, position)).First();
 		}
 		
 		public IEnumerable<Point> GetWalkingPointsCloseTo(Point point) {
-			return _room.walkingPoints.Where(p => p != point && Vector3.Distance(p.transform.position, point.transform.position) < closeWalkingPointProximityThreshold);
+			return room.walkingPoints.Where(p => p != point && Vector3.Distance(p.transform.position, point.transform.position) < closeWalkingPointProximityThreshold);
 		}
 
 		public Point[] ClosestPathBetween(Point source, Point target) {

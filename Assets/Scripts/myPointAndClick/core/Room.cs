@@ -6,19 +6,19 @@ namespace PointClick {
 
 	public class Room : MonoBehaviour {
 
-		private List<Point> _points = new List<Point>();
-		private List<Point> _walkingPoints = new List<Point>();
+		private HashSet<Point> _points = new HashSet<Point>();
+		private HashSet<Point> _walkingPoints = new HashSet<Point>();
 
 		private PathFinder _paths;
 
-		public List<Point> walkingPoints {
+		public HashSet<Point> walkingPoints {
 			get {
 				return _walkingPoints;
 			}
 
 		}
 
-		public List<Point> points {
+		public HashSet<Point> points {
 			get {
 				return _points;
 			}
@@ -26,10 +26,14 @@ namespace PointClick {
 
 		public PathFinder paths {
 			get {
+				if (!_paths)
+					SetupPathFinder();
+
 				return _paths;
 			}
 		}
 
+		[ExecuteInEditMode]
 		void Awake () {
 			SetupPathFinder();
 		}
