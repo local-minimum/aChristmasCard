@@ -11,6 +11,8 @@ namespace PointClick {
 
 		public List<Point> connections = new List<Point>();
 
+		public bool autoUpdate = true;
+
 		private Room _room;
 		public Room room { 
 			get  {
@@ -57,8 +59,10 @@ namespace PointClick {
 		void OnDrawGizmos() {
 
 #if UNITY_EDITOR
-			SetRoomFromParent();
-			SetConnections();
+			if (autoUpdate) {
+				SetRoomFromParent();
+				SetConnections();
+			}
 #endif
 
 			foreach (Point pt in connections) {
