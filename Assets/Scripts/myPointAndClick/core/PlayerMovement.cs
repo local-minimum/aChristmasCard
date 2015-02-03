@@ -76,8 +76,6 @@ namespace PointClick {
 
 		// Use this for initialization
 		void Awake () {
-			if (!_location)
-				SetLocationByProximity();
 
 			anim = GetComponent<Animator>();
 
@@ -100,7 +98,10 @@ namespace PointClick {
 
 		void SetLocationByProximity() {
 			_location = player.room.paths.GetWalkingPointClosestTo(transform.position);
-			transform.position = _location.transform.position;
+			if (_location)
+				transform.position = _location.transform.position;
+			else
+				Debug.LogError(string.Format("{0} has no home", name));
 		}
 		
 		// Update is called once per frame
@@ -109,6 +110,10 @@ namespace PointClick {
 		}
 
 		void Walk() {
+
+			if (!_location)
+				SetLocationByProximity();
+
 			if (!walking)
 				return;
 

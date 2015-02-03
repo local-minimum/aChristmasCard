@@ -68,6 +68,8 @@ namespace PointClick {
 		}
 		
 		public WalkingPoint GetWalkingPointClosestTo(Vector3 position) {
+			Debug.Log(room.walkingPoints.Count());
+			Debug.Log(room.points.Count());
 			return room.walkingPoints.OrderBy(wp => Vector3.Distance(wp.transform.position, position)).FirstOrDefault();
 		}
 		

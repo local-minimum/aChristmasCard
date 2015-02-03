@@ -6,7 +6,10 @@ namespace PointClick {
 
 	public class Room : MonoBehaviour {
 
+		[SerializeThis]
 		private HashSet<Point> _points = new HashSet<Point>();
+
+		[SerializeThis]
 		private HashSet<WalkingPoint> _walkingPoints = new HashSet<WalkingPoint>();
 
 		private PathFinder _paths;
@@ -80,13 +83,35 @@ namespace PointClick {
 		}
 
 		public void Add(GameEntity entity) {
+
+			if (entity.room == this)
+				return;
+			else if (entity.room)
+				entity.room.Remove(entity);
+
+			Debug.Log(entity);
 			if (entity.isTypeOrSubclass<Point>())
 				AddPoint((Point) entity);
 			else if (entity.isType<Player>())
 				AddPlayer((Player) entity);
+			else if (entity.isType<PathFinder>()) {
+				if (!_paths)
+					_paths = (PathFinder) entity;
+			} else
+				Debug.LogError(string.Format("{0} ({1}) not added to {2}", entity.name, entity.GetType(), name));
 		}
 
+		protected void Remove(GameEntity entity) {
+			if (entity.isType<Point>())
+				points.Remove((Point) entity);
+			else if (entity.isType<WalkingPoint>()) {
+				points.Remove((Point) entity);
+				walkingPoints.Remove((WalkingPoint) entity);
+			} else if (entity.isType<Player>()) {
 
+			} else
+				Debug.LogError(string.Format("{0} ({1}) unknown remove from {2}", entity.name, entity.GetType(), name));
+		}
 	}
 
 }
