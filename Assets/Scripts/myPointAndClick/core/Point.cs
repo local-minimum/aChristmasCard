@@ -14,6 +14,7 @@ namespace PointClick {
 		public bool autoUpdate = true;
 
 		void Start() {
+			SetRoomFromParent();
 			if (connections.Count == 0)
 				SetConnections();
 		}
