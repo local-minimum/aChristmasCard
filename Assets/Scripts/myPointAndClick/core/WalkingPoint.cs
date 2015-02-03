@@ -10,7 +10,7 @@ namespace PointClick {
 		{
 			connections.Clear();
 			connections.AddRange((Point[]) room.paths.GetWalkingPointsCloseTo(this).ToArray());
-			
+		
 		}
 	}
 

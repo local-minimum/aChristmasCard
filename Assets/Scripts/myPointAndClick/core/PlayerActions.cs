@@ -6,6 +6,7 @@ namespace PointClick {
 	public class PlayerActions : PlayerAspect {
 
 		public bool selected = true;
+
 		public bool locked = false;
 
 		void Update () {
@@ -22,7 +23,7 @@ namespace PointClick {
 			if (player.movement.location != actionLocation)
 				player.movement.SetTarget(actionLocation);
 			else 
-				actionTarget.BroadcastMessage("Invoke", new ActionMessage(player), 
+				actionTarget.BroadcastMessage("OnPlayerApply", new ActionMessage(player), 
 				                              SendMessageOptions.DontRequireReceiver);
 
 		}

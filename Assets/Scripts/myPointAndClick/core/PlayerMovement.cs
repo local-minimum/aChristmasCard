@@ -10,7 +10,10 @@ namespace PointClick {
 
 		public float arriveAtThreshold = 0.25f;
 
-		private float lastDistance;
+		[Range(0, 1)]
+		public float badDirectionTollerance = 0f;
+
+		private Vector3 originalAim;
 
 		[Range(0, 1)]
 		public float aimingSpeed = 0.1f;
@@ -127,10 +130,11 @@ namespace PointClick {
 			if (!walking)
 				return;
 
+
 			if (HasArrived())
 				ArrivedAtNextLocation();
 
-			if (walking) {
+			if (walking) {		
 				AddForce();
 				UpdateWalkAnimation();
 			} else
@@ -143,7 +147,7 @@ namespace PointClick {
 				transform.position = nextLocation.position;
 			nextLocation = _path.FirstOrDefault();
 			if (walking) {
-				lastDistance = Vector3.Distance(transform.position, nextLocation.position);
+				originalAim = Vector3.Normalize(nextLocation.position - transform.position);
 
 			}
 		}
@@ -151,14 +155,17 @@ namespace PointClick {
 		bool HasArrived() {
 
 			float distanceToNext = Vector3.Distance(transform.position, nextLocation.position);
-			return distanceToNext < arriveAtThreshold || distanceToNext > lastDistance;
+			Debug.Log (string.Format("{0}: {1}", nextLocation,
+			                         Vector3.Dot(rigidbody.velocity.normalized, originalAim)));
+			return distanceToNext < arriveAtThreshold || (rigidbody.velocity.magnitude > stillThreshold &&
+				Vector3.Dot(rigidbody.velocity.normalized, originalAim) < badDirectionTollerance);
 
 		}
 
 		void ArrivedAtNextLocation() {
 			WalkingPoint walkingPoint = nextLocation.GetComponent<WalkingPoint>();
 
-			nextLocation.BroadcastMessage("PlayerArrive", new WalkingMessage(player, _path.Count() == 1),
+			nextLocation.BroadcastMessage("OnPlayerArrive", new WalkingMessage(player, _path.Count() == 1),
 			                            SendMessageOptions.DontRequireReceiver);
 
 			if (walkingPoint)
