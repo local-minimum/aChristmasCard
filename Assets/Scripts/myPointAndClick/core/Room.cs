@@ -75,9 +75,15 @@ namespace PointClick {
 			point.gameObject.layer = gameObject.layer;
 		}
 
+		public void AddPlayer(Player player) {
+			player.transform.parent = transform;
+		}
+
 		public void Add(GameEntity entity) {
 			if (entity.isTypeOrSubclass<Point>())
 				AddPoint((Point) entity);
+			else if (entity.isType<Player>())
+				AddPlayer((Player) entity);
 		}
 
 

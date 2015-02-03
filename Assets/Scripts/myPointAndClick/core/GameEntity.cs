@@ -8,7 +8,7 @@ namespace PointClick {
 		private Room _room;
 		public Room room { 
 			get  {
-				if (_room)
+				if (!_room)
 					SetRoomFromParent();
 				return _room;
 			}
