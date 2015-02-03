@@ -123,7 +123,7 @@ namespace PointClick {
 				AddForce();
 				UpdateWalkAnimation();
 			} else
-				rigidbody2D.velocity = Vector3.zero;
+				rigidbody.velocity = Vector3.zero;
 		}
 
 		void SetIsWalking() {

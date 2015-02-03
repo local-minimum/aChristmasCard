@@ -68,8 +68,6 @@ namespace PointClick {
 		}
 		
 		public WalkingPoint GetWalkingPointClosestTo(Vector3 position) {
-			Debug.Log(room.walkingPoints.Count());
-			Debug.Log(room.points.Count());
 			return room.walkingPoints.OrderBy(wp => Vector3.Distance(wp.transform.position, position)).FirstOrDefault();
 		}
 		
@@ -90,7 +88,8 @@ namespace PointClick {
 				idCurPath ++;
 			}
 
-			return paths.Where(p => p.points.Last() == target).OrderBy(p => p.getLength()).First().points;
+			return paths.Where(p => p.points.Last() == target).OrderBy(p => p.getLength()).FirstOrDefault().points;
+
 		}
 
 		private IEnumerable<Path> GetNovelRelevantPaths(List<Path> paths, Point[] path) {

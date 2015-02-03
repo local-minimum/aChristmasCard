@@ -89,7 +89,6 @@ namespace PointClick {
 			else if (entity.room)
 				entity.room.Remove(entity);
 
-			Debug.Log(entity);
 			if (entity.isTypeOrSubclass<Point>())
 				AddPoint((Point) entity);
 			else if (entity.isType<Player>())

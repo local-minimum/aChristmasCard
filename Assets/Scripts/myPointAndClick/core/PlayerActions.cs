@@ -16,6 +16,8 @@ namespace PointClick {
 		void Act() {
 			Point actionTarget = player.room.paths.GetPointClosestToPointer();
 			WalkingPoint actionLocation = PathFinder.GetWalkingPointLocationForPoint(actionTarget);
+			if (!actionTarget)
+				return;
 
 			if (player.movement.location != actionLocation)
 				player.movement.SetTarget(actionLocation);
