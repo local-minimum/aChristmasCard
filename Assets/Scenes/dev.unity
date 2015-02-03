@@ -154,7 +154,7 @@ GameObject:
   - 4: {fileID: 261789478}
   - 114: {fileID: 261789477}
   m_Layer: 0
-  m_Name: Point
+  m_Name: WP5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -242,7 +242,7 @@ GameObject:
   - 4: {fileID: 512258387}
   - 114: {fileID: 512258388}
   m_Layer: 0
-  m_Name: Point
+  m_Name: WP4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -320,7 +320,7 @@ GameObject:
   - 4: {fileID: 594940873}
   - 114: {fileID: 594940874}
   m_Layer: 0
-  m_Name: Point
+  m_Name: WP2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -409,10 +409,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6410857058aecbe44929d26baaa8c856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snapToTargetLocation: 1
   arriveAtThreshold: .25
-  aimingSpeed: .100000001
-  force: 400
-  maxVelocity: 40
+  aimingSpeed: .899999976
+  force: 40
+  maxVelocity: 5
   gizmoSize: .200000003
   stillThreshold: .00100000005
 --- !u!114 &807822449
@@ -435,11 +436,11 @@ Rigidbody:
   m_GameObject: {fileID: 807822445}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: .949999988
   m_AngularDrag: .0500000007
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!95 &807822451
@@ -610,7 +611,7 @@ GameObject:
   - 4: {fileID: 1138507731}
   - 114: {fileID: 1138507730}
   m_Layer: 0
-  m_Name: Point
+  m_Name: WP6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -656,7 +657,7 @@ GameObject:
   - 4: {fileID: 1175549148}
   - 114: {fileID: 1175549149}
   m_Layer: 0
-  m_Name: Point
+  m_Name: WP3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -700,7 +701,7 @@ GameObject:
   - 4: {fileID: 1781234345}
   - 114: {fileID: 1781234344}
   m_Layer: 0
-  m_Name: Point
+  m_Name: WP1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

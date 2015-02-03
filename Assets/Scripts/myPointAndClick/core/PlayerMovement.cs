@@ -6,7 +6,11 @@ namespace PointClick {
 
 	public class PlayerMovement : PlayerAspect {
 
+		public bool snapToTargetLocation = true;
+
 		public float arriveAtThreshold = 0.25f;
+
+		private float lastDistance;
 
 		[Range(0, 1)]
 		public float aimingSpeed = 0.1f;
@@ -65,8 +69,12 @@ namespace PointClick {
 		[SerializeThis]
 		private WalkingPoint _location;
 
-		private List<Transform> path = new List<Transform>();
+		[SerializeThis]
+		private List<Transform> _path = new List<Transform>();
+
 		private bool walking = false;
+
+		private Transform nextLocation;
 
 		public WalkingPoint location {
 			get {
@@ -101,7 +109,7 @@ namespace PointClick {
 			if (_location)
 				transform.position = _location.transform.position;
 			else
-				Debug.LogError(string.Format("{0} has no home", name));
+				Debug.LogWarning(string.Format("{0} has no home", name));
 		}
 		
 		// Update is called once per frame
@@ -111,13 +119,16 @@ namespace PointClick {
 
 		void Walk() {
 
-			if (!_location)
+			if (!_location) {
 				SetLocationByProximity();
+				return;
+			}
 
 			if (!walking)
 				return;
 
-			TestArrive();
+			if (HasArrived())
+				ArrivedAtNextLocation();
 
 			if (walking) {
 				AddForce();
@@ -126,33 +137,49 @@ namespace PointClick {
 				rigidbody.velocity = Vector3.zero;
 		}
 
-		void SetIsWalking() {
-			walking = path.Count() > 0;
-		}
-
-		void TestArrive() {
-			Transform nextTarget = path.First();
-			WalkingPoint walkingPoint = nextTarget.GetComponent<WalkingPoint>();
-
-			float distanceToNext = Vector3.Distance(transform.position, nextTarget.position);
-			if (distanceToNext < arriveAtThreshold) {
-				nextTarget.BroadcastMessage("PlayerArrive", new WalkingMessage(player, path.Count() == 1),
-				                            SendMessageOptions.DontRequireReceiver);
-				if (walkingPoint)
-					_location = walkingPoint;
-
-				path.Remove(nextTarget);
-				SetIsWalking();
+		void SetWalkingState() {
+			walking = _path.Count() > 0;
+			if (!walking && snapToTargetLocation)
+				transform.position = nextLocation.position;
+			nextLocation = _path.FirstOrDefault();
+			if (walking) {
+				lastDistance = Vector3.Distance(transform.position, nextLocation.position);
 
 			}
 		}
 
+		bool HasArrived() {
+
+			float distanceToNext = Vector3.Distance(transform.position, nextLocation.position);
+			return distanceToNext < arriveAtThreshold || distanceToNext > lastDistance;
+
+		}
+
+		void ArrivedAtNextLocation() {
+			WalkingPoint walkingPoint = nextLocation.GetComponent<WalkingPoint>();
+
+			nextLocation.BroadcastMessage("PlayerArrive", new WalkingMessage(player, _path.Count() == 1),
+			                            SendMessageOptions.DontRequireReceiver);
+
+			if (walkingPoint)
+				_location = walkingPoint;
+
+//			Debug.Log("---");
+//			Debug.Log(nextTarget);
+//			Debug.Log(_path.FirstOrDefault());
+			_path.Remove(nextLocation);
+//			Debug.Log(_path.FirstOrDefault());
+
+			SetWalkingState();
+
+		}
+
 		void AddForce() {
 			Vector3 aim = Vector3.Lerp(rigidbody.velocity.normalized,
-			                           (path.First().position - transform.position).normalized,
+			                           (_path.First().position - transform.position).normalized,
 			                           aimingSpeed);
 
-			rigidbody.AddForce(aim * force * Time.deltaTime, ForceMode.Force);
+			rigidbody.AddForce(aim * force * Time.deltaTime, ForceMode.Acceleration);
 			rigidbody.velocity = Vector3.ClampMagnitude(rigidbody.velocity, maxVelocity);
 
 		}
@@ -166,15 +193,15 @@ namespace PointClick {
 		}
 
 		public void SetTarget(WalkingPoint target) {
-			path.Clear();
-			path.AddRange(
+			_path.Clear();
+			_path.AddRange(
 				player.room.paths.ClosestPathBetween((Point) _location, (Point) target).Select(wp => wp.transform));
-			SetIsWalking();
+			SetWalkingState();
 		}
 
 		public void ExtendPath(IEnumerable<Transform> pathExtension) {
-			path.AddRange(pathExtension);
-			SetIsWalking();
+			_path.AddRange(pathExtension);
+			SetWalkingState();
 		}
 
 		void OnDrawGizmosSelected() {
