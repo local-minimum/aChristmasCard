@@ -15,14 +15,14 @@ namespace PointClick {
 
 		private Vector3 originalAim;
 
+		private Vector3 aim;
+
 		[Range(0, 1)]
 		public float aimingSpeed = 0.1f;
 
 		public float force = 400f;
 
 		public float maxVelocity = 40f;
-
-		public float gizmoSize = 0.1f;
 
 		public float stillThreshold = 0.001f;
 
@@ -33,7 +33,7 @@ namespace PointClick {
 		private Dictionary<PlayerDirections, string> directionTriggers = new Dictionary<PlayerDirections, string>();
 
 		private PlayerDirections _previousDirection = PlayerDirections.NONE;
-
+	
 		public PlayerDirections direction {
 			get {
 				if (rigidbody.velocity.magnitude < stillThreshold) 
@@ -75,7 +75,13 @@ namespace PointClick {
 		[SerializeThis]
 		private List<Transform> _path = new List<Transform>();
 
-		private bool walking = false;
+		private bool _walking = false;
+
+		public bool walking {
+			get {
+				return _walking;
+			}
+		}
 
 		private Transform nextLocation;
 
@@ -114,8 +120,7 @@ namespace PointClick {
 			else
 				Debug.LogWarning(string.Format("{0} has no home", name));
 		}
-		
-		// Update is called once per frame
+
 		void Update () {
 			Walk();
 		}
@@ -127,38 +132,49 @@ namespace PointClick {
 				return;
 			}
 
-			if (!walking)
+			if (!_walking) {
+				rigidbody.velocity = Vector3.zero;
 				return;
+			}
 
+			SetAim();
 
 			if (HasArrived())
 				ArrivedAtNextLocation();
 
-			if (walking) {		
+			if (_walking) {		
 				AddForce();
 				UpdateWalkAnimation();
-			} else
-				rigidbody.velocity = Vector3.zero;
+			} 
+
+		}
+
+		void SetAim() {
+			if (rigidbody.velocity.magnitude > stillThreshold)
+				aim = Vector3.Lerp(rigidbody.velocity.normalized,
+			                           (nextLocation.position - transform.position).normalized,
+			                           aimingSpeed);
+			else
+				aim = (nextLocation.position - transform.position).normalized;
 		}
 
 		void SetWalkingState() {
-			walking = _path.Count() > 0;
-			if (!walking && snapToTargetLocation)
+			_walking = _path.Count() > 0;
+			if (!_walking && snapToTargetLocation)
 				transform.position = nextLocation.position;
 			nextLocation = _path.FirstOrDefault();
-			if (walking) {
-				originalAim = Vector3.Normalize(nextLocation.position - transform.position);
-
+			if (_walking) {
+				SetAim();
+				originalAim = aim;
 			}
+
 		}
 
 		bool HasArrived() {
 
 			float distanceToNext = Vector3.Distance(transform.position, nextLocation.position);
-			Debug.Log (string.Format("{0}: {1}", nextLocation,
-			                         Vector3.Dot(rigidbody.velocity.normalized, originalAim)));
 			return distanceToNext < arriveAtThreshold || (rigidbody.velocity.magnitude > stillThreshold &&
-				Vector3.Dot(rigidbody.velocity.normalized, originalAim) < badDirectionTollerance);
+				Vector3.Dot(aim, originalAim) < badDirectionTollerance);
 
 		}
 
@@ -171,23 +187,19 @@ namespace PointClick {
 			if (walkingPoint)
 				_location = walkingPoint;
 
-//			Debug.Log("---");
-//			Debug.Log(nextTarget);
-//			Debug.Log(_path.FirstOrDefault());
 			_path.Remove(nextLocation);
-//			Debug.Log(_path.FirstOrDefault());
 
 			SetWalkingState();
 
 		}
 
 		void AddForce() {
-			Vector3 aim = Vector3.Lerp(rigidbody.velocity.normalized,
-			                           (_path.First().position - transform.position).normalized,
-			                           aimingSpeed);
 
-			rigidbody.AddForce(aim * force * Time.deltaTime, ForceMode.Acceleration);
-			rigidbody.velocity = Vector3.ClampMagnitude(rigidbody.velocity, maxVelocity);
+			if (Vector3.Dot(aim, originalAim) >= 0) {
+				rigidbody.AddForce(aim * force * Time.deltaTime, ForceMode.Acceleration);
+				rigidbody.velocity = Vector3.ClampMagnitude(rigidbody.velocity, maxVelocity);
+			} else
+				rigidbody.velocity = Vector3.zero;
 
 		}
 
@@ -212,13 +224,13 @@ namespace PointClick {
 		}
 
 		void OnDrawGizmosSelected() {
-			Gizmos.color = Color.green;
-			if (walking) {
-				Gizmos.DrawSphere(transform.position, gizmoSize);
-				Gizmos.DrawRay(transform.position, rigidbody.velocity);
-			} else 
-				Gizmos.DrawCube(transform.position, Vector3.one * gizmoSize);
 
+			if (_walking) {
+				Gizmos.color = Color.black;
+				Gizmos.DrawRay(transform.position, originalAim);
+				Gizmos.color = new Color(0,0,0,0.4f);
+				Gizmos.DrawSphere(nextLocation.position, 1.5f * player.gizmoSize);
+			}
 		}
 	}
 }

@@ -460,7 +460,6 @@ MonoBehaviour:
   aimingSpeed: .800000012
   force: 1000
   maxVelocity: 1
-  gizmoSize: .200000003
   stillThreshold: .00100000005
 --- !u!114 &807822449
 MonoBehaviour:
@@ -473,7 +472,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd9acd0b33fe6c840b3531ef89b20d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerMovement: {fileID: 0}
+  gizmoSize: .100000001
+  _playerMovement: {fileID: 807822448}
 --- !u!54 &807822450
 Rigidbody:
   m_ObjectHideFlags: 0
