@@ -30,7 +30,10 @@ namespace FunOps {
 		/// <param name="item">Item</param>
 		/// <typeparam name="T">The type</typeparam>
 		public static T[] Cons<T>(this T[] arr, T item) {
-			return item.Cons(arr);
+			T[] ret = new T[arr.Length + 1];
+			ret[0] = item;
+			arr.CopyTo(ret, 1);
+			return ret;
 		}
 
 		/// <summary>

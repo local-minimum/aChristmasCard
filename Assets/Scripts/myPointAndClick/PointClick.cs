@@ -15,15 +15,18 @@ namespace PointClick {
 
 	public struct ActionMessage {
 		public Player player;
+		public Point target;
 		public bool invokedInPlace;
 
-		public ActionMessage(Player player) {
+		public ActionMessage(Player player, Point target) {
 			this.player = player;
+			this.target = target;
 			this.invokedInPlace = true;
 		}
 
-		public ActionMessage(Player player, bool invokedInPlace) {
+		public ActionMessage(Player player, Point target, bool invokedInPlace) {
 			this.player = player;
+			this.target = target;
 			this.invokedInPlace = invokedInPlace;
 		}
 	}

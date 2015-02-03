@@ -76,8 +76,9 @@ namespace PointClick {
 		}
 
 		public Point[] ClosestPathBetween(Point source, Point target) {
-
-			if (source.connections.Contains(target))
+			if (source == target)
+				return new Point[] {};
+			else if (source.connections.Contains(target))
 			    return new Point[] {target};
 
 			List<Path> paths = GetPossiblePathsFromPoint(source);

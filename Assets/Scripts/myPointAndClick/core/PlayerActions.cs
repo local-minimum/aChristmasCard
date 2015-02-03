@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using FunOps;
+using System.Linq;
 
 namespace PointClick {
 
@@ -14,6 +16,9 @@ namespace PointClick {
 
 		[SerializeThis]
 		private Point actionTarget;
+
+		[SerializeThis]
+		private WalkingPoint actionLocation;
 
 		public enum ActionTypes {Apply, Use, Arrive, None};
 
@@ -46,25 +51,45 @@ namespace PointClick {
 
 		void Act() {
 			actionTarget = player.room.paths.GetPointClosestToPointer();
-			WalkingPoint actionLocation = PathFinder.GetWalkingPointLocationForPoint(actionTarget);
-			if (!actionTarget)
+			actionLocation = PathFinder.GetWalkingPointLocationForPoint(actionTarget);
+			if (!actionTarget) {
+				delayedAction = false;
 				return;
+			}
 
 			if (player.movement.location != actionLocation || player.movement.walking) {
 				delayedAction = true;
 				player.movement.SetTarget(actionLocation);
 			} else {
-				actionTarget.BroadcastMessage(actionName, new ActionMessage(player), 
-				                              SendMessageOptions.DontRequireReceiver);
 				delayedAction = false;
+				BroadcastActionMessage();
 			}
 
 		}
 
 		void DelayedAct() {
-			actionTarget.BroadcastMessage(actionName, new ActionMessage(player, false),
-			                              SendMessageOptions.DontRequireReceiver);
+			BroadcastActionMessage();
 			delayedAction = false;
+		}
+
+		void BroadcastActionMessage() {
+			ActionMessage msg = new ActionMessage(player, actionTarget, !delayedAction);
+
+			Point[] recieverPoints = player.room.paths.ClosestPathBetween(actionTarget, (Point) actionLocation);
+			recieverPoints = recieverPoints.Cons(actionTarget);
+			foreach (GameObject node in UniqueRecievers(recieverPoints))
+				node.BroadcastMessage(actionName, msg, SendMessageOptions.DontRequireReceiver);
+
+		}
+
+		IEnumerable<GameObject> UniqueRecievers(Point[] segment) {
+			while (segment.Length > 0) {
+				Point pt = segment.First();
+				Point[] parentPoints = pt.transform.GetComponentsInParent<Point>();
+				segment = segment.Rest().Where(p => !p.GetComponentsInParent<Point>().Contains(pt)).ToArray();
+				if (!segment.Any(p => parentPoints.Contains(p)))
+					yield return pt.gameObject;
+			}
 		}
 	}
 
