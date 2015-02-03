@@ -181,8 +181,9 @@ namespace PointClick {
 		void ArrivedAtNextLocation() {
 			WalkingPoint walkingPoint = nextLocation.GetComponent<WalkingPoint>();
 
-			nextLocation.BroadcastMessage("OnPlayerArrive", new WalkingMessage(player, _path.Count() == 1),
-			                            SendMessageOptions.DontRequireReceiver);
+			nextLocation.BroadcastMessage(player.actions.GetActionFuctionName(PlayerActions.ActionTypes.Arrive),
+			                              new WalkingMessage(player, _path.Count() == 1),
+			                              SendMessageOptions.DontRequireReceiver);
 
 			if (walkingPoint)
 				_location = walkingPoint;

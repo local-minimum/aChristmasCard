@@ -83,6 +83,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 140292615}
   - 114: {fileID: 140292616}
+  - 114: {fileID: 140292617}
   m_Layer: 0
   m_Name: Point2
   m_TagString: Untagged
@@ -116,6 +117,18 @@ MonoBehaviour:
   connections:
   - {fileID: 594940874}
   autoUpdate: 1
+--- !u!114 &140292617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 140292614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0722973610ccbc4ea57a13bed6d2c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugPlayerMessages: 0
 --- !u!1 &230302490
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,6 +208,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 261789478}
   - 114: {fileID: 261789477}
+  - 114: {fileID: 261789479}
   m_Layer: 0
   m_Name: WP5
   m_TagString: Untagged
@@ -232,6 +246,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 561396618}
   m_RootOrder: 6
+--- !u!114 &261789479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 261789476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0722973610ccbc4ea57a13bed6d2c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugPlayerMessages: 0
 --- !u!1 &436368536
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,8 +267,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 436368537}
   - 114: {fileID: 436368538}
+  - 114: {fileID: 436368539}
   m_Layer: 0
-  m_Name: Point
+  m_Name: Point1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -274,6 +301,18 @@ MonoBehaviour:
   connections:
   - {fileID: 1138507730}
   autoUpdate: 1
+--- !u!114 &436368539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 436368536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0722973610ccbc4ea57a13bed6d2c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugPlayerMessages: 0
 --- !u!1 &512258386
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,6 +322,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 512258387}
   - 114: {fileID: 512258388}
+  - 114: {fileID: 512258389}
   m_Layer: 0
   m_Name: WP4
   m_TagString: Untagged
@@ -319,6 +359,18 @@ MonoBehaviour:
   - {fileID: 1138507730}
   - {fileID: 1655159495}
   autoUpdate: 1
+--- !u!114 &512258389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 512258386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0722973610ccbc4ea57a13bed6d2c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugPlayerMessages: 0
 --- !u!1 &561396617
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,6 +416,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 594940873}
   - 114: {fileID: 594940874}
+  - 114: {fileID: 594940875}
   m_Layer: 0
   m_Name: WP2
   m_TagString: Untagged
@@ -398,6 +451,18 @@ MonoBehaviour:
   - {fileID: 261789477}
   - {fileID: 1655159495}
   autoUpdate: 1
+--- !u!114 &594940875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 594940872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0722973610ccbc4ea57a13bed6d2c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugPlayerMessages: 0
 --- !u!1 &807822445
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,6 +785,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1138507731}
   - 114: {fileID: 1138507730}
+  - 114: {fileID: 1138507732}
   m_Layer: 0
   m_Name: WP6
   m_TagString: Untagged
@@ -755,6 +821,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 561396618}
   m_RootOrder: 7
+--- !u!114 &1138507732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1138507729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0722973610ccbc4ea57a13bed6d2c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugPlayerMessages: 0
 --- !u!1 &1175549147
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,6 +842,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1175549148}
   - 114: {fileID: 1175549149}
+  - 114: {fileID: 1175549150}
   m_Layer: 0
   m_Name: WP3
   m_TagString: Untagged
@@ -798,6 +877,18 @@ MonoBehaviour:
   - {fileID: 512258388}
   - {fileID: 1655159495}
   autoUpdate: 1
+--- !u!114 &1175549150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1175549147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0722973610ccbc4ea57a13bed6d2c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugPlayerMessages: 0
 --- !u!1 &1655159493
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,6 +898,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1655159494}
   - 114: {fileID: 1655159495}
+  - 114: {fileID: 1655159496}
   m_Layer: 0
   m_Name: WP7
   m_TagString: Untagged
@@ -843,6 +935,18 @@ MonoBehaviour:
   - {fileID: 512258388}
   - {fileID: 261789477}
   autoUpdate: 1
+--- !u!114 &1655159496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1655159493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0722973610ccbc4ea57a13bed6d2c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugPlayerMessages: 0
 --- !u!1 &1781234343
 GameObject:
   m_ObjectHideFlags: 0
@@ -852,6 +956,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1781234345}
   - 114: {fileID: 1781234344}
+  - 114: {fileID: 1781234346}
   m_Layer: 0
   m_Name: WP1
   m_TagString: Untagged
@@ -886,3 +991,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 561396618}
   m_RootOrder: 2
+--- !u!114 &1781234346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1781234343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0722973610ccbc4ea57a13bed6d2c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugPlayerMessages: 0
