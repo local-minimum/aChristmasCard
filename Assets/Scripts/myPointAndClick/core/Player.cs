@@ -11,29 +11,40 @@ namespace PointClick {
 
 		public PlayerActions actions {
 			get {
-				if (!_playerActions) {
-					_playerActions = GetComponent<PlayerActions>();
-					if (!_playerActions)
-						_playerActions = gameObject.AddComponent<PlayerActions>();
-				}
+				if (!_playerActions) 
+					_playerActions = (PlayerActions) getHookUp<PlayerActions>();
 				return _playerActions;
 			}
 		}
 
-		public PlayerMovement _playerMovement;
+		private PlayerMovement _playerMovement;
 
 		public PlayerMovement movement {
 			get {
-				if (!_playerMovement) {
-					_playerMovement = GetComponent<PlayerMovement>();
-					if (!_playerMovement)
-						_playerMovement = gameObject.AddComponent<PlayerMovement>();
-				}
+				if (!_playerMovement)
+					_playerMovement = (PlayerMovement) getHookUp<PlayerMovement>();
 				return _playerMovement;
 			}
 		}
 
-		
+		private PlayerInventory _playerInventory;
+
+		public PlayerInventory inventory {
+			get {
+				if (!_playerInventory) 
+					_playerInventory = (PlayerInventory) getHookUp<PlayerInventory>();
+				return _playerInventory;
+
+			}
+		}
+
+		private MonoBehaviour getHookUp<T>() where T : MonoBehaviour {
+			T hook = GetComponent<T>();
+			if (!hook)
+				hook = gameObject.AddComponent<T>();
+			return hook;
+		}
+
 		void OnDrawGizmos() {
 			Gizmos.color = Color.green;
 			if (movement.walking) {

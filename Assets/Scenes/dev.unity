@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   connections:
-  - {fileID: 594940874}
+  - {fileID: 0}
   autoUpdate: 1
 --- !u!114 &140292617
 MonoBehaviour:
@@ -195,6 +195,7 @@ GameObject:
   - 33: {fileID: 230302493}
   - 64: {fileID: 230302492}
   - 23: {fileID: 230302491}
+  - 114: {fileID: 230302495}
   m_Layer: 8
   m_Name: Quad
   m_TagString: Untagged
@@ -254,6 +255,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 864559532}
   m_RootOrder: 2
+--- !u!114 &230302495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 230302490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdffd87063bd8304aa3448317f6bc29a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &261789476
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,12 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75498461f2fe7654cadfb576734d8129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connections:
-  - {fileID: 1781234344}
-  - {fileID: 594940874}
-  - {fileID: 512258388}
-  - {fileID: 1138507730}
-  - {fileID: 1655159495}
+  connections: []
   autoUpdate: 1
 --- !u!4 &261789478
 Transform:
@@ -313,6 +320,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugPlayerMessages: 1
+--- !u!1 &333726932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 333726934}
+  - 114: {fileID: 333726933}
+  m_Layer: 0
+  m_Name: Save Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &333726933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 333726932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d49efd53907b42149a342aa0ce6e3d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredObjects: []
+  Reference: {fileID: 1063649720}
+--- !u!4 &333726934
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 333726932}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
 --- !u!1 &436368536
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   connections:
-  - {fileID: 1138507730}
+  - {fileID: 0}
   autoUpdate: 1
 --- !u!114 &436368539
 MonoBehaviour:
@@ -408,11 +456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75498461f2fe7654cadfb576734d8129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connections:
-  - {fileID: 1175549149}
-  - {fileID: 261789477}
-  - {fileID: 1138507730}
-  - {fileID: 1655159495}
+  connections: []
   autoUpdate: 1
 --- !u!114 &512258389
 MonoBehaviour:
@@ -503,9 +547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75498461f2fe7654cadfb576734d8129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connections:
-  - {fileID: 261789477}
-  - {fileID: 1655159495}
+  connections: []
   autoUpdate: 1
 --- !u!114 &594940875
 MonoBehaviour:
@@ -748,6 +790,18 @@ MonoBehaviour:
   clickCollisionLayers:
     serializedVersion: 2
     m_Bits: 4352
+--- !u!114 &1063649720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7debdd6cf0c58417c8b76cf5f31b1c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entries: []
 --- !u!1 &1136233583
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,10 +914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75498461f2fe7654cadfb576734d8129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connections:
-  - {fileID: 1781234344}
-  - {fileID: 512258388}
-  - {fileID: 261789477}
+  connections: []
   autoUpdate: 1
 --- !u!4 &1138507731
 Transform:
@@ -929,9 +980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75498461f2fe7654cadfb576734d8129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connections:
-  - {fileID: 512258388}
-  - {fileID: 1655159495}
+  connections: []
   autoUpdate: 1
 --- !u!114 &1175549150
 MonoBehaviour:
@@ -985,11 +1034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75498461f2fe7654cadfb576734d8129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connections:
-  - {fileID: 594940874}
-  - {fileID: 1175549149}
-  - {fileID: 512258388}
-  - {fileID: 261789477}
+  connections: []
   autoUpdate: 1
 --- !u!114 &1655159496
 MonoBehaviour:
@@ -1031,9 +1076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75498461f2fe7654cadfb576734d8129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connections:
-  - {fileID: 261789477}
-  - {fileID: 1138507730}
+  connections: []
   autoUpdate: 1
 --- !u!4 &1781234345
 Transform:
