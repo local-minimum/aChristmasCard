@@ -40,9 +40,12 @@ public class InteractableEditor : Editor {
 				EditorGUILayout.EndHorizontal();
 
 			}
-		} else
-			myTarget.mass = EditorGUILayout.FloatField("Mass", myTarget.mass);
-
+		} else {
+			float mass = EditorGUILayout.FloatField("Mass", myTarget.mass);
+			if (mass < 0)
+				mass = 0f;
+			myTarget.mass = mass;
+		}
 		EditorGUI.indentLevel -= 1;
 
 		EditorGUILayout.Space();
