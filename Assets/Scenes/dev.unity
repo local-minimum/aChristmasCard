@@ -195,7 +195,6 @@ GameObject:
   - 33: {fileID: 230302493}
   - 64: {fileID: 230302492}
   - 23: {fileID: 230302491}
-  - 114: {fileID: 230302495}
   m_Layer: 8
   m_Name: Quad
   m_TagString: Untagged
@@ -255,17 +254,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 864559532}
   m_RootOrder: 2
---- !u!114 &230302495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 230302490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdffd87063bd8304aa3448317f6bc29a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &261789476
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,6 +359,7 @@ GameObject:
   - 4: {fileID: 436368537}
   - 114: {fileID: 436368538}
   - 114: {fileID: 436368539}
+  - 114: {fileID: 436368540}
   m_Layer: 0
   m_Name: Point1
   m_TagString: Untagged
@@ -416,6 +405,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugPlayerMessages: 1
+--- !u!114 &436368540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 436368536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 606ee938866258a409f1fbecbfa1543e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mass: 4
+  _inventorySize: ffffffffffffffff
+  _pocketable: 0
+  inventorySprite: {fileID: 0}
 --- !u!1 &512258386
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,7 +640,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gizmoSize: .100000001
-  _playerMovement: {fileID: 807822448}
 --- !u!54 &807822450
 Rigidbody:
   m_ObjectHideFlags: 0
