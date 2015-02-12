@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace PointClick {
 
@@ -27,13 +28,13 @@ namespace PointClick {
 			}
 		}
 
-		private PlayerInventory _playerInventory;
+		private List<PlayerInventory> _playerInventories = new List<PlayerInventory>();
 
 		public PlayerInventory inventory {
 			get {
-				if (!_playerInventory) 
-					_playerInventory = (PlayerInventory) getHookUp<PlayerInventory>();
-				return _playerInventory;
+				if (_playerInventories.Count() == 0) 
+					_playerInventories.Add((PlayerInventory) getHookUp<PlayerInventory>());
+				return _playerInventories.First();
 
 			}
 		}

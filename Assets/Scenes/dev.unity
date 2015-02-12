@@ -416,9 +416,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 606ee938866258a409f1fbecbfa1543e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mass: 4
-  _inventorySize: ffffffffffffffff
-  _pocketable: 0
+  _mass: -1
+  _inventorySize: 0100000001000000
+  _pocketable: 1
   inventorySprite: {fileID: 0}
 --- !u!1 &512258386
 GameObject:
@@ -578,6 +578,7 @@ GameObject:
   - 114: {fileID: 807822448}
   - 54: {fileID: 807822450}
   - 95: {fileID: 807822451}
+  - 114: {fileID: 807822452}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -670,6 +671,19 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &807822452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 807822445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faba00a027294b740a34517a1239919b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allowTags: []
+  inventoryShape: 0a0000000a000000
 --- !u!1 &857974835
 GameObject:
   m_ObjectHideFlags: 0

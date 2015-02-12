@@ -10,7 +10,7 @@ namespace PointClick {
 
 		public int[] inventoryShape;
 
-		private Dictionary<GameObject, Interactable> slots = new Dictionary<GameObject, Interactable>();
+		private Dictionary<int, GameObject> slots = new Dictionary<int, GameObject>();
 			
 		public bool PickUp(GameObject item) {
 
@@ -24,6 +24,10 @@ namespace PointClick {
 
 		public GameObject Drop(GameObject item) {
 			return item;
+		}
+
+		public GameObject Drop(int[] shape) {
+			return slots.Values.FirstOrDefault();
 		}
 
 		bool _take(GameObject item, Interactable interactable) {
