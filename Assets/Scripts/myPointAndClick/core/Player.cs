@@ -28,13 +28,13 @@ namespace PointClick {
 			}
 		}
 
-		private List<PlayerInventory> _playerInventories = new List<PlayerInventory>();
+		private PlayerInventory _playerInventory;
 
 		public PlayerInventory inventory {
 			get {
-				if (_playerInventories.Count() == 0) 
-					_playerInventories.Add((PlayerInventory) getHookUp<PlayerInventory>());
-				return _playerInventories.First();
+				if (_playerInventory) 
+					_playerInventory = (PlayerInventory) getHookUp<PlayerInventory>();
+				return _playerInventory;
 
 			}
 		}

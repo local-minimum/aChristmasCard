@@ -36,6 +36,9 @@ namespace PointClick {
 		}
 
 		[HideInInspector]
+		public InventoryFilter inventoryTags;
+
+		[HideInInspector]
 		[SerializeField]
 		int[] _inventorySize = new int[2] {-1, -1};
 

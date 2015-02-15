@@ -6,17 +6,13 @@ namespace PointClick {
 
 	public class PlayerInventory : PlayerAspect {
 
-		public string[] allowTags = new string[0];
+		List<PlayerInventoryMap> inventories = new List<PlayerInventoryMap>();
 
-		public int[] inventoryShape;
-
-		private Dictionary<int, GameObject> slots = new Dictionary<int, GameObject>();
-			
 		public bool PickUp(GameObject item) {
 
 			Interactable interactable = item.GetComponentInChildren<Interactable>();
 
-			if (interactable && interactable.pocketable && (allowTags.Length == 0 || allowTags.Contains(item.tag))) {
+			if (interactable && interactable.pocketable) {
 				return _take(item, interactable);
 			} else
 				return false;
@@ -26,15 +22,35 @@ namespace PointClick {
 			return item;
 		}
 
-		public GameObject Drop(int[] shape) {
-			return slots.Values.FirstOrDefault();
+		bool _take(GameObject item, Interactable interactable) {
+			foreach (PlayerInventoryMap im in inventories) {
+				if (im.CanTake(interactable)) {
+					im.Take(item, interactable);
+					return true;
+				}
+			}
+
+			return false;
 		}
 
-		bool _take(GameObject item, Interactable interactable) {
-
-			return true;
+		public void AddInventory(int[] shape) {
+			inventories.Add(new PlayerInventoryMap(shape, AllTags.ToArray()));
 		}
 	
+		public IEnumerable<string> AllTags {
+			get {
+				HashSet<string> knownTags = new HashSet<string>();
+
+				foreach (PlayerInventoryMap im in inventories) {
+					foreach (string tag in im.tagFilter.Tags) {
+						if (!knownTags.Contains(tag)) {
+							knownTags.Add(tag);
+							yield return tag;
+						}
+					}
+				}
+			}
+		}
 
 	}
 }
