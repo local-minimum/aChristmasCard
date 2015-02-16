@@ -6,7 +6,14 @@ namespace PointClick {
 
 	public class PlayerInventory : PlayerAspect {
 
+		[SerializeField]
 		List<PlayerInventoryMap> inventories = new List<PlayerInventoryMap>();
+
+		public int size {
+			get {
+				return inventories.Count();
+			}
+		}
 
 		public bool PickUp(GameObject item) {
 
@@ -33,8 +40,12 @@ namespace PointClick {
 			return false;
 		}
 
-		public void AddInventory(int[] shape) {
-			inventories.Add(new PlayerInventoryMap(shape, AllTags.ToArray()));
+		public void AddInventory(string name, int[] shape) {
+			inventories.Add(new PlayerInventoryMap(name, shape, AllTags.ToArray()));
+		}
+
+		public void RemoveInventory(PlayerInventoryMap inventory) {
+			inventories = inventories.Where(i => i!=inventory).ToList();
 		}
 	
 		public IEnumerable<string> AllTags {
@@ -52,5 +63,32 @@ namespace PointClick {
 			}
 		}
 
+		public IEnumerable<PlayerInventoryMap> Inventories {
+
+			get {
+				foreach (PlayerInventoryMap im in inventories)
+					yield return im;
+			}
+		}
+
+		public void Promote(PlayerInventoryMap inventory) {
+			int nextPos = Inventories.IndexOf(inventory) - 1;
+			if (nextPos >= 0)
+				SwapPlaces(inventory, nextPos);
+		}
+
+		public void Demote(PlayerInventoryMap inventory) {
+			int nextPos = Inventories.IndexOf(inventory) + 1;
+			if (nextPos != inventories.Count())
+				SwapPlaces(inventory, nextPos);
+
+		}
+
+		private void SwapPlaces(PlayerInventoryMap inventory, int position) {
+			int currentPosition = Inventories.IndexOf(inventory);
+			PlayerInventoryMap otherInventory = inventories[position];
+			inventories[position] = inventory;
+			inventories[currentPosition] = otherInventory;
+		}
 	}
 }

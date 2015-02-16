@@ -23,6 +23,19 @@ namespace PointClick {
 			shape = new InventoryVector(shapeArray);
 			grid = new int[shape.x, shape.y, shape.z];
 		}
+
+		public int dimensions {
+			get {
+				if (shape.x <= 1)
+					return 0;
+				else if (shape.y <= 1)
+					return 1;
+				else if (shape.z <= 1)
+					return 2;
+				else
+					return 3;
+			}
+		}
 	}
 
 	public class InventoryFilter : object {
@@ -116,9 +129,16 @@ namespace PointClick {
 				return x >= 0 && y >= 0 && z >= 0;
 			}
 		}
+
+		public static int[] AsArray(InventoryVector v) {
+			return new int[3] {v.x, v.y, v.z};
+		}
 	}
 
 	public class PlayerInventoryMap : object {
+
+		[SerializeField]
+		public string name;
 
 		[SerializeField]
 		private InventoryLayout layout;
@@ -135,7 +155,35 @@ namespace PointClick {
 			}
 		}
 
-		public PlayerInventoryMap(int[] shape, string[] tags) {
+		public string sizeString {
+			get {
+				int dimensions = layout.dimensions;
+
+				if (dimensions == 0)
+					return "1";
+				else if (dimensions == 1)
+					return layout.shape.x.ToString();
+				else if (dimensions == 2)
+					return string.Format("{0}x{1}", layout.shape.x, layout.shape.y);
+				else
+					return string.Format("{0}x{1}x{2}", layout.shape.x, layout.shape.y, layout.shape.z);
+			}
+		}
+
+		public int[] shape {
+			get {
+				return InventoryVector.AsArray(layout.shape);
+			}
+		}
+
+		public int dimensions {
+			get {
+				return layout.dimensions;
+			}
+		}
+
+		public PlayerInventoryMap(string name, int[] shape, string[] tags) {
+			this.name = name;
 			layout = new InventoryLayout(shape);
 			_tagFilter = new InventoryFilter(tags);
 		}
@@ -168,7 +216,7 @@ namespace PointClick {
 			return null;
 		}
 
-		InventoryVector FindFirstPosition(InventoryVector shape) {
+		private InventoryVector FindFirstPosition(InventoryVector shape) {
 			for (int x=0; x<=layout.shape.x - shape.x; x++) {
 				for (int y=0; y<=layout.shape.y - shape.y; y++) {
 					for (int z=0; z<=layout.shape.z - shape.z; z++) {
@@ -180,14 +228,14 @@ namespace PointClick {
 			return InventoryVector.Invalid;
 		}
 
-		int GetNewItemIdentifier() {
+		private int GetNewItemIdentifier() {
 			int newId = 1;
 			while (items.ContainsKey(newId))
 				newId++;
 			return newId;
 		}
 
-		IEnumerable<InventoryVector> coordLister(InventoryVector origin, InventoryVector shape) {
+		private IEnumerable<InventoryVector> coordLister(InventoryVector origin, InventoryVector shape) {
 			int xMax = origin.x + shape.x;
 			int yMax = origin.y + shape.y;
 			int zMax = origin.z + shape.z;
@@ -199,7 +247,7 @@ namespace PointClick {
 			}
 		}
 
-		void takeAt(InventoryVector origin, InventoryVector shape, int value) {
+		private void takeAt(InventoryVector origin, InventoryVector shape, int value) {
 			foreach (InventoryVector coord in coordLister(origin, shape)) {
 				if (value != 0 && layout[coord] != 0)
 					Debug.LogWarning("Two overlapping items in inventory");
@@ -208,7 +256,7 @@ namespace PointClick {
 			}
 		}
 
-		bool fitsAt(InventoryVector origin, InventoryVector shape) {
+		private bool fitsAt(InventoryVector origin, InventoryVector shape) {
 
 			foreach (InventoryVector coord in coordLister(origin, shape)) {
 				if (layout[coord] != 0)
