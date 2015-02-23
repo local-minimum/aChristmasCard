@@ -40,7 +40,7 @@ namespace PointClick {
 			return false;
 		}
 
-		public void AddInventory(string name, int[] shape) {
+		public void AddInventory(string name, int[] shape, InventoryTypeRestriction permissableObjectTypes) {
 			inventories.Add(new PlayerInventoryMap(name, shape, AllTags.ToArray()));
 		}
 

@@ -317,8 +317,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 333726934}
   - 114: {fileID: 333726933}
+  - 114: {fileID: 333726935}
   m_Layer: 0
-  m_Name: Save Game Manager
+  m_Name: Managers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -349,6 +350,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!114 &333726935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 333726932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8ae1ea4ffe808e4c804e6885b8b92b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - health
+  - keys
+  - batteries
+  - things
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  size: 4
 --- !u!1 &436368536
 GameObject:
   m_ObjectHideFlags: 0

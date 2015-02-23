@@ -8,9 +8,10 @@ public class InventoryWizard : ScriptableWizard {
 	protected PlayerInventory inventories;
 	protected PlayerInventoryMap inventory = null;
 	public string inventory_name = "backpack";
-	
+	public InventoryTypeRestriction permissableInventoryTypes = new InventoryTypeRestriction();
 	public int dimensions = 2;
 
+	private Vector2 scrollPosition;
 	private int[] shape = new int[3] {5, 5, 1};
 
 	public static void NewInventory(PlayerInventory inventories) {
@@ -35,7 +36,9 @@ public class InventoryWizard : ScriptableWizard {
 		else
 			shape[0] = 1;
 
+		GetRestrictions();
 
+		GetApplyButtion();
 	}
 
 	void GetDimensions() {
@@ -55,15 +58,69 @@ public class InventoryWizard : ScriptableWizard {
 		GUILayout.EndHorizontal();
 	}
 
+	void GetRestrictions() {
+		EditorGUILayout.LabelField("Permissable objects");
+		EditorGUI.indentLevel += 1;
+
+		if (InventoryTypes.Size == 0) {
+			EditorGUILayout.HelpBox("You need to define inventory types", MessageType.Info);
+			GUILayout.BeginHorizontal();
+			EditorGUILayout.Space();
+			if (GUILayout.Button("View and set inventory types", GUILayout.Width(200))) {
+			}
+			EditorGUILayout.Space();
+			GUILayout.EndHorizontal();
+		} else {
+			EditorGUILayout.BeginHorizontal();
+			EditorGUILayout.Space();
+			if (GUILayout.Button("Select All", GUILayout.Width(110)))
+				permissableInventoryTypes.SetAll();
+			if (GUILayout.Button("Unselect All", GUILayout.Width(110)))
+				permissableInventoryTypes.UnsetAll();
+
+			EditorGUILayout.Space();
+			EditorGUILayout.EndHorizontal();
+			scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition, false, true);
+			foreach (InventoryTypeMap map in permissableInventoryTypes.AsEnumerableContent()) {
+				if (EditorGUILayout.Toggle(map.name == "" ? "[undefined]" : map.name, map.selected))
+					permissableInventoryTypes.Set(map.position);
+				else
+					permissableInventoryTypes.Unset(map.position);
+			}
+			EditorGUILayout.EndScrollView();
+		}
+
+		EditorGUI.indentLevel -= 1;
+	}
+
+	void GetApplyButtion() {
+		GUILayout.BeginHorizontal();
+		EditorGUILayout.Space();
+
+		if (inventory == null) {
+			if (GUILayout.Button("Add", GUILayout.Width(150))) {
+				OnWizardCreate();
+			}
+		} else {
+			if (GUILayout.Button("Update", GUILayout.Width(150))) {
+				OnWizardCreate();
+			}
+		}
+
+		GUILayout.EndHorizontal();
+	}
+
 	void OnWizardCreate() {
 		if (inventory != null)
 			UpdateInventory();
 		else
 			AddInventory();
+
+		Close();
 	}
 
 	void AddInventory() {
-		inventories.AddInventory(inventory_name, shape);
+		inventories.AddInventory(inventory_name, shape, permissableInventoryTypes);
 	}
 
 	void UpdateInventory() {
