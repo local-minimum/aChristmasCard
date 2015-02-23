@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using System.Linq;
 using PointClick;
 
 [CustomEditor(typeof(PlayerInventory))]
@@ -36,8 +37,15 @@ public class InventoryEditor : Editor {
 			return;
 		}
 		EditorGUILayout.BeginHorizontal();
+		string permissableTypes = string.Join(", ", im.permissableObjects.SelectedNames.ToArray());
+		if (permissableTypes != "")
+			permissableTypes = string.Format("Allows: {0}", permissableTypes);
+		else
+			permissableTypes = "Allows nothing to enter";
+
 		im.name = EditorGUILayout.TextField(im.name, GUILayout.Width(150));
-		EditorGUILayout.LabelField(im.sizeString, GUILayout.Width(100));
+		GUIContent description = new GUIContent(string.Format("Size: {0}", im.sizeString), permissableTypes);
+		EditorGUILayout.LabelField(description, GUILayout.Width(100));
 		EditorGUILayout.Space();
 		if (GUILayout.Button("View", GUILayout.Width(60))) {
 			GUI.FocusControl(null);

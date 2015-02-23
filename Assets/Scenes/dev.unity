@@ -731,7 +731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventories:
-  - name: test
+  - name: health
     layout:
       shape:
         x: 50
