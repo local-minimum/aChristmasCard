@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   connections:
-  - {fileID: 594940874}
+  - {fileID: 0}
   autoUpdate: 1
 --- !u!114 &140292617
 MonoBehaviour:
@@ -282,12 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75498461f2fe7654cadfb576734d8129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connections:
-  - {fileID: 1781234344}
-  - {fileID: 594940874}
-  - {fileID: 512258388}
-  - {fileID: 1138507730}
-  - {fileID: 1655159495}
+  connections: []
   autoUpdate: 1
 --- !u!4 &261789478
 Transform:
@@ -442,7 +437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   connections:
-  - {fileID: 1138507730}
+  - {fileID: 0}
   autoUpdate: 1
 --- !u!114 &436368539
 MonoBehaviour:
@@ -467,11 +462,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 606ee938866258a409f1fbecbfa1543e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mass: -1
+  _mass: 0
   inventoryType:
-    selected: 0
-  _inventorySize: ffffffffffffffff
-  _pocketable: 0
+    selected: 1
+  _inventorySize: 0200000001000000
+  _pocketable: 1
   inventorySprite: {fileID: 0}
 --- !u!1 &512258386
 GameObject:
@@ -513,11 +508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75498461f2fe7654cadfb576734d8129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connections:
-  - {fileID: 1175549149}
-  - {fileID: 261789477}
-  - {fileID: 1138507730}
-  - {fileID: 1655159495}
+  connections: []
   autoUpdate: 1
 --- !u!114 &512258389
 MonoBehaviour:
@@ -608,9 +599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75498461f2fe7654cadfb576734d8129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connections:
-  - {fileID: 261789477}
-  - {fileID: 1655159495}
+  connections: []
   autoUpdate: 1
 --- !u!114 &594940875
 MonoBehaviour:
@@ -997,10 +986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75498461f2fe7654cadfb576734d8129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connections:
-  - {fileID: 1781234344}
-  - {fileID: 512258388}
-  - {fileID: 261789477}
+  connections: []
   autoUpdate: 1
 --- !u!4 &1138507731
 Transform:
@@ -1066,9 +1052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75498461f2fe7654cadfb576734d8129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connections:
-  - {fileID: 512258388}
-  - {fileID: 1655159495}
+  connections: []
   autoUpdate: 1
 --- !u!114 &1175549150
 MonoBehaviour:
@@ -1122,11 +1106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75498461f2fe7654cadfb576734d8129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connections:
-  - {fileID: 594940874}
-  - {fileID: 1175549149}
-  - {fileID: 512258388}
-  - {fileID: 261789477}
+  connections: []
   autoUpdate: 1
 --- !u!114 &1655159496
 MonoBehaviour:
@@ -1168,9 +1148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75498461f2fe7654cadfb576734d8129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connections:
-  - {fileID: 261789477}
-  - {fileID: 1138507730}
+  connections: []
   autoUpdate: 1
 --- !u!4 &1781234345
 Transform:

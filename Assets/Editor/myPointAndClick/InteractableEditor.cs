@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using PointClick;
 
@@ -11,6 +12,10 @@ public class InteractableEditor : Editor {
 		Interactable myTarget = (Interactable) target;
 
 		base.OnInspectorGUI ();
+
+		myTarget.inventoryType.flags = EditorGUILayout.MaskField("Inventory object type", 
+		                                                         myTarget.inventoryType.flags, 
+		                                                         InventoryTypes.NamesEnumerator.ToArray());
 
 		EditorGUILayout.Space();	
 		EditorGUILayout.Space();
