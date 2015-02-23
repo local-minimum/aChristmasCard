@@ -4,7 +4,9 @@ using System.Linq;
 
 namespace PointClick {
 
+	[System.Serializable]
 	public struct InventoryLayout {
+
 
 		public InventoryVector shape;
 		public int[,,] grid;
@@ -36,48 +38,13 @@ namespace PointClick {
 					return 3;
 			}
 		}
-	}
 
-	public class InventoryFilter : object {
-
-		Dictionary<string, bool> tags = new Dictionary<string, bool>();
-
-		public InventoryFilter() {
-		}
-
-		public InventoryFilter(string[] keys) {
-			foreach (string key in keys)
-				tags.Add(key, true);
-		}
-
-		public InventoryFilter(Dictionary<string, bool> tags) {
-			this.tags = tags;
-		}
-
-		public bool hasCommon(InventoryFilter other) {
-			return tags.Where(kvp => other.tags.Where(okvp => okvp.Value && kvp.Key == okvp.Key).Any()).Any();
-		}
-
-		public InventoryFilter falseClone() {
-			return new InventoryFilter(tags.Select(kvp => new {key=kvp.Key, val=false})
-			                           .ToDictionary(t => t.key, t => t.val));
-		}
-
-		public void Set(string tag) {
-			tags[tag] = true;
-		}
-
-		public void Unset(string tag) {
-			tags[tag] = false;
-		}
-
-		public IEnumerable<string> Tags {
-			get {
-				return tags.Keys.AsEnumerable();
-			}
+		public void Resize(int[] size) {
+			shape = new InventoryVector(size);
 		}
 	}
 
+	[System.Serializable]
 	public struct InventoriedItem {
 		public GameObject item;
 		public Interactable interactable;
@@ -91,7 +58,8 @@ namespace PointClick {
 			this.shape = new InventoryVector(interactable.inventoryShape);
 		}
 	}
-	
+
+	[System.Serializable]
 	public struct InventoryVector {
 
 		private static InventoryVector _outOfBounds = new InventoryVector(-1, -1, -1);
@@ -135,7 +103,8 @@ namespace PointClick {
 		}
 	}
 
-	public class PlayerInventoryMap : object {
+	[System.Serializable]
+	public class PlayerInventoryMap {
 
 		[SerializeField]
 		public string name;
@@ -144,14 +113,18 @@ namespace PointClick {
 		private InventoryLayout layout;
 
 		[SerializeField]
-		private InventoryFilter _tagFilter;
+		private InventoryTypeRestriction _permissableObjects;
 
-		[SerializeThis]
+		[SerializeField]
 		private Dictionary<int, InventoriedItem> items = new Dictionary<int, InventoriedItem>();
 
-		public InventoryFilter tagFilter {
+		public InventoryTypeRestriction permissableObjects {
 			get {
-				return _tagFilter;
+				return _permissableObjects;
+			}
+
+			set {
+				_permissableObjects = value;
 			}
 		}
 
@@ -174,6 +147,10 @@ namespace PointClick {
 			get {
 				return InventoryVector.AsArray(layout.shape);
 			}
+
+			set {
+				layout.Resize(value);
+			}
 		}
 
 		public int dimensions {
@@ -182,15 +159,15 @@ namespace PointClick {
 			}
 		}
 
-		public PlayerInventoryMap(string name, int[] shape, string[] tags) {
+		public PlayerInventoryMap(string name, int[] shape, InventoryTypeRestriction permissableObjects) {
 			this.name = name;
 			layout = new InventoryLayout(shape);
-			_tagFilter = new InventoryFilter(tags);
+			_permissableObjects = permissableObjects;
 		}
 
 		public bool CanTake(Interactable interactable) {
 
-			return tagFilter.hasCommon(interactable.inventoryTags) && fits(new InventoryVector(
+			return permissableObjects.HasIntersection(interactable.inventoryType) && fits(new InventoryVector(
 				interactable.inventoryShape));
 			
 		}

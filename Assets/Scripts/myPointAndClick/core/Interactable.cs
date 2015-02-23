@@ -36,7 +36,7 @@ namespace PointClick {
 		}
 
 		[HideInInspector]
-		public InventoryFilter inventoryTags;
+		public InventoryTypeRestriction inventoryType;
 
 		[HideInInspector]
 		[SerializeField]

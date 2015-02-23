@@ -31,6 +31,10 @@ public class InventoryEditor : Editor {
 	}
 
 	void DrawInventoryPosition(PlayerInventory inventory, PlayerInventoryMap im) {
+		if (im == null) {
+			inventory.RemoveInventory(im);
+			return;
+		}
 		EditorGUILayout.BeginHorizontal();
 		im.name = EditorGUILayout.TextField(im.name, GUILayout.Width(150));
 		EditorGUILayout.LabelField(im.sizeString, GUILayout.Width(100));

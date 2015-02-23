@@ -26,22 +26,23 @@ public class InventoryWizard : ScriptableWizard {
 		wiz.dimensions = inventory.dimensions;
 		wiz.shape = inventory.shape;
 		wiz.inventories = inventories;
+		wiz.permissableInventoryTypes = inventory.permissableObjects;
 	}
 
 	void OnGUI() {
 		inventory_name = EditorGUILayout.TextField("Name", inventory_name);
 		dimensions = EditorGUILayout.IntSlider("Dimensions", dimensions, 0, 3);
 		if (dimensions>0) 
-			GetDimensions();
+			DrawDimensions();
 		else
 			shape[0] = 1;
 
-		GetRestrictions();
+		DrawRestrictions();
 
-		GetApplyButtion();
+		DrawApplyButton();
 	}
 
-	void GetDimensions() {
+	void DrawDimensions() {
 		EditorGUILayout.LabelField("Shape");
 
 		GUILayout.BeginHorizontal();
@@ -58,7 +59,7 @@ public class InventoryWizard : ScriptableWizard {
 		GUILayout.EndHorizontal();
 	}
 
-	void GetRestrictions() {
+	void DrawRestrictions() {
 		EditorGUILayout.LabelField("Permissable objects");
 		EditorGUI.indentLevel += 1;
 
@@ -93,11 +94,13 @@ public class InventoryWizard : ScriptableWizard {
 		EditorGUI.indentLevel -= 1;
 	}
 
-	void GetApplyButtion() {
+	void DrawApplyButton() {
 		GUILayout.BeginHorizontal();
 		EditorGUILayout.Space();
 
-		if (inventory == null) {
+		if (!permissableInventoryTypes.Any()) {
+			EditorGUILayout.HelpBox("At least one object type is needed", MessageType.Info);
+		} else if (inventory == null) {
 			if (GUILayout.Button("Add", GUILayout.Width(150))) {
 				OnWizardCreate();
 			}
@@ -125,6 +128,8 @@ public class InventoryWizard : ScriptableWizard {
 
 	void UpdateInventory() {
 		inventory.name = inventory_name;
+		inventory.shape = shape;
+		inventory.permissableObjects = permissableInventoryTypes;
 
 	}
 

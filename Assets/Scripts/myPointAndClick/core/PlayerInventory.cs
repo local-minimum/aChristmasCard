@@ -7,6 +7,7 @@ namespace PointClick {
 	public class PlayerInventory : PlayerAspect {
 
 		[SerializeField]
+		[HideInInspector]
 		List<PlayerInventoryMap> inventories = new List<PlayerInventoryMap>();
 
 		public int size {
@@ -41,26 +42,11 @@ namespace PointClick {
 		}
 
 		public void AddInventory(string name, int[] shape, InventoryTypeRestriction permissableObjectTypes) {
-			inventories.Add(new PlayerInventoryMap(name, shape, AllTags.ToArray()));
+			inventories.Add(new PlayerInventoryMap(name, shape, permissableObjectTypes));
 		}
 
 		public void RemoveInventory(PlayerInventoryMap inventory) {
 			inventories = inventories.Where(i => i!=inventory).ToList();
-		}
-	
-		public IEnumerable<string> AllTags {
-			get {
-				HashSet<string> knownTags = new HashSet<string>();
-
-				foreach (PlayerInventoryMap im in inventories) {
-					foreach (string tag in im.tagFilter.Tags) {
-						if (!knownTags.Contains(tag)) {
-							knownTags.Add(tag);
-							yield return tag;
-						}
-					}
-				}
-			}
 		}
 
 		public IEnumerable<PlayerInventoryMap> Inventories {
