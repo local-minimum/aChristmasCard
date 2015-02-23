@@ -8,11 +8,10 @@ public class InventoryWizard : ScriptableWizard {
 	protected PlayerInventory inventories;
 	protected PlayerInventoryMap inventory = null;
 	public string inventory_name = "backpack";
+	
+	public int dimensions = 2;
 
-	[Range(0,3)]
-	public int dimensions;
-
-	private int[] shape = new int[3];
+	private int[] shape = new int[3] {5, 5, 1};
 
 	public static void NewInventory(PlayerInventory inventories) {
 		InventoryWizard wiz = ScriptableWizard.DisplayWizard<InventoryWizard>("Add Inventory", "Create");
@@ -26,6 +25,34 @@ public class InventoryWizard : ScriptableWizard {
 		wiz.dimensions = inventory.dimensions;
 		wiz.shape = inventory.shape;
 		wiz.inventories = inventories;
+	}
+
+	void OnGUI() {
+		inventory_name = EditorGUILayout.TextField("Name", inventory_name);
+		dimensions = EditorGUILayout.IntSlider("Dimensions", dimensions, 0, 3);
+		if (dimensions>0) 
+			GetDimensions();
+		else
+			shape[0] = 1;
+
+
+	}
+
+	void GetDimensions() {
+		EditorGUILayout.LabelField("Shape");
+
+		GUILayout.BeginHorizontal();
+		EditorGUILayout.Space();
+		for (int i=0;i<3;i++) {
+			if (i<dimensions) {
+				if (i>0)
+					EditorGUILayout.LabelField("X", GUILayout.Width(15));
+				shape[i] = EditorGUILayout.IntField(shape[i], GUILayout.Width(75));
+			}
+			if (shape[i] < 1 || i >= dimensions)
+				shape[i] = 1;
+		}
+		GUILayout.EndHorizontal();
 	}
 
 	void OnWizardCreate() {
