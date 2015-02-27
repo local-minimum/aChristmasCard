@@ -11,10 +11,7 @@ public class InteractableEditor : Editor {
 	{
 		Interactable myTarget = (Interactable) target;
 
-		base.OnInspectorGUI ();
-
-		EditorGUILayout.Space();	
-		EditorGUILayout.Space();
+		EditorGUILayout.PropertyField(serializedObject.FindProperty("inventoryType"));
 		EditorGUILayout.BeginHorizontal();
 		EditorGUILayout.LabelField("Mass in inventory", GUILayout.Width(200));
 		if (myTarget.physicsMass) {

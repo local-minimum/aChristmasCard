@@ -35,6 +35,7 @@ namespace PointClick {
 			}
 		}
 
+		[HideInInspector]
 		public InventoryTypeRestriction inventoryType = new InventoryTypeRestriction();
 
 		[HideInInspector]
