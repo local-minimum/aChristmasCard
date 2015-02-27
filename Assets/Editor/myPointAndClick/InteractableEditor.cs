@@ -13,10 +13,6 @@ public class InteractableEditor : Editor {
 
 		base.OnInspectorGUI ();
 
-		myTarget.inventoryType.flags = EditorGUILayout.MaskField("Inventory object type", 
-		                                                         myTarget.inventoryType.flags, 
-		                                                         InventoryTypes.NamesEnumerator.ToArray());
-
 		EditorGUILayout.Space();	
 		EditorGUILayout.Space();
 		EditorGUILayout.BeginHorizontal();

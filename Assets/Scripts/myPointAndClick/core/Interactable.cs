@@ -35,8 +35,7 @@ namespace PointClick {
 			}
 		}
 
-		[HideInInspector]
-		public InventoryTypeRestriction inventoryType;
+		public InventoryTypeRestriction inventoryType = new InventoryTypeRestriction();
 
 		[HideInInspector]
 		[SerializeField]
