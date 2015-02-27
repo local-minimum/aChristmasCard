@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
 
