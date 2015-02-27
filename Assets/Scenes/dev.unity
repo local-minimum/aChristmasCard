@@ -362,11 +362,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   names:
-  - health
-  - keys
-  - batteries
-  - things
-  - test
+  - paper
+  - rock
+  - scissor
   - 
   - 
   - 
@@ -394,7 +392,9 @@ MonoBehaviour:
   - 
   - 
   - 
-  size: 4
+  - 
+  - 
+  size: 3
 --- !u!1 &436368536
 GameObject:
   m_ObjectHideFlags: 0
