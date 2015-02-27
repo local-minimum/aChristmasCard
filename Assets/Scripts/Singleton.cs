@@ -16,8 +16,11 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
 				T[] res = FindObjectsOfType<T>();
 
 				if (res.Length == 0) {
+#if UNITY_EDITOR
 					GameObject manager = GetOrCreateManager();
 					instance = AddInstanceToManager(manager);
+
+#endif
 				} else {
 					instance = res[0];
 				}
