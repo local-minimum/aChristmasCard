@@ -732,6 +732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventories:
   - name: health
+    _autoPack: 0
     layout:
       shape:
         x: 50

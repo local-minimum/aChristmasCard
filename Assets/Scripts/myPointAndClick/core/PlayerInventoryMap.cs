@@ -4,6 +4,10 @@ using System.Linq;
 
 namespace PointClick {
 
+	public class UnknownItem : System.Exception {
+
+	}
+
 	[System.Serializable]
 	public struct InventoryLayout {
 
@@ -57,6 +61,10 @@ namespace PointClick {
 			this.position = position;
 			this.shape = new InventoryVector(interactable.inventoryShape);
 		}
+
+		public bool hasContent() {
+			return item != null && interactable != null;
+		}
 	}
 
 	[System.Serializable]
@@ -106,9 +114,13 @@ namespace PointClick {
 	[System.Serializable]
 	public class PlayerInventoryMap {
 
+		private static int EMPTY = 0;
+
 		[SerializeField]
 		public string name;
 
+		[SerializeField]
+		private bool _autoPack = false;
 		[SerializeField]
 		private InventoryLayout layout;
 
@@ -117,6 +129,18 @@ namespace PointClick {
 
 		[SerializeField]
 		private Dictionary<int, InventoriedItem> items = new Dictionary<int, InventoriedItem>();
+
+		public bool autoPack {
+			get {
+				return _autoPack;
+			}
+
+			set {
+				_autoPack = value;
+				if (_autoPack)
+					Pack();
+			}
+		}
 
 		public InventoryTypeRestriction permissableObjects {
 			get {
@@ -182,15 +206,32 @@ namespace PointClick {
 			}
 		}
 
-		public GameObject Drop(InventoryVector position) {
+		public void Pack() {
+
+		}
+
+		public bool Contains(GameObject item) {
+			return items.Where(kvp => kvp.Value.item == item).Any();
+		}
+
+		public InventoriedItem Drop(GameObject item) {
+			KeyValuePair<int, InventoriedItem> itemKeyValuePair = items.Where(kvp => kvp.Value.item == item).First();
+
+			items.Remove(itemKeyValuePair.Key);
+			takeAt(itemKeyValuePair.Value.position, itemKeyValuePair.Value.shape, EMPTY);
+			return itemKeyValuePair.Value;
+
+		}
+
+		public InventoriedItem Drop(InventoryVector position) {
 			int itemId = layout[position];
 			if (itemId > 0) {
 				InventoriedItem item = items[itemId];
 				items.Remove(itemId);
-				takeAt(item.position, item.shape, 0);
-				return item.item;
+				takeAt(item.position, item.shape, EMPTY);
+				return item;
 			}
-			return null;
+			return new InventoriedItem();
 		}
 
 		private InventoryVector FindFirstPosition(InventoryVector shape) {
@@ -229,8 +270,10 @@ namespace PointClick {
 				if (value != 0 && layout[coord] != 0)
 					Debug.LogWarning("Two overlapping items in inventory");
 				layout[coord] = value;
-
 			}
+
+			if (autoPack)
+				Pack();
 		}
 
 		private bool fitsAt(InventoryVector origin, InventoryVector shape) {

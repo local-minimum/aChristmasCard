@@ -26,8 +26,17 @@ namespace PointClick {
 				return false;
 		}
 
-		public GameObject Drop(GameObject item) {
-			return item;
+		public void Drop(GameObject item) {
+			foreach (PlayerInventoryMap im in inventories) {
+				if (im.Contains(item)) {
+					InventoriedItem inventoryItem = im.Drop(item);
+					if (inventoryItem.hasContent()) {
+						player.BroadcastMessage("OnDrop", inventoryItem, SendMessageOptions.RequireReceiver);
+						break;
+					}
+				}
+			}
+
 		}
 
 		bool _take(GameObject item, Interactable interactable) {
